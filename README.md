@@ -5,7 +5,7 @@ Environment configuration:
 ------------------------------------------------------------------
  1. Download the following files and store in a common directory
 
-   http://www.evosuite.org/files/SF110-20130704.zip
+   http://www.evosuite.org/files/SF110-20130704.zip<br>
    http://www.evosuite.org/files/SF110-20130704-src.zip
 
  2. Extract those files in that directory
