@@ -1,0 +1,28 @@
+#!/bin/bash
+
+HERE=`pwd`
+
+# list of sources
+sources=""
+for x in `ls *.java`; do sources="$sources ${HERE}/$x"; done
+
+# create class directory if it does not exist
+mkdir -p ${HERE}/classes
+rm ${HERE}/classes/*.class 2> /dev/null
+
+
+# load constants
+source ../config
+
+# compile
+PROJECT_NAME="1_tullibee"
+PROJECT_CLASSPATH=""
+(cd $SF110/$PROJECT_NAME
+
+ ## classpath
+ PROJECT_JAR=$(echo "$PROJECT_NAME" | cut -f2 -d\_)".jar"
+ PROJECT_CLASSPATH=${PROJECT_JAR}
+
+ echo "compiling sources into directory classes"
+ javac -cp ${RANDOOP_JAR}:${PROJECT_CLASSPATH}:${HERE}/additionalvalues -d $HERE/classes ${sources}
+)

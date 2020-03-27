@@ -1,0 +1,34 @@
+#!/bin/bash
+
+source ../config
+
+HERE=`pwd`
+
+PROJECT_NAME="1_tullibee"
+
+rm $HERE/*.java
+
+(cd $SF110/$PROJECT_NAME;
+
+ ## classpath
+ PROJECT_JAR=$(echo "$PROJECT_NAME" | cut -f2 -d\_)".jar"
+ PROJECT_CLASSPATH=${PROJECT_JAR}:${HERE}/additionalvalues/
+ for x in `find lib -name "*.jar"`;
+ do
+     PROJECT_CLASSPATH=$x:${PROJECT_CLASSPATH}
+ done
+
+ ## collect classfile to generate tests
+ jar -tf ${PROJECT_JAR} | grep ".class" | sed 's/\.class//g' | sed 's/\//./g' > ${HERE}/classlist.txt
+ ## factory methods must also be included
+ (cd ${HERE}/additionalvalues;
+  find . -name "*.class" | sed 's/\.class//g' | sed 's/\//./g' | sed 's/\.\.//g' >> ${HERE}/classlist.txt
+ )
+
+ ## call randoop
+ java -Xmx3000m -classpath ${RANDOOP_JAR}:${PROJECT_CLASSPATH} \
+      randoop.main.Main gentests \
+      --classlist ${HERE}/classlist.txt \
+      --time-limit=100 \
+      --junit-output-dir=${HERE}
+)

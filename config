@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+LIBS=${DIR}/libs
+
+# randoop
+export RANDOOP_JAR=${LIBS}/randoop-all-4.2.2.jar
+
+# jacoco
+export JACOCO_AGENT=${LIBS}/jacocoagent.jar
+export JACOCO_CLI=${LIBS}/jacococli.jar
+
+# SF110
+export SF110=${HOME}/Software/SF110-20130704
+export SF110_SRC="${SF110}-src"

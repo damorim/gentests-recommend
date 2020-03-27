@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# list of sources
+sources=$(find "$(cd ..; pwd)" -name "*.java" | xargs)
+
+HERE=`pwd`
+
+# load constants
+source ../config
+
+# setting classpath
+HERE=`pwd`
+PROJECT_NAME="1_tullibee"
+PROJECT_CLASSPATH=$SF110/$PROJECT_NAME/$(echo "$PROJECT_NAME" | cut -f2 -d\_)".jar"
+CP=${RANDOOP_JAR}:${PROJECT_CLASSPATH}
+
+
+(cd additionalvalues;
+ # delete class files
+ find  -name "*.class" | xargs rm
+ # compile java files
+ find  -name "*.java" | xargs javac -cp $CP -d .
+)

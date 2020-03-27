@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# run tests and compute coverage (csv) files
+
+source ../config
+
+# setting classpath
+HERE=`pwd`
+CP=${RANDOOP_JAR}:${HERE}/classes
+PROJECT_NAME="1_tullibee"
+PROJECT_CLASSPATH=$SF110/$PROJECT_NAME/$(echo "$PROJECT_NAME" | cut -f2 -d\_)".jar"
+CP=$CP:${PROJECT_CLASSPATH}:${HERE}/additionalvalues
+
+## clean old data
+rm jacoco.exec 2> /dev/null
+
+## generate jacoco.exec files
+java -cp ${CP} \
+     -javaagent:${JACOCO_AGENT} \
+     org.junit.runner.JUnitCore \
+     RegressionTest
+
+
+mkdir -p ${HERE}/html
+rm -rf $HERE/html/* 2> /dev/null
+java -jar $JACOCO_CLI \
+     report \
+     jacoco.exec \
+     --html ${HERE}/html \
+     --sourcefiles ${SF110_SRC}/${PROJECT_NAME}/src/main/java/ \
+     --classfiles ${PROJECT_CLASSPATH} \
+     --csv jacoco.csv
