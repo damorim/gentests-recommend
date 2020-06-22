@@ -91,7 +91,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
-	    public static EWrapper eWrapperTwo() {
+	public static EWrapper eWrapperTwo() {
 
         return new com.ib.client.EWrapper() {
 
@@ -266,7 +266,7 @@ public class TestValues {
 	   			int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {	}
 
 	   	@Override
-	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {}
+	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {	}
 
 	   	@Override
 	   	public void openOrderEnd() {}
