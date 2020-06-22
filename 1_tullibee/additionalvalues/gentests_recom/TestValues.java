@@ -10,7 +10,6 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
-    
     // public static DataInputStream disOne() {
     //     String action = "1";
     //     String part1 = "2";
@@ -22,7 +21,75 @@ public class TestValues {
     //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
     //     return new DataInputStream(new StringBufferInputStream(all));        
     // }
+    
+	public static DataInputStream disOpenOrderBag() {
+        String action = "5"; // open order action
+        String version = "14";
 
+        String all = action + "\0" 
+			+ version + "\0" 
+			+ "3" + "\0" 
+			+ "4" + "\0" 
+			+ "BAG" + "\0" ; // pass the m_secType as BAG
+
+		// fill the rest of parameters needed for this version
+		// inclunding the m_comboLegsDescrip parameter
+		for (int i = 0; i < 61; i++) {
+			all += ("1" + "\0");
+		}
+		// add end of message action number
+		all += "-1" + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));        
+    }
+
+	public static DataInputStream disOpenOrderUnderComp() {
+        String action = "5"; // open order action
+        String version = "20"; // version just enough to fill the UnderComp field
+
+        String all = action + "\0" 
+			+ version + "\0";
+
+		// fill the parameters needed for this version
+		// including the UnderComp values
+		for (int i = 0; i < 84; i++) {
+			all += ("1" + "\0");
+		}
+		// add end of message action number
+		all += "-1" + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));        
+    }
+
+	public static DataInputStream disOpenOrderAlgo() {
+        String action = "5"; // open order action
+        String version = "21"; // version enogh to fill the algo fields
+
+        String all = action + "\0" 
+			+ version + "\0";
+
+		// fill the needed parameters before m_algoStrategy
+		for (int i = 0; i < 74; i++) {
+			all += ("1" + "\0");
+		}
+
+		// fill the parameters in a way that covers all lines at m_algoStrategy branch
+		all += "algo_strategy" + "\0"
+			+ "2" + "\0"
+			+ "tag1" + "\0"
+			+ "value1" + "\0"
+			+ "tag2" + "\0"
+			+ "value2" + "\0";
+
+		// fill the rest of the needed parameters for this version
+		for (int i = 0; i < 10; i++) {
+			all += ("1" + "\0");
+		}
+		// add end of message action number
+		all += "-1" + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));        
+    }
 
     public static EWrapper eWrapperOne() {
 
@@ -66,7 +133,9 @@ public class TestValues {
 	   			int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {	}
 
 	   	@Override
-	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {	}
+	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {
+				EWrapperMsgGenerator.openOrder(orderId, contract, order, orderState);
+		   	}
 
 	   	@Override
 	   	public void openOrderEnd() {}
