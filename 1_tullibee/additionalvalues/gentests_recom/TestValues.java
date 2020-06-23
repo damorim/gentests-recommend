@@ -5,24 +5,10 @@ import java.io.*;
 import com.ib.client.*;
 
 public class TestValues {
-
-    public static DataInputStream disOne() {
+ 
+    public static DataInputStream msgId() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
-
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
-
 
     public static EWrapper eWrapperOne() {
 
@@ -154,5 +140,65 @@ public class TestValues {
         };
         
     }    
+
+	public static DataInputStream tickGeneric() {
+        String action_TICK_GENERIC = "45",
+        		version = "2",
+         		tickerId = "7",
+         		tickType = "8",
+        		value = "2.57";
+   
+        String all = action_TICK_GENERIC+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream tickString() {
+        String action_TICK_STRING = "46",
+        		version = "1",
+        		tickerId = "7",
+        		tickType = "5",
+        		value = "value";
+
+        String all = action_TICK_STRING+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));
+	}
     
+
+	public static DataInputStream errMgs() {
+		String action_ERR_MSG = "4",
+        		version = "1",
+        		msg = "msg";
+
+        // True Condition
+        String errTrue = action_ERR_MSG+"\0"+version+"\0"+msg+"\0";
+
+		// False Condition
+		version = "5";
+        String id = "5",
+        		errorCode = "1",
+        		errorMsg = "errorMsg";
+
+        String errFalse = action_ERR_MSG+"\0"+version+"\0"+id+"\0"+errorCode+"\0"+errorMsg+"\0";
+
+        return new DataInputStream(new StringBufferInputStream(errTrue + errFalse));
+	}
+   	
+	public static int version() {
+        return 39;
+    }
+
+    public static EReader readerTickGeneric() {
+        return new EReader(tickGeneric(), eWrapperOne(), version());
+    }
+
+    public static EReader readerTickString() {
+        return new EReader(tickString(), eWrapperOne(), version());
+    }
+
+    public static EReader readerErrMgs() {
+        return new EReader(errMgs(), eWrapperOne(), version());
+    }
+
 }
