@@ -3,27 +3,69 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.net.Socket;
 
 public class TestValues {
-
+	
     public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
+        String action = "1";
+        String part1 = "2";
+        String part2 = "3";
+        String part3 = "4";
+        String part4 = "2.97";
+        String part5 = "1";
+        String end = "-1";
+        String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));
+    }
+	
+	public static DataInputStream disOne2() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "1")));
     }
 
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+	public static DataInputStream disOne3() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "0")));
+    }
 
+	public static DataInputStream disOne4() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("0", "1")));
+    }
 
+	private static String getScannerDataWithVersionAndNumberOfElements(String version, String numberOfElements) {
+		String action = "20";
+        String tickerId = "3";
+        String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+		
+		if (Integer.parseInt(numberOfElements) > 0) {
+			String rank = "1";
+			
+			all += rank + "\0";
+
+			if (Integer.parseInt(version) >= 3) {
+				String m_conId = "1";
+				all += m_conId + "\0";
+			}
+
+			for (int i = 0; i < 3; i++) {
+				all += "a" + "\0";
+			}
+			
+			String m_strike = "2.8";
+			all += m_strike + "\0";
+
+			for (int i = 0; i < 9; i++) {
+				all += "a" + "\0";
+			} 
+			
+			if (Integer.parseInt(version) >= 2) {
+				String legsStr = "a";
+				all += legsStr + "\0";
+			}
+		}
+
+		return all;
+	}
+	
     public static EWrapper eWrapperOne() {
 
         return new com.ib.client.EWrapper() {
@@ -154,5 +196,6 @@ public class TestValues {
         };
         
     }    
+	
     
 }
