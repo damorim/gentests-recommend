@@ -6,36 +6,78 @@ import com.ib.client.*;
 
 public class TestValues {
 
+    //Exemplo do professor
     public static DataInputStream disOne() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
+
+    // Vinicius Siqueira
+	// Test Contract ---------------------------------------------------------------------------------------------/
+    //line 103~105
+    public static Contract brchSecType() {
+    	Contract cont0 = new Contract();
+    	cont0.m_secType = "Suj01";
+    	Contract cont1 = new Contract();
+    	cont1.m_secType = "Suj02";
+    			
+    	cont0.equals(cont1);
+    	return cont0;
+    }
+
+    //line 107~112
+    public static Contract brch107() {
+    	Contract cont0 = new Contract();
+    	cont0.m_symbol = "Suj01-sym";
+    	cont0.m_exchange = "Suj01-exc";
+    	cont0.m_primaryExch = "Suj01-priEx";
+    	cont0.m_currency = "Suj01-cur";
+    	Contract cont1 = new Contract();
+    	cont1.m_symbol = "Suj02-sym";
+    	cont1.m_exchange = "Suj02-exc";
+    	cont1.m_primaryExch = "Suj02-priEx";
+    	cont1.m_currency = "Suj02-cur";
+    			
+    	cont0.equals(cont1);
+    	return cont0;
+    }
     
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+    //line 128~130
+    public static Contract brchIdType() {
+    	Contract cont0 = new Contract();
+    	cont0.m_secIdType = "Suj01";
+    	Contract cont1 = new Contract();
+    	cont1.m_secIdType = "Suj02";
+    			
+    	cont0.equals(cont1);    	
+    	return cont0;
+    }
 
-
+    //line 132~134
+    public static Contract brchSecId() {
+    	Contract cont0 = new Contract();
+    	cont0.m_secId = "Suj01";
+    	Contract cont1 = new Contract();
+    	cont1.m_secId = "Suj02";
+    			
+    	cont0.equals(cont1);
+    	return cont0;
+    }    
+	// Test Contract ---------------------------------------------------------------------------------------------/
+ 
+   
     public static EWrapper eWrapperOne() {
 
         return new com.ib.client.EWrapper() {
 
-	   	@Override
+        @Override
 	   	public void error(Exception e) { e.printStackTrace(); }
 
 	   	@Override
 	   	public void error(String str) {}
 
 	   	@Override
-	   	public void error(int id, int errorCode, String errorMsg) {	}
+	   	public void error(int id, int errorCode, String errorMsg) {}
 
 	   	@Override
 	   	public void connectionClosed() {}
@@ -51,32 +93,32 @@ public class TestValues {
 	   			double modelPrice, double pvDividend) {}
 
 	   	@Override
-	   	public void tickGeneric(int tickerId, int tickType, double value) {	}
+	   	public void tickGeneric(int tickerId, int tickType, double value) {}
 
 	   	@Override
-	   	public void tickString(int tickerId, int tickType, String value) {	}
+	   	public void tickString(int tickerId, int tickType, String value) {}
 
 	   	@Override
 	   	public void tickEFP(int tickerId, int tickType, double basisPoints, String formattedBasisPoints,
 	   			double impliedFuture, int holdDays, String futureExpiry, double dividendImpact,
-	   			double dividendsToExpiry) {	}
+	   			double dividendsToExpiry) {}
 
 	   	@Override
 	   	public void orderStatus(int orderId, String status, int filled, int remaining, double avgFillPrice,
-	   			int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {	}
+	   			int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {}
 
 	   	@Override
-	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {	}
+	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {}
 
 	   	@Override
 	   	public void openOrderEnd() {}
 
 	   	@Override
-	   	public void updateAccountValue(String key, String value, String currency, String accountName) {	}
+	   	public void updateAccountValue(String key, String value, String currency, String accountName) {}
 
 	   	@Override
 	   	public void updatePortfolio(Contract contract, int position, double marketPrice, double marketValue,
-	   			double averageCost, double unrealizedPNL, double realizedPNL, String accountName) {	}
+	   			double averageCost, double unrealizedPNL, double realizedPNL, String accountName) {}
 
 	   	@Override
 	   	public void updateAccountTime(String timeStamp) {}
@@ -94,7 +136,7 @@ public class TestValues {
 	   	public void bondContractDetails(int reqId, ContractDetails contractDetails) {}
 
 	   	@Override
-	   	public void contractDetailsEnd(int reqId) {	}
+	   	public void contractDetailsEnd(int reqId) {}
 
 	   	@Override
 	   	public void execDetails(int reqId, Contract contract, Execution execution) {}
@@ -110,46 +152,46 @@ public class TestValues {
 	   			double price, int size) {}
 
 	   	@Override
-	   	public void updateNewsBulletin(int msgId, int msgType, String message, String origExchange) {	}
+	   	public void updateNewsBulletin(int msgId, int msgType, String message, String origExchange) {}
 
 	   	@Override
-	   	public void managedAccounts(String accountsList) {	}
+	   	public void managedAccounts(String accountsList) {}
 
 	   	@Override
-	   	public void receiveFA(int faDataType, String xml) {	}
+	   	public void receiveFA(int faDataType, String xml) {}
 
 	   	@Override
 	   	public void historicalData(int reqId, String date, double open, double high, double low, double close,
-	   			int volume, int count, double WAP, boolean hasGaps) {	}
+	   			int volume, int count, double WAP, boolean hasGaps) {}
 
 	   	@Override
-	   	public void scannerParameters(String xml) {	}
+	   	public void scannerParameters(String xml) {}
 
 	   	@Override
 	   	public void scannerData(int reqId, int rank, ContractDetails contractDetails, String distance,
-	   			String benchmark, String projection, String legsStr) {	}
+	   			String benchmark, String projection, String legsStr) {}
 
 	   	@Override
-	   	public void scannerDataEnd(int reqId) {	}
+	   	public void scannerDataEnd(int reqId) {}
 
 	   	@Override
 	   	public void realtimeBar(int reqId, long time, double open, double high, double low, double close,
-	   			long volume, double wap, int count) {	}
+	   			long volume, double wap, int count) {}
 
 	   	@Override
-	   	public void currentTime(long time) {	}
+	   	public void currentTime(long time) {}
 
 	   	@Override
-	   	public void fundamentalData(int reqId, String data) {	}
+	   	public void fundamentalData(int reqId, String data) {}
 
 	   	@Override
-	   	public void deltaNeutralValidation(int reqId, UnderComp underComp) {	}
+	   	public void deltaNeutralValidation(int reqId, UnderComp underComp) {}
 
 	   	@Override
-	   	public void tickSnapshotEnd(int reqId) {	}
+	   	public void tickSnapshotEnd(int reqId) {}
 
 	   	@Override
-	   	public void stopRequested() {		}
+	   	public void stopRequested() {}
 
         };
         
