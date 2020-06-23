@@ -153,6 +153,29 @@ public class TestValues {
 
         };
         
-    }    
+    }
+	
+	public static DataInputStream orderStatus() {
+		//first input of values
+		String switchCase = "3", version = "6", id = "2", status = "status", filled = "7", remaining = "8", avgFillPrice = "2.64";
+		String firstInput = switchCase + "\0" + version + "\0" + id + "\0" + status + "\0" + filled + "\0" + remaining + "\0" + avgFillPrice + "\0";
+		//second input of values, all this values are inside the if cases
+		String permId = "0", parentId = "10", lastFillPrice = "6.9", clientId = "5", whyHeld = "whyHeld";
+		String secondInput = permId + "\0" + parentId + "\0" + lastFillPrice + "\0" + clientId + "\0" + whyHeld + "\0";
+		
+		return new DataInputStream(new StringBufferInputStream(firstInput + secondInput));
+	}
+
+	public static DataInputStream acctValue() {
+		String switchCase = "6";
+		String version = "2";
+		String key = "key";
+		String val = "val";
+		String cur = "cur";
+		String accountName = "Name";
+		String input = switchCase + "\0" + version + "\0" + key + "\0" + val + "\0" + cur + "\0" + accountName + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(input));
+	}
     
 }
