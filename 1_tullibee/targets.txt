@@ -37,3 +37,51 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.EReader, processMsg, 271, "case PORTFOLIO_VALUE: {"
+is never called, because processMsg is always called with msgId either 1 or -1. This happens due to
+the DataInputStream generated above, to cover PORTFOLIO_VALUE, the string for DataInputStream was generated
+taking PORTFOLIO_VALUE into account, as well as the types this case expects in eache read function call.
+
+      public static DataInputStream portfolioCaseDataStream() {
+            String action = "7";
+            ...
+      }
+
+com.ib.client.EReader, processMsg, 309, "contract.m_primaryExch = readStr();""
+is not called, due to version in the above DataInputStream not being 6 (this is intentional to cover more code),
+and the small probability of randoop initializing this EReader object with the correct DataInputStream and the
+specific serverVersion of 39 in the EReader initializer. To futher direct test generation, create the desired EReader object,
+and refactor other DataInputStream factories to create the desired object for better control, plus helper funtion version()
+for easier maintenance
+
+      public static DataInputStream portfolioCaseDataStream2() {
+            String action = "7";
+            String version = "6";
+            ...
+      }
+
+      public static int version() {
+		return 39;
+	}
+
+      	public static EReader reader3() {
+		return new EReader(portfolioCaseDataStream2(),eWrapperOne(), version());
+	}
+
+com.ib.client.EReader, processMsg, 319, "case ACCT_UPDATE_TIME: {"
+is never called due to no DataInputStream being generated that has a valid string to this case.
+To do that, create the desired string
+
+	public static DataInputStream acctUpdateTimeDatastream() {
+        String action = "8";
+		String version = "6";
+		String timeStamp = "qw";
+		String end = "-1";
+		String all = action + "\0" + version + "\0" + timeStamp + end + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));        
+	}
+
+      public static EReader reader4() {
+		return new EReader(acctUpdateTimeDatastream(), eWrapperOne(), version());
+	}
