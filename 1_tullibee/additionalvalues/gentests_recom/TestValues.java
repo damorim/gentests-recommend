@@ -3,26 +3,84 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.util.Vector;
 
 public class TestValues {
 
     public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
+        String action = "1";
+        String part1 = "2";
+        String part2 = "3";
+        String part3 = "4";
+        String part4 = "2.97";
+        String part5 = "1";
+        String end = "-1";
+        String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));        
     }
 
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+    // Os seguintes metodos cobrem as linhas 137, 138, 141, 143, 146 e 150
 
+    public static Contract linha137() {
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+    	Vector v1 = new Vector();
+    	v1.add(1);
+    	Vector v2 = new Vector();
+    	v1.add(2);  	
+    	cont.m_comboLegs = v1;
+    	cont1.m_comboLegs = v2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
+
+    public static Contract linha141e146(){
+    	UnderComp under1 = new UnderComp();
+    	under1.m_conId = 1;
+    	UnderComp under2 = new UnderComp();
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
+
+    public static Contract linha141False(){
+    	UnderComp under1 = new UnderComp();
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under1;
+
+    	cont.equals(cont1);
+
+    	return cont;	
+    }
+
+    public static Contract linha142(){
+    	UnderComp under1 = new UnderComp();
+    	under1.m_conId = 1;
+    	UnderComp under2 = null;
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
 
     public static EWrapper eWrapperOne() {
 
