@@ -37,3 +37,30 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+      
+com.ib.client.Util, VectorEqualsUnordered, 55, "if (lhsCount == 0)",
+every call to VectorEqualsUnordered is happening with two empty vectors, Unable to create non-empty vector, added new objects
+
+        import java.util.*;
+
+        public static Vector vectorOne() {
+            return new Vector(Arrays.asList("A", "B", "C"));
+        }
+
+        public static Vector vectorTwo() {
+            return new Vector(Arrays.asList("X", "Y", "Z"));
+        }
+
+com.ib.client.Util, VectorEqualsUnordered, 53, "return false;",
+no call to VectorEqualsUnordered is being made with two vectors of different sizes, Unable to create different sized vectors, added new object
+
+        public static Vector vectorThree() {
+            return new Vector(Arrays.asList("X", "Y"));
+        }
+
+com.ib.client.Util, VectorEqualsUnordered, 56, "return true;",
+no call to VectorEqualsUnordered is being made with two empty or null vectors anymore, Unable to create empty vector, added new object
+
+        public static Vector vectorFour() {
+            return new Vector();
+        }
