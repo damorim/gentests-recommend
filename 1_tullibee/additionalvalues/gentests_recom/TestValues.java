@@ -6,23 +6,50 @@ import com.ib.client.*;
 
 public class TestValues {
 
-    public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
-    }
+	public static DataInputStream msgId() {
+		return new DataInputStream(new StringBufferInputStream("1\0"));
+	}
 
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+	public static DataInputStream nextValidIdCase() {
+		String switchCase = "9";
+		String version = "2";
+		String orderId = "8";
+		String all = switchCase+"\0"+version+"\0"+orderId+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
 
+	public static DataInputStream managedAcctsCase() {
+		String switchCase = "15";
+		String version = "2";
+		String accountsList = "2,3,5,12";
+		String all = switchCase+"\0"+version+"\0"+accountsList+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream receiveFaCase() {
+		String switchCase = "16";
+		String version = "2";
+		String faDataType = "14";
+		String xml = "<?xml version='1.0'?>";
+		String all = switchCase+"\0"+version+"\0"+faDataType+"\0"+xml+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static int version() {
+		return 39;
+	}
+
+	public static EReader readerNextValidIdCase() {
+		return new EReader(nextValidIdCase(), eWrapperOne(), version());
+	}
+
+	public static EReader readerManagedAcctsCase() {
+		return new EReader(managedAcctsCase(), eWrapperOne(), version());
+	}
+
+	public static EReader readerReceiveFaCase() {
+		return new EReader(receiveFaCase(), eWrapperOne(), version());
+	}
 
     public static EWrapper eWrapperOne() {
 

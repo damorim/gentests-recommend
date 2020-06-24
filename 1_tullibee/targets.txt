@@ -37,3 +37,54 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+
+com.ib.client.EReader, processMsg, 541, "case NEXT_VALID_ID: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream nextValidIdCase() {
+			String switchCase = "9";
+			String version = "2";
+			String orderId = "8";
+			String all = switchCase+"\0"+version+"\0"+orderId+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerNextValidIdCase() {
+			return new EReader(nextValidIdCase(), eWrapperOne(), version());
+		}
+
+
+com.ib.client.EReader, processMsg, 761, "case MANAGED_ACCTS: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream managedAcctsCase() {
+			String switchCase = "15";
+			String version = "2";
+			String accountsList = "2,3,5,12";
+			String all = switchCase+"\0"+version+"\0"+accountsList+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerManagedAcctsCase() {
+			return new EReader(managedAcctsCase(), eWrapperOne(), version());
+		}
+
+
+com.ib.client.EReader, processMsg, 768, "case RECEIVE_FA: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream receiveFaCase() {
+			String switchCase = "16";
+			String version = "2";
+			String faDataType = "14";
+			String xml = "<?xml version='1.0'?>";
+			String all = switchCase+"\0"+version+"\0"+faDataType+"\0"+xml+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerReceiveFaCase() {
+			return new EReader(receiveFaCase(), eWrapperOne(), version());
+		}
+	
+	
