@@ -37,3 +37,37 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.EReader, processMsg, 887, "default: {",
+a number out of the bound wasn't generated, so the default case in swtch-case was never reached,
+added a Data Input Stream with action value not covered by the cases 
+                      
+    	public static DataInputStream disOne() {
+		String action = "01293";
+		String all = action + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 822, "case REAL_TIME_BARS: {"
+the action number related to REAL_TIME_BARS case was never generated,
+added a Data Input Stream with action value equivalent to that case
+
+	public static DataInputStream disTwo() {
+		String all = "50" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "112" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 203, "case TICK_EFP: {"
+the action number related to TICK_EFP case was never generated,
+added a Data Input Stream with action value equivalent to that case
+
+	public static DataInputStream disThree() {
+		String all = "47" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "113" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
