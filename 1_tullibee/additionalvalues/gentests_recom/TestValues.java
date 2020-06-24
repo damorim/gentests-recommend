@@ -6,23 +6,50 @@ import com.ib.client.*;
 
 public class TestValues {
 
-    public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
-    }
+	public static DataInputStream disOne() {
+			String action = "49";
+			String part1 = "1";
+			String part2 = "101";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0";
 
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+			return new DataInputStream(new StringBufferInputStream(all));
+	}
+	
+		public static DataInputStream disOneScanner() {
+			String action = "19";
+			String part1 = "1";
+			String part2 = "xmlfile";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0";
 
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static DataInputStream disOneFundamental() {
+			String action = "51";
+			String part1 = "1";
+			String part2 = "2";
+			String part3 = "3";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0";
+
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static DataInputStream disOneTime() {
+			String action = "49";
+			String part1 = "1";
+			String part2 = "101";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static void eReaderScanner() {
+			new com.ib.client.EReader(disOneScanner(), eWrapperOne(), 13).run();
+		}
+
+		public static void eReaderTime() {
+			new com.ib.client.EReader(disOneTime(), eWrapperOne(), 13).run();
+		}
 
     public static EWrapper eWrapperOne() {
 
