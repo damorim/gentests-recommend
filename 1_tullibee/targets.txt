@@ -37,3 +37,45 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.EReader, processMsg, 811, "int version = readInt();", test coverage still not fully completed(line 813), eWrapper somethimes has received a null value, add test for case 19
+      public static DataInputStream disOneScanner() {
+		String action = "19";
+		String part1 = "1";
+		String part2 = "xmlfile";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 838, "/* int version = */readInt();", test coverage could be fully completed, all 5 lines of case have been covered, add test for case 51
+      public static DataInputStream disOneFundamental() {
+		String action = "51";
+		String part1 = "1";
+		String part2 = "2";
+		String part3 = "3";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 817, "/* int version = */readInt();", test coverage still not fully completed(line 819), same problem involving an invalid eWrapper, add test for case 49
+      public static DataInputStream disOneTime() {
+		String action = "49";
+		String part1 = "1";
+		String part2 = "1000000007";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 817, "/* int version = */readInt();", test coverage are now fully completed for these 2 cases , forcing a valid eWrapper made null pointer to not happen, add new tests to factory
+      public static void eReaderScanner() {
+		new com.ib.client.EReader(disOneScanner(), eWrapperOne(), 13).run();
+	}
+
+	public static void eReaderTime() {
+		new com.ib.client.EReader(disOneTime(), eWrapperOne(), 13).run();
+	}
+
+

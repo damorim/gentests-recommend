@@ -5,15 +5,6 @@ import java.io.*;
 import com.ib.client.*;
 
 public class TestValues {
-
-	public static DataInputStream disOne() {
-			String action = "49";
-			String part1 = "1";
-			String part2 = "101";
-			String all = action + "\0" + part1 + "\0" + part2 + "\0";
-
-			return new DataInputStream(new StringBufferInputStream(all));
-	}
 	
 		public static DataInputStream disOneScanner() {
 			String action = "19";
