@@ -37,3 +37,65 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.ComboLeg, equals, 69, "else if ( p_other == null )",
+this case is never called due to the type of entry passed. Then pass the value null as an input parameter
+
+public static ComboLeg comboIsNull () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.equals(null);
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 75, "if (m_conId != l_theOther.m_conId ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_conId value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsConId () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_conId = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_conId = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 76, "if (m_ratio != l_theOther.m_ratio ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_ratio value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsRatio () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_ratio = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_ratio = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 77, "if (m_openClose != l_theOther.m_openClose ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_openClose value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsOpenClose () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_openClose = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_openClose = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 78, "if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_shortSaleSlot value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsSaleSlot () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_shortSaleSlot = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_shortSaleSlot = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
