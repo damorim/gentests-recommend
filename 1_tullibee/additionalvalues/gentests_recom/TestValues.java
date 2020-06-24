@@ -34,8 +34,8 @@ public class TestValues {
 	}
 
 	public static void eReaderThree() {
-		String answer = "1" + "\0" + "7" + "\0";
-		for(int i = 0; i < 22; i++) {
+		String answer = "11" + "\0" + "7" + "\0";
+		for(int i = 0; i < 23; i++) {
 			answer += "11" + "\0";
 		}
 		new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
