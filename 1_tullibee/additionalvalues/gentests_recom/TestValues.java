@@ -153,6 +153,60 @@ public class TestValues {
 
         };
         
-    }    
+    }
+
+/** com.ib.client.ComboLeg - method equals(Object p_other) */
+   
+// case else if (p_other == null)
+    public static ComboLeg comboIsNull () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.equals(null);
+    	
+    	return comboLeg;
+    }
+
+// case if (m_conId != l_theOther.m_conId)
+    public static ComboLeg comboNotEqualsConId () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_conId = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_conId = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+    
+// case if (m_ratio != l_theOther.m_ratio) 
+	public static ComboLeg comboNotEqualsRatio () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_ratio = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_ratio = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+    
+// case if (m_openClose != l_theOther.m_openClose)
+    public static ComboLeg comboNotEqualsOpenClose () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_openClose = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_openClose = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+    
+// case if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)	
+    public static ComboLeg comboNotEqualsSaleSlot () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_shortSaleSlot = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_shortSaleSlot = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
     
 }
