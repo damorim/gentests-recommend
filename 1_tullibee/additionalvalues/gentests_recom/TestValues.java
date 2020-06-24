@@ -3,8 +3,25 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.util.*;
 
 public class TestValues {
+	
+	public static Vector vectorOne() {
+		return new Vector(Arrays.asList("A", "B", "C"));
+	}
+
+	public static Vector vectorTwo() {
+		return new Vector(Arrays.asList("X", "Y", "Z"));
+	}
+
+	public static Vector vectorThree() {
+		return new Vector(Arrays.asList("X", "Y"));
+	}
+
+	public static Vector vectorFour() {
+		return new Vector();
+	}
 
     public static DataInputStream disOne() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
