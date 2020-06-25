@@ -23,6 +23,30 @@ public class TestValues {
     //     return new DataInputStream(new StringBufferInputStream(all));        
     // }
 
+	public static ExecutionFilter executionFilterEquals55(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		f1.equals(f1);
+		return f1;
+	}
+
+	public static ExecutionFilter executionFilterEquals58(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		ExecutionFilter f2 = new ExecutionFilter();
+		f1.equals(f2);
+		return f1;
+	}
+
+	public static Order orderEquals168(){
+		Order o1 = new Order();
+		o1.equals(o1);
+		return o1;
+	}
+
+	public static Order orderEquals171(){
+		Order o1 = new Order();
+		o1.equals(null);
+		return o1;
+	}
 
     public static EWrapper eWrapperOne() {
 

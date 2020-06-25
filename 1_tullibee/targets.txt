@@ -37,3 +37,41 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.ExecutionFilter, equals, 55, "else if ( this == p_other ) {",
+the equals method was never called comparing the same object
+
+      public static ExecutionFilter executionFilterEquals55(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		f1.equals(f1);
+		return f1;
+	}
+
+com.ib.client.ExecutionFilter, equals, 58, "else {",
+the equals method was never called comparing different non-nulls objects 
+
+      public static ExecutionFilter executionFilterEquals58(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		ExecutionFilter f2 = new ExecutionFilter();
+		f1.equals(f2);
+		return f1;
+	}
+
+com.ib.client.Order, equals, 168, "if ( this == p_other )",
+the equals method was never called comparing the same object
+
+      public static Order orderEquals168(){
+		Order o1 = new Order();
+		o1.equals(o1);
+		return o1;
+	}
+
+com.ib.client.Order, equals, 171, "if ( p_other == null )",
+the equals method was never called comparing with null
+
+      public static Order orderEquals171(){
+		Order o1 = new Order();
+		o1.equals(null);
+		return o1;
+	}
+
