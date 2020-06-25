@@ -37,3 +37,92 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+com.ib.client.UnderComp, equals, 50, "m_conId != l_theOther.m_conId"
+This case was never called because the type of entry passed. The  objects was initiated if the same values. So, atributted a diferent one. 
+
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+     
+    public static UnderComp underCompThree () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_conId = 1;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.UnderComp, equals, 53, "m_delta != l_theOther.m_delta"
+This case was never reached because the entrys was never different. So Passed two diferent values as entry (like differente of zero)
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+
+    public static UnderComp underCompThree1 () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_delta = 1.0;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.UnderComp, equals, 56, "m_price != l_theOther.m_price"
+This case was never reached because the entrys was never different of zero because they were initieted with 0. So Passed two diferent values as entry (like differente of zero)
+
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+
+     public static UnderComp underCompThree2 () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_price = 2.0;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.TickType, getField, 78-130
+The coverage was never increased because randoop generates random entries every time. So, established entries.
+  
+    public static TickType tickTypeOne () {
+      TickType tick = new TickType();
+      for (int i = 0; i < 50; i ++) {
+        tick.getField(i);
+      }
+      
+      return tick;
+    }   
+
