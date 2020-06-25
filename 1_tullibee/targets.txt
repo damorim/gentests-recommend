@@ -37,3 +37,26 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.ExecutionFilter, equals, 52, "if ( p_other == null )",
+method is not called with null argument, call method with null ExecutionFilter, added new object
+
+      public static ExecutionFilter executionFilterNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorFull() {
+		Vector v = new Vector();
+		v.add(3);
+		return v;
+	}
