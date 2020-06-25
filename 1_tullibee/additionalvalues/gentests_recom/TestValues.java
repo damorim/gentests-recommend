@@ -7,21 +7,40 @@ import com.ib.client.*;
 public class TestValues {
 
     public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
-    }
+		String action = "10";
+		int integer = 2;
+		String str = "3";
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + str + "\0"
+		+ str + "\0"+ str + "\0"+ value + "\0" + str + "\0"
+		+ str + "\0" + str + "\0" + str + "\0" + str + "\0" + str + "\0"
+		+ "\0" + integer + "\0"+ value +"\0" + str + "\0" +str + "\0"+ integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
 
-    
-    // public static DataInputStream disOne() {
-    //     String action = "1";
-    //     String part1 = "2";
-    //     String part2 = "3";
-    //     String part3 = "4";
-    //     String part4 = "2.97";
-    //     String part5 = "1";
-    //     String end = "-1";
-    //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
-    // }
+	public static DataInputStream disTwo() {
+		String action = "56";
+		int integer = 2;
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + integer + "\0" + integer + "\0" +
+		value + "\0" + value + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream disThree() {
+		String action = "57";
+		int integer = 2;
+		String all = action + "\0" + integer + "\0" + integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static void eReaderTwo() {
+		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+    }
+   
+    public static void eReaderThree() {
+		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+    }
 
 
     public static EWrapper eWrapperOne() {
