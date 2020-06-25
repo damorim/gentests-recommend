@@ -6,9 +6,47 @@ import com.ib.client.*;
 
 public class TestValues {
 
-    public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
+    public static DataInputStream disOneOne() {
+		//BOND_CONTRACT_DATA
+		String str = "kkeaemen";
+		Double dd = 7.77;
+		int interino = 1;
+		String action = "18";
+		String input = action + "\0" + interino + "\0"+ str +"\0" + str + "\0" + 
+		str +"\0" + dd + "\0"+ str +"\0" + str + "\0"+ str +"\0" +
+		str + "\0"+ str +"\0" + interino + "\0"+ 
+		interino +"\0" + interino + "\0"+ 
+		str +"\0" +  str +"\0" + str + "\0"+ str +"\0" +
+		str +"\0" + interino + "\0"+ dd +"\0" +  str +"\0" + str + "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+	public static DataInputStream disOneTwo() {
+		//ACCT_DOWNLOAD_END
+		String action = "54";
+		String interino = "1";
+		String textinput = "berg";
+		String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+	public static DataInputStream disOneThree() {
+		//EXECUTION_DATA_END
+		String action = "55";
+		String interino = "1";
+		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+	public static void eReaderOne() {
+         new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44).run();
+	}
+	public static void eReaderTwo() {
+         new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44).run();
+	}
+	public static void eReaderThree() {
+         new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
     }
+	
 
     
     // public static DataInputStream disOne() {
