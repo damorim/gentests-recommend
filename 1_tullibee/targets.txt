@@ -45,14 +45,14 @@ method is not called with null argument, call method with null ExecutionFilter, 
 		return null;
 	}
 
-com.ib.client.Util, VectorUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
 method is not called with null argument, call method with null Vector, added new object
 
       public static Vector vectorNull() {
 		return null;
 	}
 
-com.ib.client.Util, VectorUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
 method is not called with null argument, call method with null Vector, added new object
 
       public static Vector vectorFull() {
