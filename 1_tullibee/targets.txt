@@ -14,7 +14,7 @@ every call to run() results in NPE on variable of type EWrapper, Unable to creat
       public static EWrapper eWrapperOne() { return new ...}
 
 com.ib.client.EReader, readStr, 902, "if (c == 0) {", every call to
-readStr(DataInputStream) raises java.io.Exception captured at EReader.run:102, DataInputStream object with invalid data, modified string 
+readStr(DataInputStream) raises java.io.Exception captured at EReader.run:102, DataInputStream object with invalid data, modified string
 
       public static DataInputStream disOne() {
         return new DataInputStream(new StringBufferInputStream("123\0"));
@@ -31,9 +31,48 @@ call to processMsg(123) raises com.ib.client.EException captured at EReader.run:
 com.ib.client.EReader, processMsg, 123, "int canAutoExecute = 0;",
 every call to processMsg(1) raises java.io.Exception captured at EReader.run:102, DataInputStream with invalid data, modified string
 
-                      
+
       public static DataInputStream disOne() {
         // Expressing these \0s in a single string does not work. It thinks "\03" is the string "\3" or something.
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.EWrapperMsgGenerator, tickOptionComputation, 43, " if (field == TickType.MODEL_OPTION) {",
+every call to tickOptionComputation() with field != 13 doesn't satisfies the condition, field param with invalid data, assign 13 to field param
+
+     public static EWrapperMsgGenerator tickOptionComputationFactory() {
+        EWrapperMsgGenerator eWrapperMsgGenerator = new EWrapperMsgGenerator();
+        eWrapperMsgGenerator.tickOptionComputation(1,13,21.1,21.1,21.1,21.1);
+        return  eWrapperMsgGenerator;
+
+     }
+
+com.ib.client.EClientSocket, faMsgTypeName, 131, "case ALIASES:",
+every call to faMsgTypeName never assigned faDataType = 3, faDataType param with data != 3, run loop to cover all faDataType types
+
+     public static EClientSocket faMsgTypeNameFactory() {
+     		EClientSocket eClientSocket = new EClientSocket();
+     		for (int i = 1; i <= 3; i++) {
+     			eClientSocket.faMsgTypeName(i);
+     		}
+
+     		return  eClientSocket;
+
+     	}
+
+com.ib.client.OrderState, equals, 62, "if (other == null)",
+every call to equals never satisfies the condition, other always is not null, assigned other = null
+
+    public static OrderState equalsFactory() throws Exception {
+    		Constructor<OrderState> constructor;
+    		constructor = OrderState.class.getDeclaredConstructor(Object.class);
+    		constructor.setAccessible(true);
+    		OrderState orderState = constructor.newInstance();
+
+    		orderState.equals(null);
+
+    		System.out.println("ola");
+    		return  orderState;
+
+    	}

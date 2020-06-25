@@ -3,14 +3,42 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.lang.reflect.Constructor;
 
 public class TestValues {
 
     public static DataInputStream disOne() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
+	public static EWrapperMsgGenerator tickOptionComputationFactory() {
+		EWrapperMsgGenerator eWrapperMsgGenerator = new EWrapperMsgGenerator();
+		eWrapperMsgGenerator.tickOptionComputation(1,13,21.1,21.1,21.1,21.1);
+		return  eWrapperMsgGenerator;
 
-    
+	}
+	public static EClientSocket faMsgTypeNameFactory() {
+		EClientSocket eClientSocket = new EClientSocket();
+		for (int i = 1; i <= 3; i++) {
+			eClientSocket.faMsgTypeName(i);
+		}
+
+		return  eClientSocket;
+
+	}
+	public static OrderState equalsFactory() throws Exception {
+		Constructor<OrderState> constructor;
+		constructor = OrderState.class.getDeclaredConstructor(Object.class);
+		constructor.setAccessible(true);
+		OrderState orderState = constructor.newInstance();
+
+		orderState.equals(null);
+
+		System.out.println("ola");
+		return  orderState;
+
+	}
+
+
     // public static DataInputStream disOne() {
     //     String action = "1";
     //     String part1 = "2";
@@ -20,7 +48,7 @@ public class TestValues {
     //     String part5 = "1";
     //     String end = "-1";
     //     String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
-    //     return new DataInputStream(new StringBufferInputStream(all));        
+    //     return new DataInputStream(new StringBufferInputStream(all));
     // }
 
 
@@ -48,7 +76,9 @@ public class TestValues {
 
 	   	@Override
 	   	public void tickOptionComputation(int tickerId, int field, double impliedVol, double delta,
-	   			double modelPrice, double pvDividend) {}
+	   			double modelPrice, double pvDividend) {
+
+	   	}
 
 	   	@Override
 	   	public void tickGeneric(int tickerId, int tickType, double value) {	}
@@ -152,7 +182,7 @@ public class TestValues {
 	   	public void stopRequested() {		}
 
         };
-        
-    }    
-    
+
+    }
+
 }
