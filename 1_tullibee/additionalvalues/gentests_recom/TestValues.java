@@ -10,7 +10,50 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
-    
+	public static DataInputStream readerTickPrice() {
+		String action = "1";
+		int version = 1;
+		int tickerId = 213;
+		int tickType = 2;
+		double price = 20.50;
+		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" +
+				price + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream readerTickSize() {
+		String action = "2";
+		int version = 1;
+		int tickerId = 213;
+		int tickType = 2;
+		int size = 5;
+		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream readerTickOptionComputation() {
+		String action = "3";
+		int version = 1;
+		int tickerId = 213;
+		int tickType = 2;
+		double impliedVol = 10.00;
+		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + impliedVol + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static void eReaderTickPrice() {
+		new com.ib.client.EReader(readerTickPrice(), eWrapperOne(), 44);
+	}
+
+	public static void eReaderTickSize() {
+		new com.ib.client.EReader(readerTickSize(), eWrapperOne(), 44);
+	}
+
+	public static void eReaderTickOptionComputation() {
+		new com.ib.client.EReader(readerTickOptionComputation(), eWrapperOne(), 44);
+	}
+
+
     // public static DataInputStream disOne() {
     //     String action = "1";
     //     String part1 = "2";
