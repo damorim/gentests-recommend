@@ -37,3 +37,43 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
+
+com.ib.client.Execution, equals, 73, "if ( p_other == null ) {", 
+the call in the method does not enter the IF because the object is not null,
+
+	public static Execution executionIf73() {
+		Execution a = new Execution();
+		a.equals(null);
+
+		return a;
+	}
+
+com.ib.client.Execution, equals, 76, "else if ( this == p_other ) {", 
+the call in the method does not enter the IF because the object is not itself,
+	
+      public static Execution executionEquals71() {
+		Execution a = new Execution();
+		a.equals(a);
+
+		return a;
+	}
+
+com.ib.client.Contract, equals, 89,  "if (this == p_other) {", 
+the call in the method does not enter the IF because the object is not itself, 
+
+	public static Contract contractif93() {
+		Contract a = new Contract();
+		a.equals(a);
+
+		return a;
+	}
+
+com.ib.client.Contract, equals, 93, "if (p_other == null || !(p_other instanceof Contract)) {", 
+the call in the method does not enter the IF because the object is not null or is not an instance of Contract
+
+	public static Contract contractif89() {
+		Contract a = new Contract();
+		a.equals(null);
+
+		return a;
+	}
