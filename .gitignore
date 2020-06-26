@@ -1,2 +1,9 @@
 **/*~
 vscode
+**/ErrorTest*.java
+**/classlist.txt
+**/html
+**/RegressionTest*.java
+**/*.class
+jacoco.csv
+jacoco.exec
