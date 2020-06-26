@@ -6,11 +6,18 @@ import com.ib.client.*;
 
 public class TestValues {
 
-    public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
-    }
+	public static DataInputStream disOne() {
+		return new DataInputStream(new StringBufferInputStream("-1\0"));
+	}
 
-    
+	public static DataInputStream disTwo() {
+		return new DataInputStream(new StringBufferInputStream("1\0\0"));
+	}
+	
+	public static DataInputStream disThree() {
+		return new DataInputStream(new StringBufferInputStream("9" + "\0" + "1" + "\0" + "1" + "\0"));
+	}	
+
     // public static DataInputStream disOne() {
     //     String action = "1";
     //     String part1 = "2";
