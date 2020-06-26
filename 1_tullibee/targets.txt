@@ -1,5 +1,7 @@
 Class, Method, Line, LineContent, Observation, Diagnosis, Action
 
+/** Marcelo **/
+
 com.ib.client.EReader, run, 97, "if (stopRequested) {",
 every call to run() results in NPE on variable of type DataInputStream,  Unable to create (non-null) DataInputStream, added new object
 
@@ -38,6 +40,7 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         return new DataInputStream(new StringBufferInputStream(all));
       }
 
+/** Marcela **/
 
 com.ib.client.EReader, processMsg, 541, "case NEXT_VALID_ID: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
 		public static DataInputStream nextValidIdCase() {
@@ -87,4 +90,102 @@ com.ib.client.EReader, processMsg, 768, "case RECEIVE_FA: {", this case is never
 			return new EReader(receiveFaCase(), eWrapperOne(), version());
 		}
 	
-	
+
+/*** Gabriela ***/
+
+com.ib.client.ExecutionFilter, equals, 52, "if ( p_other == null )",
+method is not called with null argument, call method with null ExecutionFilter, added new object
+
+      public static ExecutionFilter executionFilterNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorFull() {
+		Vector v = new Vector();
+		v.add(3);
+		return v;
+	}
+
+/*** Aldiberg ***/
+
+com.ib.client.EReader, processMsg, 629, "int version = readInt();", Receive all values and execute the eWrapper function, case not being reached
+input stream with string that covers the case,
+      public static DataInputStream disOneOne() {
+		String str = "kkeaemen";
+		Double dd = 7.77;
+		int interino = 1;
+		String input = "18" + "\0" + interino + "\0"+ str +"\0" + str + "\0" + 
+		str +"\0" + dd + "\0"+ str +"\0" + str + "\0"+ str +"\0" +
+		str + "\0"+ str +"\0" + interino + "\0"+ 
+		interino +"\0" + interino + "\0"+ 
+		str +"\0" +  str +"\0" + str + "\0"+ str +"\0" +
+		str +"\0" + interino + "\0"+ dd +"\0" +  str +"\0" + str + "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+com.ib.client.EReader, processMsg, 856, "/* int version = */readInt();", Reads values and execute eWrapper function  ,case not being reached,
+input stream with string that covers the case.,
+      public static DataInputStream disOneTwo() {
+		String action = "54";
+		String interino = "1";
+		String textinput = "berg";
+		String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+
+com.ib.client.EReader, processMsg, 861, "/* int version = */readInt();", Reads values and execute eWrapper function ,case read is never executed,
+input stream with string that covers the case 
+	public static DataInputStream disOneThree() {
+		String action = "55";
+		String interino = "1";
+		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", NPE throw, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderOne() {
+         return new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", NPE throw at the processMsg call thus not reaching case read, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderTwo() {
+         return new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", NPE throw sometimes because of tests indertemination, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderThree() {
+         return new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", method run sometimes is not being called in test generation,.run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderOne() {
+          new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44).run();
+	}
+
+com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", method run sometimes is not being called in test generation, .run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderTwo() {
+          new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44).run();
+	}
+
+com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", method run sometimes is not being called in test generation,.run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderThree() {
+          new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
+	}
+

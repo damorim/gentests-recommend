@@ -3,12 +3,17 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.util.Vector;
 
 public class TestValues {
-
+  
+  
+  /** Marcela **/
+  
 	public static DataInputStream msgId() {
 		return new DataInputStream(new StringBufferInputStream("1\0"));
 	}
+
 
 	public static DataInputStream nextValidIdCase() {
 		String switchCase = "9";
@@ -50,6 +55,66 @@ public class TestValues {
 	public static EReader readerReceiveFaCase() {
 		return new EReader(receiveFaCase(), eWrapperOne(), version());
 	}
+
+  
+  /** Aldiberg  does not improve coverage **/
+
+    public static DataInputStream disOneOne() {
+		//BOND_CONTRACT_DATA
+		String str = "kkeaemen";
+		Double dd = 7.77;
+		int interino = 1;
+		String action = "18";
+		String input = action + "\0" + interino + "\0"+ str +"\0" + str + "\0" + 
+		str +"\0" + dd + "\0"+ str +"\0" + str + "\0"+ str +"\0" +
+		str + "\0"+ str +"\0" + interino + "\0"+ 
+		interino +"\0" + interino + "\0"+ 
+		str +"\0" +  str +"\0" + str + "\0"+ str +"\0" +
+		str +"\0" + interino + "\0"+ dd +"\0" +  str +"\0" + str + "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+	public static DataInputStream disOneTwo() {
+		//ACCT_DOWNLOAD_END
+		String action = "54";
+		String interino = "1";
+		String textinput = "berg";
+		String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+	public static DataInputStream disOneThree() {
+		//EXECUTION_DATA_END
+		String action = "55";
+		String interino = "1";
+		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+	public static void eReaderOne() {
+         new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44).run();
+	}
+	public static void eReaderTwo() {
+         new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44).run();
+	}
+	public static void eReaderThree() {
+         new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
+    }
+
+    /** Marcelo 35% **/
+  
+   
+    public static DataInputStream disOne() {
+        String action = "1";
+        String part1 = "2";
+        String part2 = "3";
+        String part3 = "4";
+        String part4 = "2.97";
+        String part5 = "1";
+        String end = "-1";
+        String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));        
+    }
+
 
     public static EWrapper eWrapperOne() {
 
@@ -180,6 +245,19 @@ public class TestValues {
 
         };
         
-    }    
-    
+	}
+	
+	public static ExecutionFilter executionFilterNull() {
+		return null;
+	}
+ 
+	public static Vector vectorNull() {
+		return null;
+	}
+
+	public static Vector vectorFull() {
+		Vector v = new Vector();
+		v.add(3);
+		return v;
+	}
 }
