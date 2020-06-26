@@ -3,6 +3,7 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.util.Vector;
 
 public class TestValues {
 
@@ -193,6 +194,19 @@ public class TestValues {
 
         };
         
-    }    
-    
+	}
+	
+	public static ExecutionFilter executionFilterNull() {
+		return null;
+	}
+ 
+	public static Vector vectorNull() {
+		return null;
+	}
+
+	public static Vector vectorFull() {
+		Vector v = new Vector();
+		v.add(3);
+		return v;
+	}
 }
