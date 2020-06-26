@@ -6,8 +6,58 @@ import com.ib.client.*;
 import java.util.Vector;
 
 public class TestValues {
+  
+  
+  /** Marcela **/
+  
+	public static DataInputStream msgId() {
+		return new DataInputStream(new StringBufferInputStream("1\0"));
+	}
 
-    /** Aldiberg  does not improve coverage **/
+
+	public static DataInputStream nextValidIdCase() {
+		String switchCase = "9";
+		String version = "2";
+		String orderId = "8";
+		String all = switchCase+"\0"+version+"\0"+orderId+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream managedAcctsCase() {
+		String switchCase = "15";
+		String version = "2";
+		String accountsList = "2,3,5,12";
+		String all = switchCase+"\0"+version+"\0"+accountsList+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream receiveFaCase() {
+		String switchCase = "16";
+		String version = "2";
+		String faDataType = "14";
+		String xml = "<?xml version='1.0'?>";
+		String all = switchCase+"\0"+version+"\0"+faDataType+"\0"+xml+"\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static int version() {
+		return 39;
+	}
+
+	public static EReader readerNextValidIdCase() {
+		return new EReader(nextValidIdCase(), eWrapperOne(), version());
+	}
+
+	public static EReader readerManagedAcctsCase() {
+		return new EReader(managedAcctsCase(), eWrapperOne(), version());
+	}
+
+	public static EReader readerReceiveFaCase() {
+		return new EReader(receiveFaCase(), eWrapperOne(), version());
+	}
+
+  
+  /** Aldiberg  does not improve coverage **/
 
     public static DataInputStream disOneOne() {
 		//BOND_CONTRACT_DATA
@@ -51,7 +101,8 @@ public class TestValues {
     }
 
     /** Marcelo 35% **/
-    
+  
+   
     public static DataInputStream disOne() {
         String action = "1";
         String part1 = "2";
