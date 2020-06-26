@@ -7,3 +7,4 @@ vscode
 **/html
 **/jacoco.csv
 **/jacoco.exec
+**/*.class
