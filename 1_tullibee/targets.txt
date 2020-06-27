@@ -1179,3 +1179,54 @@ the contract was never called, during test runs this part of the code was not re
       return cont0;
     } 
 
+/*** Matheus Barbosa ***/
+
+I added three methods that return DataInputStream to cover the cases of "NEWS_BULLETINS, MARKET_DEPTH and MARKET_DEPTH_L2".
+Are they: marketDepth, marketDepthL2 e newsBulletins.
+Each of them uses the necessary attributes to be used in their cases and is identified by the int switchCase.
+
+    public static DataInputStream marketDepth() {
+        int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
+        Double price = 6.70;
+
+        String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+    public static DataInputStream marketDepthL2() {
+        int switchCase = 13, version = 1, id = 3, position = 4, operation = 5, side = 6, size = 9;
+        Double price = 7.80;
+        String marketMaker = "marketMaker";
+
+        String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + marketMaker + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+    public static DataInputStream newsBulletins() {
+        int switchCase = 14, version = 1, newsMsgId = 1, newsMsgType = 2;
+        String newsMessage = "newsMessage", originatingExch = "originatingExch";
+
+        String input = switchCase + "\0" + version + "\0" + newsMsgId + "\0" + newsMsgType + "\0" + newsMessage + "\0" + originatingExch + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+Upon entering, I realized that it is not possible to run all three tests at the same time. Thus it was necessary to create another EReader.
+Each EReader needs a DataInputStream, EWrapper and serverVersion.
+
+So I created three EReader and for each one I passed a DataInputStream created.
+I also passed the existing EWrapper in the TestValues class and passed a random version to serverVersion.
+
+      java.lang.AssertionError: '39' != '42'
+              at org.junit.Assert.fail(Assert.java:89)
+              at org.junit.Assert.assertTrue(Assert.java:42)
+              at RegressionTest0.test0087(RegressionTest0.java:906)
+
+Upon entering, I identified that there is an assertion that requires serverVersion to be 39.
+In this way I was able to run the tests to cover the three cases.
+
+You can see the screenshot of the execution at this link: https://drive.google.com/file/d/1Yn__epuX6DUw2fOKNzyi-NvWM9OLp0YZ/view?usp=sharing
+
+
