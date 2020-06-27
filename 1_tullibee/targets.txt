@@ -1,9 +1,48 @@
 Class, Method, Line, LineContent, Observation, Diagnosis, Action
 
+/** Fernando (fhaa@cin.ufpe.br) ***/
+
 com.ib.client.EReader, processMsg, 149, "int version = readInt();", 
 every call to processMsg(2) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 9-17 in TestValues.java file)
-      
-      public static DataInputStream disOne() {
+
+      public static DataInputStream tickSize() {
+		int version = 1;
+		int tickerId = 2;
+		int tickType = 3;
+		int size = 4;
+		String all = "2" + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 777, "int version = readInt();", 
+every call to processMsg(17) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 21-41 in TestValues.java file)
+
+      public static DataInputStream historicalData() {
+		int version = 3;
+		int reqId = 1;
+		String startDateStr = "21/06/2020";
+		String endDateStr = "21/06/2020";
+		int itemCount = 1;
+		String date = "21/06/2020";
+		double open = 1.00;
+		double high = 2.00;
+		double low = 3.00;
+		double close = 4.00;
+		int volume = 5;
+		double WAP = 6.00;
+		String hasGaps = "false";
+		int barCount = 7;
+
+		String all = "17" + "\0" + version + "\0" + reqId + "\0" + startDateStr + "\0" + endDateStr + "\0" + itemCount
+				+ "\0" + date + "\0" + open + "\0" + high + "\0" + low + "\0" + close + "\0" + volume + "\0" + WAP
+				+ "\0" + hasGaps + "\0" + barCount + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 342, "int version = readInt();", 
+every call to processMsg(5) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 46-204 in TestValues.java file)
+
+      public static DataInputStream openOrder() {
 		int version = 22;
 
 		int m_orderId = 1;
