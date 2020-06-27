@@ -101,6 +101,40 @@ public class TestValues {
          new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
     }
   
+
+  /*** Daniel Bastos ***/
+	
+	public static DataInputStream disOne() {
+		String action = "52";
+		String part1 = "2";
+		String part2 = "3";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream disTwo() {
+		String action = "53";
+		String part1 = "2";
+		String all = action + "\0" + part1 + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static void eReaderOne() {
+		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44).run();
+	}
+
+	public static void eReaderTwo() {
+		new com.ib.client.EReader(disOne(), eWrapperOne(), 44).run();
+	}
+
+	public static void eReaderThree() {
+		String answer = "11" + "\0" + "7" + "\0";
+		for(int i = 0; i < 23; i++) {
+			answer += "11" + "\0";
+		}
+		new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
+	}
+
   
   /*** Lucas Barros ***/
   
