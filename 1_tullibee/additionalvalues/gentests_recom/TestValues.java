@@ -85,7 +85,7 @@ public class TestValues {
     }    
 
     /** Arthur Castro **/
-    public static DataInputStream disOne() {
+    public static DataInputStream disOne_arthur() {
 		String action = "10";
 		int integer = 2;
 		String str = "3";
@@ -97,7 +97,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static DataInputStream disTwo() {
+	public static DataInputStream disTwo_arthur() {
 		String action = "56";
 		int integer = 2;
 		double value = 1.999;
@@ -106,20 +106,12 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static DataInputStream disThree() {
+	public static DataInputStream disThree_arthur() {
 		String action = "57";
 		int integer = 2;
 		String all = action + "\0" + integer + "\0" + integer + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
-
-	public static void eReaderTwo() {
-       new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
-    }
-   
-    public static void eReaderThree() {
-        new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
-    }
 
   
   /** Lucas Cardoso **/
