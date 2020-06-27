@@ -13,7 +13,7 @@ public class TestValues {
   /** Fernando ***/
   
 	// case OPEN_ORDER
-	public static DataInputStream disOne() {
+	public static DataInputStream disOne_fernando() {
 		int version = 22;
 
 		int m_orderId = 1;
