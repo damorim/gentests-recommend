@@ -1,42 +1,868 @@
 Class, Method, Line, LineContent, Observation, Diagnosis, Action
 
+com.ib.client.EReader, processMsg, 149, "int version = readInt();", 
+every call to processMsg(2) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 9-17 in TestValues.java file)
+      
+      public static DataInputStream disOne() {
+		int version = 22;
+
+		int m_orderId = 1;
+
+		// version >= 17
+		int m_conId = 2;
+
+		String m_symbol = "3";
+		String m_secType = "4";
+		String m_expiry = "5";
+		double m_strike = 6.00;
+		String m_right = "7";
+		String m_exchange = "8";
+		String m_currency = "9";
+            ...
+      }
+
+
+/** Marcelo **/
+
 com.ib.client.EReader, run, 97, "if (stopRequested) {",
 every call to run() results in NPE on variable of type DataInputStream,  Unable to create (non-null) DataInputStream, added new object
 
       public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("123"));
-      }
+		int version = 1;
+		int tickerId = 2;
+		int tickType = 3;
+		int size = 4;
+		String all = "2" + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
 
-com.ib.client.EWrapper, stopRequested, 72, "stopRequested()",
-every call to run() results in NPE on variable of type EWrapper, Unable to create (non-null) EWrapper, added new object
-
-
-      public static EWrapper eWrapperOne() { return new ...}
-
-com.ib.client.EReader, readStr, 902, "if (c == 0) {", every call to
-readStr(DataInputStream) raises java.io.Exception captured at EReader.run:102, DataInputStream object with invalid data, modified string 
-
-      public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("123\0"));
-      }
-
-
-com.ib.client.EReader, processMsg, 114, "case TICK_PRICE: {", every
-call to processMsg(123) raises com.ib.client.EException captured at EReader.run:102, DataInputStream with invalid data, modified string
+com.ib.client.EReader, processMsg, 777, "int version = readInt();", 
+every call to processMsg(17) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 21-41 in TestValues.java file)
 
       public static DataInputStream disOne() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
-      }
+		int version = 3;
+		int reqId = 1;
+		String startDateStr = "21/06/2020";
+		String endDateStr = "21/06/2020";
+		int itemCount = 1;
+		String date = "21/06/2020";
+		double open = 1.00;
+		double high = 2.00;
+		double low = 3.00;
+		double close = 4.00;
+		int volume = 5;
+		double WAP = 6.00;
+		String hasGaps = "false";
+		int barCount = 7;
 
-com.ib.client.EReader, processMsg, 123, "int canAutoExecute = 0;",
-every call to processMsg(1) raises java.io.Exception captured at EReader.run:102, DataInputStream with invalid data, modified string
+		String all = "17" + "\0" + version + "\0" + reqId + "\0" + startDateStr + "\0" + endDateStr + "\0" + itemCount
+				+ "\0" + date + "\0" + open + "\0" + high + "\0" + low + "\0" + close + "\0" + volume + "\0" + WAP
+				+ "\0" + hasGaps + "\0" + barCount + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
 
-                      
+com.ib.client.EReader, processMsg, 342, "int version = readInt();", 
+every call to processMsg(5) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 46-204 in TestValues.java file)
+
       public static DataInputStream disOne() {
         // Expressing these \0s in a single string does not work. It thinks "\03" is the string "\3" or something.
         String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
+     }
+     
+ 
+ /** Lais **/
+ com.ib.client.UnderComp, equals, 50, "m_conId != l_theOther.m_conId"
+This case was never called because the type of entry passed. The  objects was initiated if the same values. So, atributted a diferent one. 
+
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+     
+    public static UnderComp underCompThree () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_conId = 1;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.UnderComp, equals, 53, "m_delta != l_theOther.m_delta"
+This case was never reached because the entrys was never different. So Passed two diferent values as entry (like differente of zero)
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+
+    public static UnderComp underCompThree1 () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_delta = 1.0;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.UnderComp, equals, 56, "m_price != l_theOther.m_price"
+This case was never reached because the entrys was never different of zero because they were initieted with 0. So Passed two diferent values as entry (like differente of zero)
+
+     public static UnderComp underCompOne () {
+      UnderComp under = new UnderComp();
+      under.m_delta = 0;
+      under.m_conId = 0;
+      under.m_price = 0;
+      UnderComp underZero = new UnderComp();
+      underZero.m_delta = 0;
+      underZero.m_conId = 0;
+      underZero.m_price = 0;
+      under.equals(underZero);
+      
+      return under;
+    }
+
+     public static UnderComp underCompThree2 () {
+      UnderComp under = new UnderComp();
+      UnderComp underNotZero = new UnderComp();
+      underNotZero.m_price = 2.0;
+      under.equals(underNotZero);
+      
+      return under;
+    }
+
+com.ib.client.TickType, getField, 78-130
+The coverage was never increased because randoop generates random entries every time. So, established entries.
+  
+    public static TickType tickTypeOne () {
+      TickType tick = new TickType();
+      for (int i = 0; i < 50; i ++) {
+        tick.getField(i);
       }
+
+/*** Saulo ***/
+
+com.ib.client.EReader, processMsg, 159, "int version = readInt();", every call to processMsg() only execute first case, no DataInputStream with apropriate value data,
+adding copy of method with new values
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));        
+      }
+
+com.ib.client.EReader, processMsg, 164, "impliedVol = Double.MAX_VALUE;", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+modified string
+
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "-3.05" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+com.ib.client.EReader, processMsg, 166, "double delta = readDouble();", error by missing value on string, no DataInputStream with apropriate value data,
+modified string
+
+	public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "-3.05" + "\0" + "4.45" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+com.ib.client.EReader, processMsg, 173, "modelPrice = readDouble();", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+modified string
+
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+com.ib.client.EReader, processMsg, 176, "modelPrice = pvDividend = Double.MAX_VALUE;", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+adding copy of method with new values
+      public static DataInputStream disOne3() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "15" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+      
+      return tick;
+    }   
+ 
+ 
+ /** Lucas Cardoso **/
+ 
+ com.ib.client.EReader, processMsg, 271, "case PORTFOLIO_VALUE: {"
+is never called, because processMsg is always called with msgId either 1 or -1. This happens due to
+the DataInputStream generated above, to cover PORTFOLIO_VALUE, the string for DataInputStream was generated
+taking PORTFOLIO_VALUE into account, as well as the types this case expects in eache read function call.
+
+      public static DataInputStream portfolioCaseDataStream() {
+            String action = "7";
+            ...
+      }
+
+com.ib.client.EReader, processMsg, 309, "contract.m_primaryExch = readStr();""
+is not called, due to version in the above DataInputStream not being 6 (this is intentional to cover more code),
+and the small probability of randoop initializing this EReader object with the correct DataInputStream and the
+specific serverVersion of 39 in the EReader initializer. To futher direct test generation, create the desired EReader object,
+and refactor other DataInputStream factories to create the desired object for better control, plus helper funtion version()
+for easier maintenance
+
+      public static DataInputStream portfolioCaseDataStream2() {
+            String action = "7";
+            String version = "6";
+            ...
+      }
+
+      public static int version() {
+		return 39;
+	}
+
+      	public static EReader reader3() {
+		return new EReader(portfolioCaseDataStream2(),eWrapperOne(), version());
+	}
+
+com.ib.client.EReader, processMsg, 319, "case ACCT_UPDATE_TIME: {"
+is never called due to no DataInputStream being generated that has a valid string to this case.
+To do that, create the desired string
+
+	public static DataInputStream acctUpdateTimeDatastream() {
+        String action = "8";
+		String version = "6";
+		String timeStamp = "qw";
+		String end = "-1";
+		String all = action + "\0" + version + "\0" + timeStamp + end + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));        
+	}
+
+      public static EReader reader4() {
+		return new EReader(acctUpdateTimeDatastream(), eWrapperOne(), version());
+
+
+ /** Daniel Bastos **/
+
+com.ib.client.EReader, processMsg, 844, "case CONTRACT_DATA_END: {",
+case never reached beacuse of missing matching id, DataInputStream with invalid data, created a new DataInputStream function
+to start with 52
+
+      public static DataInputStream disOne() {
+		String action = "52";
+		String part1 = "2";
+		String part2 = "3";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 850, "case OPEN_ORDER_END: {",
+case never reached beacuse of missing matching id, DataInputStream with invalid data, created a new DataInputStream function
+to start with 53 and an integer
+
+      public static DataInputStream disTwo() {
+		String action = "53";
+		String part1 = "2";
+		String all = action + "\0" + part1 + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 852, "eWrapper().openOrderEnd();",
+eWrapper generated as null by default, eWrapper as null pointer, created a new EReader factory providing same
+DataInputStream and valid EWrapper
+
+      public static EReader eReaderOne() {
+		return new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+	}
+
+com.ib.client.EReader, processMsg, 847, "eWrapper().contractDetailsEnd(reqId);",
+eWrapper generated as null by default, eWrapper as null pointer, created a new EReader factory providing the old
+DataInputStream (disOne()) and valid EWrapper
+
+	public static EReader eReaderTwo() {
+		return new com.ib.client.EReader(disOne(), eWrapperOne(), 44);
+	}
+
+com.ib.client.EReader, processMsg, 847, "eWrapper().contractDetailsEnd(reqId);",
+eWrapper generated but never reached line 847, EReader.run() never called, added .run() call to each method
+
+      public static void eReaderOne() {
+		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44).run();
+	}
+
+	public static void eReaderTwo() {
+		new com.ib.client.EReader(disOne(), eWrapperOne(), 44).run();
+	}
+
+com.ib.client.EReader, processMsg, 671, "case EXECUTION_DATA: {",
+case never reached beacuse of missing matching id, msgId != 11, added new EReader.run() matching properties
+
+      public static void eReaderThree() {
+		String answer = "11" + "\0" + "7" + "\0";
+		for(int i = 0; i < 22; i++) {
+			answer += "11" + "\0";
+		}
+		new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
+	}
+  
+/** Matheus Borba **/
+com.ib.client.EReader, processMsg, 159, "int version = readInt();", every time processMsg() is called it receives the same input, which makes it execute only one case.
+
+  Adding a appropriate value data to cover ACCT_VALUE, this is the case of number 6 and needs a version number higher then one:
+
+      public static DataInputStream acctValue() {
+        String act = "6";
+        String version = "2";
+        String key = "key";
+        String val = "val";
+        String cur = "cur";
+        String accountName = "Name";
+        String input = act + "\0" + version + "\0" + key + "\0" + val + "\0" + cur + "\0" + accountName + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+      }
+
+  Adding a appropriate value data to cover ORDER_STATUS, this is the case of number 3, and has 5 if's.
+  which means that if version number is higher then 5 to cover all cases.
+
+      public static DataInputStream orderStatus() {
+        String switchCase = "3", version = "6", id = "2", status = "status", filled = "7", remaining = "8", avgFillPrice = "2.64";
+	  String input = switchCase + "\0" + version + "\0" + id + "\0" + status + "\0" + filled + "\0" + remaining + "\0" + avgFillPrice + "\0";
+	  return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+    Although this version number ensures that all if's are covered, the lines within each one have not yet been covered.
+    For that we need to change the method as follows:
+
+      public static DataInputStream orderStatus() {
+        //first input of values
+	  String switchCase = "3", version = "6", id = "2", status = "status", filled = "7", remaining = "8", avgFillPrice = "2.64";
+	  String firstInput = switchCase + "\0" + version + "\0" + id + "\0" + status + "\0" + filled + "\0" + remaining + "\0" + avgFillPrice + "\0";
+	  //second input of values, all this values are inside the if cases
+	  String permId = "0", parentId = "10", lastFillPrice = "6.9", clientId = "5", whyHeld = "whyHeld";
+	  String secondInput = permId + "\0" + parentId + "\0" + lastFillPrice + "\0" + clientId + "\0" + whyHeld + "\0";
+		
+	  return new DataInputStream(new StringBufferInputStream(firstInput + secondInput));
+	}
+    
+    We could create differents factories to enter each if at a time, but its not necessary based on the conditions of them.
+  
+/** Victor Melo **/
+
+com.ib.client.EReader, processMsg, 114, case TICK_PRICE: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickPrice() {
+  		String action = "1";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		double price = 20.50;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" +
+  				price + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+com.ib.client.EReader, processMsg, 148, case TICK_SIZE: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickSize() {
+  		String action = "2";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		int size = 5;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+com.ib.client.EReader, processMsg, 158, case TICK_OPTION_COMPUTATION: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickOptionComputation() {
+  		String action = "3";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		double impliedVol = 10.00;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + impliedVol + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+
+
+/*** Lucas Barros ***/
+
+com.ib.client.EReader, processMsg, 548, "case SCANNER_DATA: {", every
+call to processMsg() only execute first case, raises com.ib.client.EException captured at EReader.run:102, DataInputStream with invalid data, added new object
+
+                      
+      public static DataInputStream disOne2() {
+        String action = "20";
+        String version = "2";
+        String tickerId = "3";
+        String numberOfElements = "1";
+        String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+
+com.ib.client.EReader, processMsg, 553, "for (int ctr = 0; ctr < numberOfElements; ctr++) {", not all branches are covered, no DataInputStream with apropriate value data, extracted method and added new object
+
+      public static DataInputStream disOne2() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "1")));
+      }
+
+
+      
+      	public static DataInputStream disOne3() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "0")));
+      }
+
+      private static String getScannerDataWithVersionAndNumberOfElements(String version, String numberOfElements) {
+            String action = "20";
+            String tickerId = "3";
+            String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+            return all;
+      }
+     
+
+com.ib.client.EReader, processMsg, 554, "int rank = readInt();", every call to processMsg(20) with numberOfElements > 0 raises java.io.EException captured at EReader.run:102, DataInputStream with invalid data, modified string
+
+      private static String getScannerDataWithVersionAndNumberOfElements(String version, String numberOfElements) {
+		String action = "20";
+            String tickerId = "3";
+            String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+		
+		if (Integer.parseInt(numberOfElements) > 0) {
+			String rank = "1";
+			
+			all += rank + "\0";
+
+			if (Integer.parseInt(version) >= 3) {
+				String m_conId = "1";
+				all += m_conId + "\0";
+			}
+
+			for (int i = 0; i < 3; i++) {
+				all += "a" + "\0";
+			}
+			
+			String m_strike = "2.8";
+			all += m_strike + "\0";
+
+			for (int i = 0; i < 9; i++) {
+				all += "a" + "\0";
+			} 
+			
+			if (Integer.parseInt(version) >= 2) {
+				String legsStr = "a";
+				all += legsStr + "\0";
+			}
+		}
+
+		return all;
+	}
+
+
+
+/** Claudio Carvalho **/
+      
+com.ib.client.Util, VectorEqualsUnordered, 55, "if (lhsCount == 0)",
+every call to VectorEqualsUnordered is happening with two empty vectors, Unable to create non-empty vector, added new objects
+
+        import java.util.*;
+
+        public static Vector vectorOne() {
+            return new Vector(Arrays.asList("A", "B", "C"));
+        }
+
+        public static Vector vectorTwo() {
+            return new Vector(Arrays.asList("X", "Y", "Z"));
+        }
+
+com.ib.client.Util, VectorEqualsUnordered, 53, "return false;",
+no call to VectorEqualsUnordered is being made with two vectors of different sizes, Unable to create different sized vectors, added new object
+
+        public static Vector vectorThree() {
+            return new Vector(Arrays.asList("X", "Y"));
+        }
+
+com.ib.client.Util, VectorEqualsUnordered, 56, "return true;",
+no call to VectorEqualsUnordered is being made with two empty or null vectors anymore, Unable to create empty vector, added new object
+
+        public static Vector vectorFour() {
+            return new Vector();
+        }
+
+/** Marcela **/
+
+com.ib.client.EReader, processMsg, 541, "case NEXT_VALID_ID: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream nextValidIdCase() {
+			String switchCase = "9";
+			String version = "2";
+			String orderId = "8";
+			String all = switchCase+"\0"+version+"\0"+orderId+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerNextValidIdCase() {
+			return new EReader(nextValidIdCase(), eWrapperOne(), version());
+		}
+
+
+com.ib.client.EReader, processMsg, 761, "case MANAGED_ACCTS: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream managedAcctsCase() {
+			String switchCase = "15";
+			String version = "2";
+			String accountsList = "2,3,5,12";
+			String all = switchCase+"\0"+version+"\0"+accountsList+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerManagedAcctsCase() {
+			return new EReader(managedAcctsCase(), eWrapperOne(), version());
+		}
+
+
+com.ib.client.EReader, processMsg, 768, "case RECEIVE_FA: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
+		public static DataInputStream receiveFaCase() {
+			String switchCase = "16";
+			String version = "2";
+			String faDataType = "14";
+			String xml = "<?xml version='1.0'?>";
+			String all = switchCase+"\0"+version+"\0"+faDataType+"\0"+xml+"\0";
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+		public static int version() {
+			return 39;
+		}
+		public static EReader readerReceiveFaCase() {
+			return new EReader(receiveFaCase(), eWrapperOne(), version());
+		}
+	
+
+/*** Gabriela ***/
+
+com.ib.client.ExecutionFilter, equals, 52, "if ( p_other == null )",
+method is not called with null argument, call method with null ExecutionFilter, added new object
+
+      public static ExecutionFilter executionFilterNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorNull() {
+		return null;
+	}
+
+com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
+method is not called with null argument, call method with null Vector, added new object
+
+      public static Vector vectorFull() {
+		Vector v = new Vector();
+		v.add(3);
+		return v;
+	}
+
+/*** Aldiberg ***/
+
+com.ib.client.EReader, processMsg, 629, "int version = readInt();", Receive all values and execute the eWrapper function, case not being reached
+input stream with string that covers the case,
+      public static DataInputStream disOneOne() {
+		String str = "kkeaemen";
+		Double dd = 7.77;
+		int interino = 1;
+		String input = "18" + "\0" + interino + "\0"+ str +"\0" + str + "\0" + 
+		str +"\0" + dd + "\0"+ str +"\0" + str + "\0"+ str +"\0" +
+		str + "\0"+ str +"\0" + interino + "\0"+ 
+		interino +"\0" + interino + "\0"+ 
+		str +"\0" +  str +"\0" + str + "\0"+ str +"\0" +
+		str +"\0" + interino + "\0"+ dd +"\0" +  str +"\0" + str + "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+com.ib.client.EReader, processMsg, 856, "/* int version = */readInt();", Reads values and execute eWrapper function  ,case not being reached,
+input stream with string that covers the case.,
+      public static DataInputStream disOneTwo() {
+		String action = "54";
+		String interino = "1";
+		String textinput = "berg";
+		String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+
+com.ib.client.EReader, processMsg, 861, "/* int version = */readInt();", Reads values and execute eWrapper function ,case read is never executed,
+input stream with string that covers the case 
+	public static DataInputStream disOneThree() {
+		String action = "55";
+		String interino = "1";
+		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
+        return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", NPE throw, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderOne() {
+         return new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", NPE throw at the processMsg call thus not reaching case read, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderTwo() {
+         return new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", NPE throw sometimes because of tests indertemination, eWrapper object sent null,
+instantiated eWrapper with matching input call
+      public static EReader eReaderThree() {
+         return new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44);
+	}
+
+com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", method run sometimes is not being called in test generation,.run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderOne() {
+          new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44).run();
+	}
+
+com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", method run sometimes is not being called in test generation, .run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderTwo() {
+          new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44).run();
+	}
+
+com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", method run sometimes is not being called in test generation,.run() no being called,
+forced the EReader instance to call run() in tests
+      public static void eReaderThree() {
+          new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
+	}
+  
+  /** Arthur Castro **/
+
+com.ib.client.EReader, processMsg, 582, case CONTRACT_DATA: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disOne() {
+		String action = "10";
+		int integer = 2;
+		String str = "3";
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + str + "\0"
+		+ str + "\0"+ str + "\0"+ value + "\0" + str + "\0"
+		+ str + "\0" + str + "\0" + str + "\0" + str + "\0" + str + "\0"
+		+ "\0" + integer + "\0"+ value +"\0" + str + "\0" +str + "\0"+ integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 867, case DELTA_NEUTRAL_VALIDATION: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disTwo() {
+		String action = "56";
+		int integer = 2;
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + integer + "\0" + integer + "\0" +
+		value + "\0" + value + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 876, eWrapper().deltaNeutralValidation(reqId, underComp);, Null pointer exception thrown, eWrapper object generated is null by default,
+instantiated eWrapper with the specific input call
+
+  public static void eReaderTwo() {
+		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+  }
+
+com.ib.client.EReader, processMsg, 879, case TICK_SNAPSHOT_END: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disThree() {
+		String action = "57";
+		int integer = 2;
+		String all = action + "\0" + integer + "\0" + integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 883, eWrapper().tickSnapshotEnd(reqId);, Null pointer exception thrown, eWrapper object generated is null by default,
+instantiated eWrapper with the specific input call
+
+  public static void eReaderThree() {
+		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+  }
+
+/*** Felipe de Melo ***/
+
+com.ib.client.EReader, processMsg, 110, "return false;", 
+no call to processMsg(-1), DataInputStream object with insufficient data, added new object
+
+      public static DataInputStream disOne() {
+            return new DataInputStream(new StringBufferInputStream("-1\0"));
+      }
+
+com.ib.client.EReader, readStr, 909, "return str.length() == 0 ? null : str;", 
+readStr receives a string with at least 1 character in every call, DataInputStream object with insufficient data, added new object
+
+      public static DataInputStream disTwo() {
+            return new DataInputStream(new StringBufferInputStream("1\0\0"));
+      }
+
+com.ib.client.EReader, processMsg, 545, "break;", 
+no call to processMsg(9). DataInputStream with insufficient data, added new object
+
+      public static DataInputStream disThree() {
+            return new DataInputStream(new StringBufferInputStream("9" + "\0" + "1" + "\0" + "1" + "\0"));
+      }
+      
+/*** Denini ***/
+com.ib.client.TagValue, equals, 49, Does not enter in the if because the values of the attributes of the two classes are different, Create two objects with the same values for the attributes: m_tag and m_value
+
+      	public static TagValue denini1() {
+          return new TagValue("Tag1","Value1");
+        }
+
+        public static TagValue denini2() {
+          return new TagValue("Tag1","Value1");
+        }
+
+com.ib.client.TagValue, equals, 41, Does not enter in the if because the object passed by parameter to be compared is not itself, create a method that calls another method that contains the object.
+
+
+        public static TagValue denini4() {
+          return new TagValue("Tag2", "Value2");
+        }
+
+        public static TagValue denini5() {
+          return denini4();
+        }
+
+
+
+com.ib.client.TagValue, equals, 41, Does not enter in the if because the object passed by parameter to be compared is not itself, I understand that the previous approach was incorrect. Then I implemented a singleton, now the same object is returned in different functions. In this way I was able to solve the problem of line 49 as well
+
+          private static TagValue SingletonTagValue;
+
+        	public static TagValue denini4() {
+            if (SingletonTagValue == null) {
+              SingletonTagValue = new TagValue("Tag1", "Value1");
+            }
+            return SingletonTagValue;
+          }
+
+          public static TagValue denini5() {
+            return denini4();
+          }
+
+
+/*** Eden ***/
+
+com.ib.client.EReader, processMsg, 887, "default: {",
+a number out of the bound wasn't generated, so the default case in swtch-case was never reached,
+added a Data Input Stream with action value not covered by the cases 
+                      
+    	public static DataInputStream disOne() {
+		String action = "01293";
+		String all = action + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 822, "case REAL_TIME_BARS: {"
+the action number related to REAL_TIME_BARS case was never generated,
+added a Data Input Stream with action value equivalent to that case
+
+	public static DataInputStream disTwo() {
+		String all = "50" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "112" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 203, "case TICK_EFP: {"
+the action number related to TICK_EFP case was never generated,
+added a Data Input Stream with action value equivalent to that case
+
+	public static DataInputStream disThree() {
+		String all = "47" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "113" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+ /** Raquel Santos **;/
+com.ib.client.ComboLeg, equals, 69, "else if ( p_other == null )",
+this case is never called due to the type of entry passed. Then pass the value null as an input parameter
+
+public static ComboLeg comboIsNull () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.equals(null);
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 75, "if (m_conId != l_theOther.m_conId ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_conId value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsConId () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_conId = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_conId = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 76, "if (m_ratio != l_theOther.m_ratio ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_ratio value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsRatio () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_ratio = 3;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_ratio = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 77, "if (m_openClose != l_theOther.m_openClose ||",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_openClose value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsOpenClose () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_openClose = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_openClose = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+com.ib.client.ComboLeg, equals, 78, "if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)",
+this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_shortSaleSlot value and pass it as an input parameter
+
+public static ComboLeg comboNotEqualsSaleSlot () {
+    	ComboLeg comboLeg = new ComboLeg();
+    	comboLeg.m_shortSaleSlot = 1;
+    	ComboLeg comboLegOne = new ComboLeg();
+    	comboLegOne.m_shortSaleSlot = 2;
+    	comboLeg.equals(comboLegOne); 
+    	
+    	return comboLeg;
+    }
+
+/*** Arnaldo Morais ***/
 
 com.ib.client.ExecutionFilter, equals, 55, "else if ( this == p_other ) {",
 the equals method was never called comparing the same object
