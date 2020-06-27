@@ -9,6 +9,20 @@ import java.util.Vector;
 
 public class TestValues {
   
+  /*** Felipe de Melo ***/
+  
+  	public static DataInputStream disOne_felipe() {
+		return new DataInputStream(new StringBufferInputStream("-1\0"));
+	}
+
+	public static DataInputStream disTwo_felipe() {
+		return new DataInputStream(new StringBufferInputStream("1\0\0"));
+	}
+	
+	public static DataInputStream disThree_felipe() {
+		return new DataInputStream(new StringBufferInputStream("9" + "\0" + "1" + "\0" + "1" + "\0"));
+	}	
+  
   /*** Claudio Carvalho ***/
 	
 	public static Vector vectorOne() {
@@ -80,12 +94,13 @@ public class TestValues {
     	return under;
     }
 
-    public static DataInputStream disOne_lais() {
+      public static DataInputStream disOne_lais() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }    
 
     /** Arthur Castro **/
     public static DataInputStream disOne_arthur() {
+
 		String action = "10";
 		int integer = 2;
 		String str = "3";
