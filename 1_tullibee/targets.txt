@@ -314,7 +314,7 @@ case never reached beacuse of missing matching id, msgId != 11, added new EReade
 		new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
 	}
   
-/** Borba **/
+/** Matheus Borba **/
 com.ib.client.EReader, processMsg, 159, "int version = readInt();", every time processMsg() is called it receives the same input, which makes it execute only one case.
 
   Adding a appropriate value data to cover ACCT_VALUE, this is the case of number 6 and needs a version number higher then one:
