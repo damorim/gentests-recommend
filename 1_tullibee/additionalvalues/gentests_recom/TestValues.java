@@ -777,7 +777,7 @@ public class TestValues {
 	// }
     
     public static EReader reader2_lucas() {
-        return new EReader(portfolioCaseDataStream(),eWrapperOne(), version()); /* version() defined by Marcela */
+        return new EReader(portfolioCaseDataStream(),eWrapperOne(), version()); 
     }
     
     public static EReader reader3_lucas() {
