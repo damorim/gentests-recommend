@@ -30,6 +30,6 @@ rm $HERE/*.java
       randoop.main.Main gentests \
       --randomseed=999 \
       --classlist ${HERE}/classlist.txt \
-      --time-limit=100 \
+      --time-limit=200 \
       --junit-output-dir=${HERE}
 )
