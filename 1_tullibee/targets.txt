@@ -412,6 +412,7 @@ call to processMsg() only execute first case, raises com.ib.client.EException ca
         return new DataInputStream(new StringBufferInputStream(all));
       }
 
+
 com.ib.client.EReader, processMsg, 553, "for (int ctr = 0; ctr < numberOfElements; ctr++) {", not all branches are covered, no DataInputStream with apropriate value data, extracted method and added new object
 
       public static DataInputStream disOne2() {
@@ -860,3 +861,43 @@ public static ComboLeg comboNotEqualsSaleSlot () {
     	
     	return comboLeg;
     }
+
+/*** Arnaldo Morais ***/
+
+com.ib.client.ExecutionFilter, equals, 55, "else if ( this == p_other ) {",
+the equals method was never called comparing the same object
+
+      public static ExecutionFilter executionFilterEquals55(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		f1.equals(f1);
+		return f1;
+	}
+
+com.ib.client.ExecutionFilter, equals, 58, "else {",
+the equals method was never called comparing different non-nulls objects 
+
+      public static ExecutionFilter executionFilterEquals58(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		ExecutionFilter f2 = new ExecutionFilter();
+		f1.equals(f2);
+		return f1;
+	}
+
+com.ib.client.Order, equals, 168, "if ( this == p_other )",
+the equals method was never called comparing the same object
+
+      public static Order orderEquals168(){
+		Order o1 = new Order();
+		o1.equals(o1);
+		return o1;
+	}
+
+com.ib.client.Order, equals, 171, "if ( p_other == null )",
+the equals method was never called comparing with null
+
+      public static Order orderEquals171(){
+		Order o1 = new Order();
+		o1.equals(null);
+		return o1;
+	}
+

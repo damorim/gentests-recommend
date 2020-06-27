@@ -212,6 +212,7 @@ public class TestValues {
     //     return new DataInputStream(new StringBufferInputStream(all));        
     // }
 
+
   /** Victor Melo **/
   
   	public static DataInputStream readerTickPrice() {
@@ -371,7 +372,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
-	/*** Denini Gabriel ***/
+  /*** Denini Gabriel ***/
 	private static TagValue SingletonTagValue;
 
 	public static TagValue denini4() {
@@ -960,6 +961,32 @@ public static EWrapper eWrapperOne() {
 		String input = switchCase + "\0" + version + "\0" + key + "\0" + val + "\0" + cur + "\0" + accountName + "\0";
 
 		return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+  /*** Arnaldo Morais ***/
+	public static ExecutionFilter executionFilterEquals55(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		f1.equals(f1);
+		return f1;
+	}
+
+	public static ExecutionFilter executionFilterEquals58(){
+		ExecutionFilter f1 = new ExecutionFilter();
+		ExecutionFilter f2 = new ExecutionFilter();
+		f1.equals(f2);
+		return f1;
+	}
+
+	public static Order orderEquals168(){
+		Order o1 = new Order();
+		o1.equals(o1);
+		return o1;
+	}
+
+	public static Order orderEquals171(){
+		Order o1 = new Order();
+		o1.equals(null);
+		return o1;
 	}
 
     
