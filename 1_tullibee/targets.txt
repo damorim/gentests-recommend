@@ -40,6 +40,75 @@ every call to processMsg(1) raises java.io.Exception captured at EReader.run:102
         return new DataInputStream(new StringBufferInputStream(all));
       }
 
+/*** Lucas Barros ***/
+
+com.ib.client.EReader, processMsg, 548, "case SCANNER_DATA: {", every
+call to processMsg() only execute first case, raises com.ib.client.EException captured at EReader.run:102, DataInputStream with invalid data, added new object
+
+                      
+      public static DataInputStream disOne2() {
+        String action = "20";
+        String version = "2";
+        String tickerId = "3";
+        String numberOfElements = "1";
+        String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+com.ib.client.EReader, processMsg, 553, "for (int ctr = 0; ctr < numberOfElements; ctr++) {", not all branches are covered, no DataInputStream with apropriate value data, extracted method and added new object
+
+      public static DataInputStream disOne2() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "1")));
+      }
+
+	public static DataInputStream disOne3() {
+        return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "0")));
+      }
+
+      private static String getScannerDataWithVersionAndNumberOfElements(String version, String numberOfElements) {
+            String action = "20";
+            String tickerId = "3";
+            String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+            return all;
+      }
+
+com.ib.client.EReader, processMsg, 554, "int rank = readInt();", every call to processMsg(20) with numberOfElements > 0 raises java.io.EException captured at EReader.run:102, DataInputStream with invalid data, modified string
+
+      private static String getScannerDataWithVersionAndNumberOfElements(String version, String numberOfElements) {
+		String action = "20";
+            String tickerId = "3";
+            String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
+		
+		if (Integer.parseInt(numberOfElements) > 0) {
+			String rank = "1";
+			
+			all += rank + "\0";
+
+			if (Integer.parseInt(version) >= 3) {
+				String m_conId = "1";
+				all += m_conId + "\0";
+			}
+
+			for (int i = 0; i < 3; i++) {
+				all += "a" + "\0";
+			}
+			
+			String m_strike = "2.8";
+			all += m_strike + "\0";
+
+			for (int i = 0; i < 9; i++) {
+				all += "a" + "\0";
+			} 
+			
+			if (Integer.parseInt(version) >= 2) {
+				String legsStr = "a";
+				all += legsStr + "\0";
+			}
+		}
+
+		return all;
+	}
+
 /** Marcela **/
 
 com.ib.client.EReader, processMsg, 541, "case NEXT_VALID_ID: {", this case is never called due to no DataInputStream being generated that has a valid string to this case, you need to create a new DataInputStream and then use it to create a new EReader:
@@ -188,4 +257,5 @@ forced the EReader instance to call run() in tests
       public static void eReaderThree() {
           new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
 	}
+
 
