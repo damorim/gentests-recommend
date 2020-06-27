@@ -104,7 +104,7 @@ public class TestValues {
 
   /*** Daniel Bastos ***/
 	
-	public static DataInputStream disOne() {
+	public static DataInputStream disOne_db() {
 		String action = "52";
 		String part1 = "2";
 		String part2 = "3";
@@ -112,22 +112,22 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static DataInputStream disTwo() {
+	public static DataInputStream disTwo_db() {
 		String action = "53";
 		String part1 = "2";
 		String all = action + "\0" + part1 + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static void eReaderOne() {
-		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44).run();
+	public static void eReaderOne_db() {
+		new com.ib.client.EReader(disTwo_db(), eWrapperOne(), 44).run();
 	}
 
-	public static void eReaderTwo() {
-		new com.ib.client.EReader(disOne(), eWrapperOne(), 44).run();
+	public static void eReaderTwo_db() {
+		new com.ib.client.EReader(disOne_db(), eWrapperOne(), 44).run();
 	}
 
-	public static void eReaderThree() {
+	public static void eReaderThree_db() {
 		String answer = "11" + "\0" + "7" + "\0";
 		for(int i = 0; i < 23; i++) {
 			answer += "11" + "\0";
