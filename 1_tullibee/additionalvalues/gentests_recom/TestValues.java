@@ -175,9 +175,9 @@ public class TestValues {
 
 	
   
-/** Zaulao **/
+    /** Saulo **/
   
-    public static DataInputStream disOne() {
+    public static DataInputStream disOne_saulo() {
         String action = "1";
         String part1 = "2";
         String part2 = "3";
@@ -189,18 +189,16 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));
     }
 	
-	public static DataInputStream disOne2() {
+	public static DataInputStream disOne2_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
 
-	public static DataInputStream disOne3() {
+	public static DataInputStream disOne3_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "15" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
 	
-    public static EWrapper eWrapperOne() {
-
   
   /*** Eden ***/
   
