@@ -11,10 +11,43 @@ import java.util.Vector;
 
 public class TestValues {
 
-  /** Fernando ***/
+  /** Fernando (fhaa@cin.ufpe.br) ***/
   
-	// case OPEN_ORDER
-	public static DataInputStream disOne_fernando() {
+	// covers EReader.processMsg(2):148-156
+	public static DataInputStream tickSize() {
+		int version = 1;
+		int tickerId = 2;
+		int tickType = 3;
+		int size = 4;
+		String all = "2" + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	// covers EReader.processMsg(17):776-809
+	public static DataInputStream historicalData() {
+		int version = 3;
+		int reqId = 1;
+		String startDateStr = "21/06/2020";
+		String endDateStr = "21/06/2020";
+		int itemCount = 1;
+		String date = "21/06/2020";
+		double open = 1.00;
+		double high = 2.00;
+		double low = 3.00;
+		double close = 4.00;
+		int volume = 5;
+		double WAP = 6.00;
+		String hasGaps = "false";
+		int barCount = 7;
+
+		String all = "17" + "\0" + version + "\0" + reqId + "\0" + startDateStr + "\0" + endDateStr + "\0" + itemCount
+				+ "\0" + date + "\0" + open + "\0" + high + "\0" + low + "\0" + close + "\0" + volume + "\0" + WAP
+				+ "\0" + hasGaps + "\0" + barCount + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	// covers EReader.processMsg(5):340-539
+	public static DataInputStream openOrder() {
 		int version = 22;
 
 		int m_orderId = 1;
