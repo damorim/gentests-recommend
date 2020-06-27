@@ -3,13 +3,29 @@ package gentests_recom;
 import randoop.*;
 import java.io.*;
 import com.ib.client.*;
+import java.util.*;
 import java.net.Socket;
 import java.util.Vector;
 
 public class TestValues {
   
-  
-  
+  /*** Claudio Carvalho ***/
+	
+	public static Vector vectorOne() {
+		return new Vector(Arrays.asList("A", "B", "C"));
+	}
+
+	public static Vector vectorTwo() {
+		return new Vector(Arrays.asList("X", "Y", "Z"));
+	}
+
+	public static Vector vectorThree() {
+		return new Vector(Arrays.asList("X", "Y"));
+	}
+
+	public static Vector vectorFour() {
+		return new Vector();
+	}
    
   
   /** Lucas Cardoso **/
