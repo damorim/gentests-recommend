@@ -265,6 +265,8 @@ com.ib.client.EReader, processMsg, 553, "for (int ctr = 0; ctr < numberOfElement
       public static DataInputStream disOne2() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "1")));
       }
+
+
       
       	public static DataInputStream disOne3() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements("3", "0")));
@@ -493,3 +495,54 @@ forced the EReader instance to call run() in tests
       public static void eReaderThree() {
           new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
 	}
+  
+  /** Arthur Castro **/
+
+com.ib.client.EReader, processMsg, 582, case CONTRACT_DATA: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disOne() {
+		String action = "10";
+		int integer = 2;
+		String str = "3";
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + str + "\0"
+		+ str + "\0"+ str + "\0"+ value + "\0" + str + "\0"
+		+ str + "\0" + str + "\0" + str + "\0" + str + "\0" + str + "\0"
+		+ "\0" + integer + "\0"+ value +"\0" + str + "\0" +str + "\0"+ integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 867, case DELTA_NEUTRAL_VALIDATION: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disTwo() {
+		String action = "56";
+		int integer = 2;
+		double value = 1.999;
+		String all = action + "\0" + integer + "\0" + integer + "\0" + integer + "\0" +
+		value + "\0" + value + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 876, eWrapper().deltaNeutralValidation(reqId, underComp);, Null pointer exception thrown, eWrapper object generated is null by default,
+instantiated eWrapper with the specific input call
+
+  public static void eReaderTwo() {
+		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+  }
+
+com.ib.client.EReader, processMsg, 879, case TICK_SNAPSHOT_END: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream disThree() {
+		String action = "57";
+		int integer = 2;
+		String all = action + "\0" + integer + "\0" + integer + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 883, eWrapper().tickSnapshotEnd(reqId);, Null pointer exception thrown, eWrapper object generated is null by default,
+instantiated eWrapper with the specific input call
+
+  public static void eReaderThree() {
+		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+  }
+
