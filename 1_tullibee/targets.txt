@@ -356,6 +356,46 @@ com.ib.client.EReader, processMsg, 159, "int version = readInt();", every time p
     
     We could create differents factories to enter each if at a time, but its not necessary based on the conditions of them.
   
+/** Victor Melo **/
+
+com.ib.client.EReader, processMsg, 114, case TICK_PRICE: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickPrice() {
+  		String action = "1";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		double price = 20.50;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" +
+  				price + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+com.ib.client.EReader, processMsg, 148, case TICK_SIZE: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickSize() {
+  		String action = "2";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		int size = 5;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+com.ib.client.EReader, processMsg, 158, case TICK_OPTION_COMPUTATION: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
+
+  public static DataInputStream readerTickOptionComputation() {
+  		String action = "3";
+  		int version = 1;
+  		int tickerId = 213;
+  		int tickType = 2;
+  		double impliedVol = 10.00;
+  		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + impliedVol + "\0";
+  		return new DataInputStream(new StringBufferInputStream(all));
+  	}
+
+
 
 /*** Lucas Barros ***/
 
@@ -820,4 +860,3 @@ public static ComboLeg comboNotEqualsSaleSlot () {
     	
     	return comboLeg;
     }
-
