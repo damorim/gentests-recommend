@@ -9,6 +9,31 @@ import java.util.Vector;
 
 public class TestValues {
   
+  /*** Eden ***/
+  
+  	public static DataInputStream disOne_eden() {
+		String action = "01293";
+		String all = action + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream disTwo_eden() {
+		String all = "50" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "112" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	public static DataInputStream disThree_eden() {
+		String all = "47" + "\0";
+		for(int i = 0; i < 10; i++) {
+			all += "113" + "\0";
+		}
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+  
   /*** Felipe de Melo ***/
   
   	public static DataInputStream disOne_felipe() {
@@ -93,6 +118,7 @@ public class TestValues {
     	under.equals(underNotZero);
     	return under;
     }
+
 
       public static DataInputStream disOne_lais() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
@@ -217,7 +243,6 @@ public class TestValues {
     public static DataInputStream msgId() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
-
 
 	public static DataInputStream nextValidIdCase() {
 		String switchCase = "9";
