@@ -10,6 +10,7 @@ import java.util.Vector;
 
 public class TestValues {
 
+
   /** Fernando ***/
   
 	// case OPEN_ORDER
@@ -258,6 +259,7 @@ public class TestValues {
 
         String all = action + "\0" 
 			+ version + "\0";
+
 
 		// fill the needed parameters before m_algoStrategy
 		for (int i = 0; i < 74; i++) {
@@ -1239,6 +1241,43 @@ public static EWrapper eWrapperOne() {
 	return orderStateOne;
     }
 
+/*** Rodrigo ***/
+  
+		public static DataInputStream disOneScanner() {
+			String action = "19";
+			String part1 = "1";
+			String part2 = "xmlfile";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static DataInputStream disOneFundamental() {
+			String action = "51";
+			String part1 = "1";
+			String part2 = "2";
+			String part3 = "3";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0";
+
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static DataInputStream disOneTime() {
+			String action = "49";
+			String part1 = "1";
+			String part2 = "101";
+			String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+			return new DataInputStream(new StringBufferInputStream(all));
+		}
+
+		public static void eReaderScanner() {
+			new com.ib.client.EReader(disOneScanner(), eWrapperOne(), 13).run();
+		}
+
+		public static void eReaderTime() {
+			new com.ib.client.EReader(disOneTime(), eWrapperOne(), 13).run();
+		}
 
   
 }
