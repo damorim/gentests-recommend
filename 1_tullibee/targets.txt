@@ -127,6 +127,45 @@ The coverage was never increased because randoop generates random entries every 
       for (int i = 0; i < 50; i ++) {
         tick.getField(i);
       }
+
+/*** Zaulao ***/
+
+com.ib.client.EReader, processMsg, 159, "int version = readInt();", every call to processMsg() only execute first case, no DataInputStream with apropriate value data,
+adding copy of method with new values
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));        
+      }
+
+com.ib.client.EReader, processMsg, 164, "impliedVol = Double.MAX_VALUE;", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+modified string
+
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "-3.05" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+com.ib.client.EReader, processMsg, 166, "double delta = readDouble();", error by missing value on string, no DataInputStream with apropriate value data,
+modified string
+
+	public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "-3.05" + "\0" + "4.45" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+
+com.ib.client.EReader, processMsg, 173, "modelPrice = readDouble();", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+modified string
+
+      public static DataInputStream disOne2() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
+com.ib.client.EReader, processMsg, 176, "modelPrice = pvDividend = Double.MAX_VALUE;", not all branches are covered when the program reaches the TICK_OPTION_COMPUTATION case, no DataInputStream with apropriate value data,
+adding copy of method with new values
+      public static DataInputStream disOne3() {
+            String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "15" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
+            return new DataInputStream(new StringBufferInputStream(all));
+      }
       
       return tick;
     }   
