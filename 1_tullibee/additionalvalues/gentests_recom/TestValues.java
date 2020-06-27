@@ -26,7 +26,69 @@ public class TestValues {
 	public static Vector vectorFour() {
 		return new Vector();
 	}
-   
+
+    /** Lais **/
+  
+    public static TickType tickTypeOne () {
+    	TickType tick = new TickType();
+    	for (int i = 0; i < 50; i ++) {
+    		tick.getField(i);
+    	}
+    	
+    	return tick;
+    }
+
+        public static UnderComp underCompOne () {
+    	UnderComp under = new UnderComp();
+    	under.m_delta = 0;
+    	under.m_conId = 0;
+    	under.m_price = 0;
+    	UnderComp underZero = new UnderComp();
+    	underZero.m_delta = 0;
+    	underZero.m_conId = 0;
+    	underZero.m_price = 0;
+    	under.equals(underZero);
+    	
+    	return under;
+    }
+    
+    public static UnderComp underCompTwo () {
+    	UnderComp under = new UnderComp();
+    	under.equals(null);
+    	
+    	return under;
+    }
+ 
+    public static UnderComp underCompThree () {
+    	UnderComp under = new UnderComp();
+    	UnderComp underNotZero = new UnderComp();
+    	underNotZero.m_conId = 1;
+    	under.equals(underNotZero);
+    	
+    	return under;
+    }
+    
+    public static UnderComp underCompThree1 () {
+    	UnderComp under = new UnderComp();
+    	UnderComp underNotZero = new UnderComp();
+    	underNotZero.m_delta = 1.0;
+    	under.equals(underNotZero);
+    	
+    	return under;
+    }
+    
+    public static UnderComp underCompThree2 () {
+    	UnderComp under = new UnderComp();
+    	UnderComp underNotZero = new UnderComp();
+    	underNotZero.m_price = 2.0;
+    	under.equals(underNotZero);
+    	
+    	return under;
+    }
+
+    public static DataInputStream disOne() {
+        return new DataInputStream(new StringBufferInputStream("1\0"));
+    }
   
   /** Lucas Cardoso **/
 	
@@ -108,6 +170,7 @@ public class TestValues {
 
     public static EReader reader3() {
 	return new EReader(portfolioCaseDataStream2(),eWrapperOne(), version());
+
     }
 
     public static EReader reader4() {
