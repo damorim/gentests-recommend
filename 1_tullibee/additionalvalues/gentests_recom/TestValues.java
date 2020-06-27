@@ -326,7 +326,7 @@ public class TestValues {
 	   			int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {}
 
 	   	@Override
-	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {}
+	   	public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {
 				EWrapperMsgGenerator.openOrder(orderId, contract, order, orderState);
 		  }
 
