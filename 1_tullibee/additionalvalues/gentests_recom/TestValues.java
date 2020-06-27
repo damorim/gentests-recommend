@@ -776,15 +776,15 @@ public class TestValues {
 	// 	return new EReader(disOne(),eWrapperOne(), 39);
 	// }
     
-    public static EReader reader2() {
+    public static EReader reader2_lucas() {
         return new EReader(portfolioCaseDataStream(),eWrapperOne(), version()); /* version() defined by Marcela */
     }
     
-    public static EReader reader3() {
+    public static EReader reader3_lucas() {
         return new EReader(portfolioCaseDataStream2(),eWrapperOne(), version());
     }
     
-    public static EReader reader4() {
+    public static EReader reader4_lucas() {
         return new EReader(acctUpdateTimeDatastream(), eWrapperOne(), version());
     }
     
