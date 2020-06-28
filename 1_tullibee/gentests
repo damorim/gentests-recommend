@@ -29,6 +29,8 @@ rm $HERE/*.java
  java -Xmx3000m -classpath ${RANDOOP_JAR}:${PROJECT_CLASSPATH} \
       randoop.main.Main gentests \
       --randomseed=999 \
+      --usethreads=true \
+      --call-timeout=2000 \
       --classlist ${HERE}/classlist.txt \
       --time-limit=200 \
       --junit-output-dir=${HERE}

@@ -1,9 +1,48 @@
 Class, Method, Line, LineContent, Observation, Diagnosis, Action
 
+/** Fernando (fhaa@cin.ufpe.br) ***/
+
 com.ib.client.EReader, processMsg, 149, "int version = readInt();", 
 every call to processMsg(2) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 9-17 in TestValues.java file)
-      
-      public static DataInputStream disOne() {
+
+      public static DataInputStream tickSize() {
+		int version = 1;
+		int tickerId = 2;
+		int tickType = 3;
+		int size = 4;
+		String all = "2" + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + size + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 777, "int version = readInt();", 
+every call to processMsg(17) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 21-41 in TestValues.java file)
+
+      public static DataInputStream historicalData() {
+		int version = 3;
+		int reqId = 1;
+		String startDateStr = "21/06/2020";
+		String endDateStr = "21/06/2020";
+		int itemCount = 1;
+		String date = "21/06/2020";
+		double open = 1.00;
+		double high = 2.00;
+		double low = 3.00;
+		double close = 4.00;
+		int volume = 5;
+		double WAP = 6.00;
+		String hasGaps = "false";
+		int barCount = 7;
+
+		String all = "17" + "\0" + version + "\0" + reqId + "\0" + startDateStr + "\0" + endDateStr + "\0" + itemCount
+				+ "\0" + date + "\0" + open + "\0" + high + "\0" + low + "\0" + close + "\0" + volume + "\0" + WAP
+				+ "\0" + hasGaps + "\0" + barCount + "\0" + "-1" + "\0";
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 342, "int version = readInt();", 
+every call to processMsg(5) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 46-204 in TestValues.java file)
+
+      public static DataInputStream openOrder() {
 		int version = 22;
 
 		int m_orderId = 1;
@@ -60,6 +99,7 @@ every call to processMsg(17) raises java.io.EOFException captured at EReader.run
 				+ "\0" + hasGaps + "\0" + barCount + "\0" + "-1" + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
+
 
 com.ib.client.EReader, processMsg, 342, "int version = readInt();", 
 every call to processMsg(5) raises java.io.EOFException captured at EReader.run:102, DataInputStream with incomplete data, modified input (check lines 46-204 in TestValues.java file)
@@ -331,6 +371,15 @@ com.ib.client.EReader, processMsg, 159, "int version = readInt();", every time p
         return new DataInputStream(new StringBufferInputStream(input));
       }
 
+com.ib.client.EReader, processMsg, 123, "int canAutoExecute = 0;",
+every call to processMsg(1) raises java.io.Exception captured at EReader.run:102, DataInputStream with invalid data, modified string
+                 
+      public static DataInputStream disOne() {
+        // Expressing these \0s in a single string does not work. It thinks "\03" is the string "\3" or something.
+        String all = "1" + "\0" + "2" + "\0" + "3" + "\0" + "4" + "\0" + "2.97" + "\0";
+        return new DataInputStream(new StringBufferInputStream(all));
+      }
+
   Adding a appropriate value data to cover ORDER_STATUS, this is the case of number 3, and has 5 if's.
   which means that if version number is higher then 5 to cover all cases.
 
@@ -411,7 +460,6 @@ call to processMsg() only execute first case, raises com.ib.client.EException ca
         String all = action + "\0" + version + "\0" + tickerId + "\0" + numberOfElements + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
       }
-
 
 
 com.ib.client.EReader, processMsg, 553, "for (int ctr = 0; ctr < numberOfElements; ctr++) {", not all branches are covered, no DataInputStream with apropriate value data, extracted method and added new object
@@ -1009,3 +1057,215 @@ public static EWrapper eWrapperTwo() {
 				EWrapperMsgGenerator.openOrder(orderId, contract, order, orderState);
 		   	}
 		..."
+
+/*** Igor dos Santos ***/
+
+com.ib.client.OrderState, equals, 59, "if (this == other)",
+every call to equals never satisfies the condition, other is never equals, assigned other = this
+
+	public static OrderState equalsTwo() throws Exception {
+		Constructor<OrderState> constructor;
+		constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
+		OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
+			"equityWithLoan", 0.5, 0.25,
+			0.75, "commissionCurrency", "warningText");
+			
+		orderState.equals(orderState);
+		return orderState;
+	}
+
+com.ib.client.OrderState, equals, 67, "if (m_commission != state.m_commission ||",
+every call to equals never satisfies the condition, m_commission is ever equals to state.m_commission, assigned m_commission != state.m_commission
+
+	public static OrderState equalsOne() throws Exception {
+		Constructor<OrderState> constructorOne, constructorTwo;
+		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
+		constructorTwo = OrderState.class.getConstructor();
+		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status", "initMargin", "maintMargin",
+			"equityWithLoan", 0.5, 0.25,
+			0.75, "commissionCurrency", "warningText");
+			
+		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
+		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status", "initMargin", "maintMargin",
+			"equityWithLoan", 0.53, 0.27,
+			0.79, "commissionCurrency", "warningText");
+	
+		orderStateOne.equals(orderStateTwo);
+		return orderStateOne;
+	}
+
+com.ib.client.OrderState, equals, 73, "if (Util.StringCompare(m_status, state.m_status) != 0 ||",
+every call to equals never satisfies the condition, m_status is ever equals to state.m_status, assigned m_status != state.m_status
+
+	public static OrderState equalsThree() throws Exception {
+		Constructor<OrderState> constructorOne, constructorTwo;
+		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
+		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
+			"equityWithLoan", 0.5, 0.25,
+			0.75, "commissionCurrency", "warningText");
+			
+		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
+		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status2", "initMargin", "maintMargin",
+			"equityWithLoan", 0.5, 0.25,
+			0.75, "commissionCurrency", "warningText");
+		
+		orderStateOne.equals(orderStateTwo);
+		return orderStateOne;
+	}
+
+/*** Rodrigo ***/
+
+com.ib.client.EReader, processMsg, 811, "int version = readInt();", test coverage still not fully completed(line 813), eWrapper somethimes has received a null value, add test for case 19
+      public static DataInputStream disOneScanner() {
+		String action = "19";
+		String part1 = "1";
+		String part2 = "xmlfile";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 838, "/* int version = */readInt();", test coverage could be fully completed, all 5 lines of case have been covered, add test for case 51
+      public static DataInputStream disOneFundamental() {
+		String action = "51";
+		String part1 = "1";
+		String part2 = "2";
+		String part3 = "3";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 817, "/* int version = */readInt();", test coverage still not fully completed(line 819), same problem involving an invalid eWrapper, add test for case 49
+      public static DataInputStream disOneTime() {
+		String action = "49";
+		String part1 = "1";
+		String part2 = "1000000007";
+		String all = action + "\0" + part1 + "\0" + part2 + "\0";
+
+		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+com.ib.client.EReader, processMsg, 817, "/* int version = */readInt();", test coverage are now fully completed for these 2 cases , forcing a valid eWrapper made null pointer to not happen, add new tests to factory
+      public static void eReaderScanner() {
+		new com.ib.client.EReader(disOneScanner(), eWrapperOne(), 13).run();
+	}
+
+	public static void eReaderTime() {
+		new com.ib.client.EReader(disOneTime(), eWrapperOne(), 13).run();
+	}
+
+/*** Vinicius Siqueira ***/
+com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {",
+the contract was never called, during test runs this part of the code was not reached, create contract class test objects
+    
+    //line 103~105
+    public static Contract brchSecType() {
+      Contract cont0 = new Contract();
+      cont0.m_secType = "Suj01";
+      Contract cont1 = new Contract();
+      cont1.m_secType = "Suj02";
+          
+      cont0.equals(cont1);
+      return cont0;
+    }
+
+com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||",
+the contract was never called, during test runs this part of the code was not reached, create contract class test objects
+
+    //line 107~112
+    public static Contract brch107() {
+      Contract cont0 = new Contract();
+      cont0.m_symbol = "Suj01-sym";
+      cont0.m_exchange = "Suj01-exc";
+      cont0.m_primaryExch = "Suj01-priEx";
+      cont0.m_currency = "Suj01-cur";
+      Contract cont1 = new Contract();
+      cont1.m_symbol = "Suj02-sym";
+      cont1.m_exchange = "Suj02-exc";
+      cont1.m_primaryExch = "Suj02-priEx";
+      cont1.m_currency = "Suj02-cur";
+          
+      cont0.equals(cont1);
+      return cont0;
+    }
+
+com.ib.client.Contract, equals,  128, "if (Util.StringCompare(m_secIdType, l_theOther.m_secIdType) != 0) {",
+the contract was never called, during test runs this part of the code was not reached, create contract class test objects
+
+    //line 128~130
+    public static Contract brchIdType() {
+      Contract cont0 = new Contract();
+      cont0.m_secIdType = "Suj01";
+      Contract cont1 = new Contract();
+      cont1.m_secIdType = "Suj02";
+          
+      cont0.equals(cont1);      
+      return cont0;
+    }
+
+com.ib.client.Contract, equals,  132, "if (Util.StringCompare(m_secId, l_theOther.m_secId) != 0) {",
+the contract was never called, during test runs this part of the code was not reached, create contract class test objects
+
+    //line 132~134
+    public static Contract brchSecId() {
+      Contract cont0 = new Contract();
+      cont0.m_secId = "Suj01";
+      Contract cont1 = new Contract();
+      cont1.m_secId = "Suj02";
+          
+      cont0.equals(cont1);
+      return cont0;
+    } 
+
+/*** Matheus Barbosa ***/
+
+I added three methods that return DataInputStream to cover the cases of "NEWS_BULLETINS, MARKET_DEPTH and MARKET_DEPTH_L2".
+Are they: marketDepth, marketDepthL2 e newsBulletins.
+Each of them uses the necessary attributes to be used in their cases and is identified by the int switchCase.
+
+    public static DataInputStream marketDepth() {
+        int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
+        Double price = 6.70;
+
+        String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+    public static DataInputStream marketDepthL2() {
+        int switchCase = 13, version = 1, id = 3, position = 4, operation = 5, side = 6, size = 9;
+        Double price = 7.80;
+        String marketMaker = "marketMaker";
+
+        String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + marketMaker + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+    public static DataInputStream newsBulletins() {
+        int switchCase = 14, version = 1, newsMsgId = 1, newsMsgType = 2;
+        String newsMessage = "newsMessage", originatingExch = "originatingExch";
+
+        String input = switchCase + "\0" + version + "\0" + newsMsgId + "\0" + newsMsgType + "\0" + newsMessage + "\0" + originatingExch + "\0";
+
+        return new DataInputStream(new StringBufferInputStream(input));
+    }
+
+Upon entering, I realized that it is not possible to run all three tests at the same time. Thus it was necessary to create another EReader.
+Each EReader needs a DataInputStream, EWrapper and serverVersion.
+
+So I created three EReader and for each one I passed a DataInputStream created.
+I also passed the existing EWrapper in the TestValues class and passed a random version to serverVersion.
+
+      java.lang.AssertionError: '39' != '42'
+              at org.junit.Assert.fail(Assert.java:89)
+              at org.junit.Assert.assertTrue(Assert.java:42)
+              at RegressionTest0.test0087(RegressionTest0.java:906)
+
+Upon entering, I identified that there is an assertion that requires serverVersion to be 39.
+In this way I was able to run the tests to cover the three cases.
+
+You can see the screenshot of the execution at this link: https://drive.google.com/file/d/1Yn__epuX6DUw2fOKNzyi-NvWM9OLp0YZ/view?usp=sharing
+
+
