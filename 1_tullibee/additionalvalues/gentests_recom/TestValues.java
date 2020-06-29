@@ -210,6 +210,7 @@ public class TestValues {
 	
   
     /** Saulo **/
+    //TODO: coloque a linha coberta em cada metodo (conforme orientacao classrooom. como rafael, abaixo)
   
     public static DataInputStream disOne_saulo() {
         String action = "1";
@@ -223,12 +224,12 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));
     }
 	
-	public static DataInputStream disOne2_saulo() {
+    public static DataInputStream disOne2_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
 
-	public static DataInputStream disOne3_saulo() {
+    public static DataInputStream disOne3_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "15" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
@@ -481,7 +482,7 @@ public class TestValues {
 	}
     
 	/*** Matheus Barbosa ***/
-  
+    //TODO: coloque a linha coberta junto a cada metodo, por favor. Ver orientacao no classroom. Alguns exemplos no arquivo.
     public static DataInputStream marketDepth_matheusbarbosa() {
         int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
         Double price = 6.70;
@@ -687,6 +688,8 @@ public class TestValues {
 	// criar objetos Singleton. Na pratica a unica coisa que vc. fez foi criar um 
 	// objeto TagValue com duas strings arbitrarias. Eu acredito que Randoop
 	// conseguiria fazer isto sem a ajuda deste seu metodo fabrica. Estranho!
+
+   //TODO: conforme orientacao no classroom, coloca a linha coberta por cada fabrica junto ao nome do metodo, por favor.  -Marcelo
 	private static TagValue SingletonTagValue;
 
 	public static TagValue denini4() {
@@ -1509,7 +1512,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream("1\0"));
 	}
 
-	public static EWrapper eWrapperOne_galileu() {
+	public static EWrapper eWrapperOneGalileu() {
 
 		return new com.ib.client.EWrapper() {
 
