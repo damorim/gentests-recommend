@@ -112,22 +112,8 @@ every call to processMsg(5) raises java.io.EOFException captured at EReader.run:
      
  
  /** Lais **/
- com.ib.client.UnderComp, equals, 50, "m_conId != l_theOther.m_conId"
-This case was never called because the type of entry passed. The  objects was initiated if the same values. So, atributted a diferent one. 
-
-     public static UnderComp underCompOne () {
-      UnderComp under = new UnderComp();
-      under.m_delta = 0;
-      under.m_conId = 0;
-      under.m_price = 0;
-      UnderComp underZero = new UnderComp();
-      underZero.m_delta = 0;
-      underZero.m_conId = 0;
-      underZero.m_price = 0;
-      under.equals(underZero);
-      
-      return under;
-    }
+ com.ib.client.UnderComp, equals, 50, "if(m_conId != l_theOther.m_conId)"
+This case was never called because the type of entry passed. The  objects was initiated with values equals zero for all attibutes. Created a new UnderComp with a m_conId value different from zero. 
      
     public static UnderComp underCompThree () {
       UnderComp under = new UnderComp();
@@ -138,21 +124,8 @@ This case was never called because the type of entry passed. The  objects was in
       return under;
     }
 
-com.ib.client.UnderComp, equals, 53, "m_delta != l_theOther.m_delta"
-This case was never reached because the entrys was never different. So Passed two diferent values as entry (like differente of zero)
-     public static UnderComp underCompOne () {
-      UnderComp under = new UnderComp();
-      under.m_delta = 0;
-      under.m_conId = 0;
-      under.m_price = 0;
-      UnderComp underZero = new UnderComp();
-      underZero.m_delta = 0;
-      underZero.m_conId = 0;
-      underZero.m_price = 0;
-      under.equals(underZero);
-      
-      return under;
-    }
+com.ib.client.UnderComp, equals, 53, "if(m_delta != l_theOther.m_delta)"
+This case was never reached because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_delta value different from zero.
 
     public static UnderComp underCompThree1 () {
       UnderComp under = new UnderComp();
@@ -163,22 +136,8 @@ This case was never reached because the entrys was never different. So Passed tw
       return under;
     }
 
-com.ib.client.UnderComp, equals, 56, "m_price != l_theOther.m_price"
-This case was never reached because the entrys was never different of zero because they were initieted with 0. So Passed two diferent values as entry (like differente of zero)
-
-     public static UnderComp underCompOne () {
-      UnderComp under = new UnderComp();
-      under.m_delta = 0;
-      under.m_conId = 0;
-      under.m_price = 0;
-      UnderComp underZero = new UnderComp();
-      underZero.m_delta = 0;
-      underZero.m_conId = 0;
-      underZero.m_price = 0;
-      under.equals(underZero);
-      
-      return under;
-    }
+com.ib.client.UnderComp, equals, 56, equals "if (m_price != l_theOther.m_price)"
+This case was never called because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_price value different from zero.
 
      public static UnderComp underCompThree2 () {
       UnderComp under = new UnderComp();
