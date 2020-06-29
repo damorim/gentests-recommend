@@ -7,4 +7,8 @@ grep "public" additionalvalues/gentests_recom/TestValues.java | cut -f1 -d\( | r
 grep TestValues RegressionTest*.java | rev | cut -f1 -d\. | rev | sort | uniq | cut -f1 -d\( > covered.txt
 
 ## step 3: find words (tests) that appear in one but not in the other file
-diff --new-line-format="" --unchanged-line-format="" <(sort testnames.txt) <(sort covered.txt)
+diff --new-line-format="" --unchanged-line-format="" <(sort testnames.txt) <(sort covered.txt) | grep -vE "accountDownloadEnd|error|bondContractDetails|connectionClosed|contractDetails|currentTime|execDetails|execDetailsEnd|fundamentalData|historicalData|managedAccount|nextValidId|openOrder|openOrderEnd|orderStatus|realtimeBar|receiveFA|scannerData|scannerDataEndscannerParameters|stopRequested|tickEFP|tickGeneric|tickOptionComputation|tickPrice|tickSize|tickSnapshotEnd|tickString|updateAccountTime|updateAccountValue|updateMktDepth|updateMktDepthL2|updateNewsBulletin|updatePortfolio"
+
+
+
+

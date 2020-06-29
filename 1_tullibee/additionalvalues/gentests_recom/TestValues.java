@@ -1301,7 +1301,7 @@ public class TestValues {
 
 	//TODO: Nao use reflection! -Marcelo
 	
-	//  public static OrderState equalsOne() throws Exception {
+	//  public static OrderState equalsOne_igorsantos() throws Exception {
 		// Constructor<OrderState> constructorOne, constructorTwo;
 		// constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
 		// constructorTwo = OrderState.class.getConstructor();
@@ -1318,7 +1318,7 @@ public class TestValues {
 		// return orderStateOne;
 	//  }
 		
-	//  public static OrderState equalsTwo() throws Exception {
+	//  public static OrderState equalsTwo_igorsantos() throws Exception {
 		// Constructor<OrderState> constructor;
 		// constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
 		// OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
@@ -1329,7 +1329,7 @@ public class TestValues {
 		// return orderState;
 	//  }
 		
-	//  public static OrderState equalsThree() throws Exception {
+	//  public static OrderState equalsThree_igorsantos() throws Exception {
 		// Constructor<OrderState> constructorOne, constructorTwo;
 		// constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
 		// OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
@@ -1439,7 +1439,7 @@ public class TestValues {
 
     
     // //Cover 137
-    // public static Contract linha137() {
+    // public static Contract linha137_viniciusthiago() {
     // 	Contract cont = new Contract();
     // 	Contract cont1 = new Contract();
     // 	Vector v1 = new Vector();
@@ -1455,7 +1455,7 @@ public class TestValues {
     // }
 
     // //Cover 141 and 146
-    // public static Contract linha141e146(){
+    // public static Contract linha141e146_viniciusthiago(){
     // 	UnderComp under1 = new UnderComp();
     // 	under1.m_conId = 1;
     // 	UnderComp under2 = new UnderComp();
@@ -1472,7 +1472,7 @@ public class TestValues {
     // }
 
     // //Cover 141 (branch False)
-    // public static Contract linha141False(){
+    // public static Contract linha141False_viniciusthiago(){
     // 	UnderComp under1 = new UnderComp();
 
     // 	Contract cont = new Contract();
@@ -1487,7 +1487,7 @@ public class TestValues {
     // }
 
     // //Cover 142
-    // public static Contract linha142(){
+    // public static Contract linha142_viniciusthiago(){
     // 	UnderComp under1 = new UnderComp();
     // 	under1.m_conId = 1;
     // 	UnderComp under2 = null;
