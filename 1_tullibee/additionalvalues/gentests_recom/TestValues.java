@@ -1456,10 +1456,11 @@ public class TestValues {
     	return cont1;
     }
 
-    //Cover 137 
-    public static Boolean linha137(){
-    	return returnContractVector1().equals(returnContractVector2());
-    }
+    //Cover 137
+    // TODO: poderia retornar True/False como fabrica de Boolean. Nao pode chamar diretamente equals.
+    // public static Boolean linha137(){ 
+    // 	return returnContractVector1().equals(returnContractVector2());
+    // }
 
     //Cover 141
     public static Contract returnContractUnder1() {
@@ -1467,7 +1468,6 @@ public class TestValues {
     	UnderComp under1 = new UnderComp();
     	under1.m_conId = 1;
     	cont.m_underComp = under1;
-    	
     	return cont;
     }
 
@@ -1480,30 +1480,30 @@ public class TestValues {
     }
 
     //Cover 141
-    public static Boolean linha141(){
-    	return returnContractUnder1().equals(returnContractUnder2());
-    }
+    // public static Boolean linha141(){
+    // 	return returnContractUnder1().equals(returnContractUnder2());
+    // }
 
 
     //Cover 141 (Branch False)
-    public static Boolean linha141False(){
-    	Contract c1 = returnContractUnder1();
-    	Contract c2 = returnContractUnder2();
-    	UnderComp uc1 = new UnderComp();
-    	c1.m_underComp = uc1;
-    	c2.m_underComp = uc1;
-    	return c1.equals(c2);
-    }
+    // public static Boolean linha141False(){
+    // 	Contract c1 = returnContractUnder1();
+    // 	Contract c2 = returnContractUnder2();
+    // 	UnderComp uc1 = new UnderComp();
+    // 	c1.m_underComp = uc1;
+    // 	c2.m_underComp = uc1;
+    // 	return c1.equals(c2);
+    // }
 
     //Cover 142
-    public static Boolean linha142(){
-    	Contract c1 = returnContractUnder1();
-    	Contract c2 = returnContractUnder2();
+    // public static Boolean linha142(){
+    // 	Contract c1 = returnContractUnder1();
+    // 	Contract c2 = returnContractUnder2();
 
-    	c2.m_underComp = null;
+    // 	c2.m_underComp = null;
 
-    	return c1.equals(c2);
-    }
+    // 	return c1.equals(c2);
+    // }
     
 	//Galileu Santos 
 
