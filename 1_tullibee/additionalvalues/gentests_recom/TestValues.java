@@ -1433,6 +1433,72 @@ public class TestValues {
 	// 	return cont0;
 	// }    
 
+    /* Vinicius Thiago (vtls@cin.ufpe.br) */
+
+    //Cover 137
+    public static Contract linha137() {
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+    	Vector v1 = new Vector();
+    	v1.add(1);
+    	Vector v2 = new Vector();
+    	v1.add(2);  	
+    	cont.m_comboLegs = v1;
+    	cont1.m_comboLegs = v2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
+
+    //Cover 141 and 146
+    public static Contract linha141e146(){
+    	UnderComp under1 = new UnderComp();
+    	under1.m_conId = 1;
+    	UnderComp under2 = new UnderComp();
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
+
+    //Cover 141 (branch False)
+    public static Contract linha141False(){
+    	UnderComp under1 = new UnderComp();
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under1;
+
+    	cont.equals(cont1);
+
+    	return cont;	
+    }
+
+    //Cover 142
+    public static Contract linha142(){
+    	UnderComp under1 = new UnderComp();
+    	under1.m_conId = 1;
+    	UnderComp under2 = null;
+
+    	Contract cont = new Contract();
+    	Contract cont1 = new Contract();
+
+    	cont.m_underComp = under1;
+    	cont1.m_underComp = under2;
+
+    	cont.equals(cont1);
+
+    	return cont;
+    }
 
 	//Galileu Santos 
 
