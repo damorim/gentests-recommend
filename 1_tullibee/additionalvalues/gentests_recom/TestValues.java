@@ -1,13 +1,13 @@
 package gentests_recom;
 
 import randoop.*;
-
 import java.io.*;
 import com.ib.client.*;
 import java.net.Socket;
 import java.util.*;
 import java.net.Socket;
 import java.util.Vector;
+import java.lang.reflect.Constructor;
 
 public class TestValues {
     
@@ -234,6 +234,37 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));
     }
 	
+
+	/*** Emmanuel Nery ( efn@cin.ufpe.br ) ***/
+
+	// covers com.ib.client.EWrapperMsgGenerator.tickOptionComputation(int tickerId, int field, double impliedVol,double delta, double modelPrice, double pvDividend):43 (branch true)
+	public static EWrapperMsgGenerator tickOptionComputationFactory() {
+		EWrapperMsgGenerator eWrapperMsgGenerator = new EWrapperMsgGenerator();
+		eWrapperMsgGenerator.tickOptionComputation(1,13,21.1,21.1,21.1,21.1);
+
+		return  eWrapperMsgGenerator;
+	}
+	// covers com.ib.client.EClientSocket.faMsgTypeName(int faDataType):126-133
+	public static EClientSocket faMsgTypeNameFactory() {
+		EClientSocket eClientSocket = new EClientSocket();
+		for (int i = 1; i <= 3; i++) {
+			eClientSocket.faMsgTypeName(i);
+		}
+
+		return  eClientSocket;
+	}
+	// covers com.ib.client.OrderState.equals(Object other):62 (branch true)
+	public static OrderState equalsFactory() throws Exception {
+		Constructor<OrderState> constructor;
+		constructor = OrderState.class.getDeclaredConstructor(Object.class);
+		constructor.setAccessible(true);
+		OrderState orderState = constructor.newInstance();
+
+		orderState.equals(null);
+
+		return  orderState;
+
+	}
     
 	/*** Rafael Mota ***/
   
