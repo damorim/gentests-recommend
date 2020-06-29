@@ -627,7 +627,7 @@ public class TestValues {
     // TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado (ex. cont0.equals abaixo), 
 	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
 
-    public static TickType tickTypeOne_lais () {
+    public static TickType tickTypeOne_lais() {
         TickType tick = new TickType();
         for (int i = 0; i < 50; i ++) {
             tick.getField(i);
@@ -635,7 +635,7 @@ public class TestValues {
         return tick;
     }
     
-    // public static UnderComp underCompOne_lais () {
+    // public static UnderComp underCompOne_lais() {
     //     UnderComp under = new UnderComp();
     //     under.m_delta = 0;
     //     under.m_conId = 0;
@@ -648,13 +648,13 @@ public class TestValues {
     //     return under;
     // }
     
-    // public static UnderComp underCompTwo_lais () {
+    // public static UnderComp underCompTwo_lais() {
     //     UnderComp under = new UnderComp();
     //     under.equals(null);
     //     return under;
     // }
  
-    // public static UnderComp underCompThree_lais () {
+    // public static UnderComp underCompThree_lais() {
     //     UnderComp under = new UnderComp();
     //     UnderComp underNotZero = new UnderComp();
     //     underNotZero.m_conId = 1;
@@ -662,7 +662,7 @@ public class TestValues {
     //     return under;
     // }
     
-    // public static UnderComp underCompThree1_lais () {
+    // public static UnderComp underCompThree1_lais() {
     // 	UnderComp under = new UnderComp();
     // 	UnderComp underNotZero = new UnderComp();
     // 	underNotZero.m_delta = 1.0;
@@ -670,7 +670,7 @@ public class TestValues {
     // 	return under;
     // }
     
-    // public static UnderComp underCompThree2_lais () {
+    // public static UnderComp underCompThree2_lais() {
     // 	UnderComp under = new UnderComp();
     // 	UnderComp underNotZero = new UnderComp();
     // 	underNotZero.m_price = 2.0;
@@ -1179,7 +1179,7 @@ public class TestValues {
 	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
 	
 	// // case else if (p_other == null)
-	// public static ComboLeg comboIsNull_raquel () {
+	// public static ComboLeg comboIsNull_raquel() {
 	// 	ComboLeg comboLeg = new ComboLeg();
 	// 	comboLeg.equals(null);
 		
@@ -1187,7 +1187,7 @@ public class TestValues {
 	// }
 
 	// // case if (m_conId != l_theOther.m_conId)
-	// public static ComboLeg comboNotEqualsConId_raquel () {
+	// public static ComboLeg comboNotEqualsConId_raquel() {
 	// 	ComboLeg comboLeg = new ComboLeg();
 	// 	comboLeg.m_conId = 3;
 	// 	ComboLeg comboLegOne = new ComboLeg();
@@ -1198,7 +1198,7 @@ public class TestValues {
 	// }
 		
 	// // case if (m_ratio != l_theOther.m_ratio) 
-	// public static ComboLeg comboNotEqualsRatio_raquel () {
+	// public static ComboLeg comboNotEqualsRatio_raquel() {
 	// 	ComboLeg comboLeg = new ComboLeg();
 	// 	comboLeg.m_ratio = 3;
 	// 	ComboLeg comboLegOne = new ComboLeg();
@@ -1209,7 +1209,7 @@ public class TestValues {
 	// }
 		
 	// // case if (m_openClose != l_theOther.m_openClose)
-	// public static ComboLeg comboNotEqualsOpenClose_raquel () {
+	// public static ComboLeg comboNotEqualsOpenClose_raquel() {
 	// 	ComboLeg comboLeg = new ComboLeg();
 	// 	comboLeg.m_openClose = 1;
 	// 	ComboLeg comboLegOne = new ComboLeg();
@@ -1220,7 +1220,7 @@ public class TestValues {
 	// }
 		
 	// // case if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)	
-	// public static ComboLeg comboNotEqualsSaleSlot_raquel () {
+	// public static ComboLeg comboNotEqualsSaleSlot_raquel() {
 	// 	ComboLeg comboLeg = new ComboLeg();
 	// 	comboLeg.m_shortSaleSlot = 1;
 	// 	ComboLeg comboLegOne = new ComboLeg();
