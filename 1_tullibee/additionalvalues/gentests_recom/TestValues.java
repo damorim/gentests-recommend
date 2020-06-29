@@ -1437,74 +1437,73 @@ public class TestValues {
 	// }    
 
     /* Vinicius Thiago (vtls@cin.ufpe.br) */
-    // TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado
-    //       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado.
-
     
-    // //Cover 137
-    // public static Contract linha137_viniciusthiago() {
-    // 	Contract cont = new Contract();
-    // 	Contract cont1 = new Contract();
-    // 	Vector v1 = new Vector();
-    // 	v1.add(1);
-    // 	Vector v2 = new Vector();
-    // 	v1.add(2);  	
-    // 	cont.m_comboLegs = v1;
-    // 	cont1.m_comboLegs = v2;
+    //Cover 137
+    public static Contract returnContractVector1() {
+    	Contract cont = new Contract();
+    	Vector v1 = new Vector();
+    	v1.add(1);
+    	cont.m_comboLegs = v1;
+    	return cont;
+    }
 
-    // 	cont.equals(cont1);
+    //Cover 137
+    public static Contract returnContractVector2() {
+    	Contract cont1 = new Contract();
+    	Vector v2 = new Vector();
+    	v2.add(2);  	
+    	cont1.m_comboLegs = v2;
+    	return cont1;
+    }
 
-    // 	return cont;
-    // }
+    //Cover 137 
+    public static Boolean linha137(){
+    	return returnContractVector1().equals(returnContractVector2());
+    }
 
-    // //Cover 141 and 146
-    // public static Contract linha141e146_viniciusthiago(){
-    // 	UnderComp under1 = new UnderComp();
-    // 	under1.m_conId = 1;
-    // 	UnderComp under2 = new UnderComp();
+    //Cover 141
+    public static Contract returnContractUnder1() {
+    	Contract cont = new Contract();
+    	UnderComp under1 = new UnderComp();
+    	under1.m_conId = 1;
+    	cont.m_underComp = under1;
+    	
+    	return cont;
+    }
 
-    // 	Contract cont = new Contract();
-    // 	Contract cont1 = new Contract();
+    //Cover 141
+    public static Contract returnContractUnder2() {
+    	Contract cont1 = new Contract();
+    	UnderComp under2 = new UnderComp();
+    	cont1.m_underComp = under2;
+    	return cont1;
+    }
 
-    // 	cont.m_underComp = under1;
-    // 	cont1.m_underComp = under2;
+    //Cover 141
+    public static Boolean linha141(){
+    	return returnContractUnder1().equals(returnContractUnder2());
+    }
 
-    // 	cont.equals(cont1);
 
-    // 	return cont;
-    // }
+    //Cover 141 (Branch False)
+    public static Boolean linha141False(){
+    	Contract c1 = returnContractUnder1();
+    	Contract c2 = returnContractUnder2();
+    	UnderComp uc1 = new UnderComp();
+    	c1.m_underComp = uc1;
+    	c2.m_underComp = uc1;
+    	return c1.equals(c2);
+    }
 
-    // //Cover 141 (branch False)
-    // public static Contract linha141False_viniciusthiago(){
-    // 	UnderComp under1 = new UnderComp();
+    //Cover 142
+    public static Boolean linha142(){
+    	Contract c1 = returnContractUnder1();
+    	Contract c2 = returnContractUnder2();
 
-    // 	Contract cont = new Contract();
-    // 	Contract cont1 = new Contract();
+    	c2.m_underComp = null;
 
-    // 	cont.m_underComp = under1;
-    // 	cont1.m_underComp = under1;
-
-    // 	cont.equals(cont1);
-
-    // 	return cont;	
-    // }
-
-    // //Cover 142
-    // public static Contract linha142_viniciusthiago(){
-    // 	UnderComp under1 = new UnderComp();
-    // 	under1.m_conId = 1;
-    // 	UnderComp under2 = null;
-
-    // 	Contract cont = new Contract();
-    // 	Contract cont1 = new Contract();
-
-    // 	cont.m_underComp = under1;
-    // 	cont1.m_underComp = under2;
-
-    // 	cont.equals(cont1);
-
-    // 	return cont;
-    // }
+    	return c1.equals(c2);
+    }
     
 	//Galileu Santos 
 
