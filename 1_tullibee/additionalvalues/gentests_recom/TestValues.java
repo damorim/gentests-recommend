@@ -247,6 +247,7 @@ public class TestValues {
     
   /*** Rafael Mota ***/
   
+		// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):137-140
 	public static DataInputStream disOpenOrderBag() {
         String action = "5"; // open order action
         String version = "14";
@@ -268,6 +269,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
+	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):147-153
 	public static DataInputStream disOpenOrderUnderComp() {
         String action = "5"; // open order action
         String version = "20"; // version just enough to fill the UnderComp field
@@ -286,6 +288,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
+	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):155-168
 	public static DataInputStream disOpenOrderAlgo() {
         String action = "5"; // open order action
         String version = "21"; // version enogh to fill the algo fields
@@ -317,6 +320,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
+// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):Used to cover multiple lines
   public static EWrapper eWrapperTwo() {
         return new com.ib.client.EWrapper() {
           
@@ -371,6 +375,7 @@ public class TestValues {
 
             @Override
             public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {
+				EWrapperMsgGenerator.openOrder(orderId, contract, order, orderState);
             }
 
             @Override
@@ -486,7 +491,6 @@ public class TestValues {
 
   }
     
-  
   /*** Matheus Barbosa ***/
   
     public static DataInputStream marketDepth() {
