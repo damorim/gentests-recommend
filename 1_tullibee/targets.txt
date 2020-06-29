@@ -1269,3 +1269,65 @@ In this way I was able to run the tests to cover the three cases.
 You can see the screenshot of the execution at this link: https://drive.google.com/file/d/1Yn__epuX6DUw2fOKNzyi-NvWM9OLp0YZ/view?usp=sharing
 
 
+
+========================================
+			Galileu Santos
+========================================
+
+
+com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
+Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
+
+
+    public static DataInputStream tickGeneric() {
+        String action_TICK_GENERIC = "45",
+                version = "2",
+                tickerId = "7",
+                tickType = "8",
+                value = "2.57";
+   
+        String all = action_TICK_GENERIC+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));
+    }
+
+
+com.ib.client.EReader, processMsg, 193 to 201, "case TICK_STRING: {",
+Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream
+
+
+    public static DataInputStream tickString() {
+        String action_TICK_STRING = "46",
+                version = "1",
+                tickerId = "7",
+                tickType = "5",
+                value = "value";
+
+        String all = action_TICK_STRING+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
+
+        return new DataInputStream(new StringBufferInputStream(all));
+    }
+
+
+com.ib.client.EReader, processMsg, 326 a 338, "case ERR_MSG:",
+Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on variable of type DataInputStream, Unable to create ERR_MSG and condicional version < 2, added new object DataInputStream
+
+    public static DataInputStream errMgs() {
+        String action_ERR_MSG = "4",
+                version = "1",
+                msg = "msg";
+
+        // True Condition
+        String errTrue = action_ERR_MSG+"\0"+version+"\0"+msg+"\0";
+
+        // False Condition
+        version = "5";
+        String id = "5",
+                errorCode = "1",
+                errorMsg = "errorMsg";
+
+        String errFalse = action_ERR_MSG+"\0"+version+"\0"+id+"\0"+errorCode+"\0"+errorMsg+"\0";
+
+
+        return new DataInputStream(new StringBufferInputStream(errTrue + errFalse));
+    }
