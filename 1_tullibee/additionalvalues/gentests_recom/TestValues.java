@@ -1460,7 +1460,7 @@ public static EWrapper eWrapperOne() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
-    public static EWrapper eWrapperOne() {
+    public static EWrapper eWrapperOne_galileu() {
 
         return new com.ib.client.EWrapper() {
 
@@ -1640,15 +1640,15 @@ public static EWrapper eWrapperOne() {
     }
 
     public static EReader readerTickGenericGalileu() {
-        return new EReader(tickGenericGalileu(), eWrapperOne(), versionGalileu());
+        return new EReader(tickGenericGalileu(), eWrapperOne_galileu(), versionGalileu());
     }
 
     public static EReader readerTickStringGalileu() {
-        return new EReader(tickStringGalileu(), eWrapperOne(), versionGalileu());
+        return new EReader(tickStringGalileu(), eWrapperOne_galileu(), versionGalileu());
     }
 
     public static EReader readerErrMgsGalileu() {
-        return new EReader(errMgsGalileu(), eWrapperOne(), versionGalileu());
+        return new EReader(errMgsGalileu(), eWrapperOne_galileu(), versionGalileu());
     }
 
 }
