@@ -1434,72 +1434,75 @@ public class TestValues {
 	// }    
 
     /* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado
+    //       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado.
 
-    //Cover 137
-    public static Contract linha137() {
-    	Contract cont = new Contract();
-    	Contract cont1 = new Contract();
-    	Vector v1 = new Vector();
-    	v1.add(1);
-    	Vector v2 = new Vector();
-    	v1.add(2);  	
-    	cont.m_comboLegs = v1;
-    	cont1.m_comboLegs = v2;
+    
+    // //Cover 137
+    // public static Contract linha137() {
+    // 	Contract cont = new Contract();
+    // 	Contract cont1 = new Contract();
+    // 	Vector v1 = new Vector();
+    // 	v1.add(1);
+    // 	Vector v2 = new Vector();
+    // 	v1.add(2);  	
+    // 	cont.m_comboLegs = v1;
+    // 	cont1.m_comboLegs = v2;
 
-    	cont.equals(cont1);
+    // 	cont.equals(cont1);
 
-    	return cont;
-    }
+    // 	return cont;
+    // }
 
-    //Cover 141 and 146
-    public static Contract linha141e146(){
-    	UnderComp under1 = new UnderComp();
-    	under1.m_conId = 1;
-    	UnderComp under2 = new UnderComp();
+    // //Cover 141 and 146
+    // public static Contract linha141e146(){
+    // 	UnderComp under1 = new UnderComp();
+    // 	under1.m_conId = 1;
+    // 	UnderComp under2 = new UnderComp();
 
-    	Contract cont = new Contract();
-    	Contract cont1 = new Contract();
+    // 	Contract cont = new Contract();
+    // 	Contract cont1 = new Contract();
 
-    	cont.m_underComp = under1;
-    	cont1.m_underComp = under2;
+    // 	cont.m_underComp = under1;
+    // 	cont1.m_underComp = under2;
 
-    	cont.equals(cont1);
+    // 	cont.equals(cont1);
 
-    	return cont;
-    }
+    // 	return cont;
+    // }
 
-    //Cover 141 (branch False)
-    public static Contract linha141False(){
-    	UnderComp under1 = new UnderComp();
+    // //Cover 141 (branch False)
+    // public static Contract linha141False(){
+    // 	UnderComp under1 = new UnderComp();
 
-    	Contract cont = new Contract();
-    	Contract cont1 = new Contract();
+    // 	Contract cont = new Contract();
+    // 	Contract cont1 = new Contract();
 
-    	cont.m_underComp = under1;
-    	cont1.m_underComp = under1;
+    // 	cont.m_underComp = under1;
+    // 	cont1.m_underComp = under1;
 
-    	cont.equals(cont1);
+    // 	cont.equals(cont1);
 
-    	return cont;	
-    }
+    // 	return cont;	
+    // }
 
-    //Cover 142
-    public static Contract linha142(){
-    	UnderComp under1 = new UnderComp();
-    	under1.m_conId = 1;
-    	UnderComp under2 = null;
+    // //Cover 142
+    // public static Contract linha142(){
+    // 	UnderComp under1 = new UnderComp();
+    // 	under1.m_conId = 1;
+    // 	UnderComp under2 = null;
 
-    	Contract cont = new Contract();
-    	Contract cont1 = new Contract();
+    // 	Contract cont = new Contract();
+    // 	Contract cont1 = new Contract();
 
-    	cont.m_underComp = under1;
-    	cont1.m_underComp = under2;
+    // 	cont.m_underComp = under1;
+    // 	cont1.m_underComp = under2;
 
-    	cont.equals(cont1);
+    // 	cont.equals(cont1);
 
-    	return cont;
-    }
-
+    // 	return cont;
+    // }
+    
 	//Galileu Santos 
 
 	public static DataInputStream msgIdBufferStreamGalileu() {
@@ -1643,9 +1646,7 @@ public class TestValues {
 				tickerId = "7",
 				tickType = "8",
 				value = "2.57";
-
 		String all = action_TICK_GENERIC+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
-
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
@@ -1655,9 +1656,7 @@ public class TestValues {
 				tickerId = "7",
 				tickType = "5",
 				value = "value";
-
 		String all = action_TICK_STRING+"\0"+version+"\0"+tickerId+"\0"+tickType+"\0"+value+"\0";
-
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 	
