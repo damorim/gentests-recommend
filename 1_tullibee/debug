@@ -1,0 +1,10 @@
+#!/bin/bash
+
+## step 1: generate file with name of student tests
+grep "public" additionalvalues/gentests_recom/TestValues.java | cut -f1 -d\( | rev | cut -f1 -d" " | rev | sort  | uniq | grep -vE "{|^$" > testnames.txt
+
+## step 2: print line if the name of the test appears
+grep TestValues RegressionTest*.java | rev | cut -f1 -d\. | rev | sort | uniq | cut -f1 -d\( > covered.txt
+
+## step 3: find words (tests) that appear in one but not in the other file
+diff --new-line-format="" --unchanged-line-format="" <(sort testnames.txt) <(sort covered.txt)
