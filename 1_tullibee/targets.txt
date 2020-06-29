@@ -1362,3 +1362,46 @@ Unable to create this.m_underComp or l_theOther.m_underComp non nulls, created  
 
       return cont;
     }
+
+
+com.ib.client.EWrapperMsgGenerator, tickOptionComputation, 43, " if (field == TickType.MODEL_OPTION) {",
+every call to tickOptionComputation() with field != 13 doesn't satisfies the condition, field param with invalid data, assign 13 to field param
+
+     public static EWrapperMsgGenerator tickOptionComputationFactory() {
+        EWrapperMsgGenerator eWrapperMsgGenerator = new EWrapperMsgGenerator();
+        eWrapperMsgGenerator.tickOptionComputation(1,13,21.1,21.1,21.1,21.1);
+        return  eWrapperMsgGenerator;
+
+     }
+
+com.ib.client.EClientSocket, faMsgTypeName, 131, "case ALIASES:",
+every call to faMsgTypeName never assigned faDataType = 3, faDataType param with data != 3, run loop to cover all faDataType types
+
+     public static EClientSocket faMsgTypeNameFactory() {
+     		EClientSocket eClientSocket = new EClientSocket();
+     		for (int i = 1; i <= 3; i++) {
+     			eClientSocket.faMsgTypeName(i);
+     		}
+
+     		return  eClientSocket;
+
+     	}
+
+com.ib.client.OrderState, equals, 62, "if (other == null)",
+every call to equals never satisfies the condition, other always is not null, assigned other = null
+
+    public static OrderState equalsFactory() throws Exception {
+    		Constructor<OrderState> constructor;
+    		constructor = OrderState.class.getDeclaredConstructor(Object.class);
+    		constructor.setAccessible(true);
+    		OrderState orderState = constructor.newInstance();
+
+    		orderState.equals(null);
+
+    		System.out.println("ola");
+    		return  orderState;
+
+    	}
+
+
+
