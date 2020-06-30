@@ -1177,61 +1177,48 @@ public class TestValues {
 
 		}
 		
-	/** Raquel Santos **/
-	// TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado (ex. cont0.equals abaixo), 
-	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
-	
-	// // case else if (p_other == null)
-	// public static ComboLeg comboIsNull_raquel() {
-	// 	ComboLeg comboLeg = new ComboLeg();
-	// 	comboLeg.equals(null);
-		
-	// 	return comboLeg;
-	// }
+	/** Raquel Santos **/ 	
+	// ComboLeg - line 69
+	 public static ComboLeg comboIsNull_raquel() {
+	 	return null;
+	 }
 
-	// // case if (m_conId != l_theOther.m_conId)
-	// public static ComboLeg comboNotEqualsConId_raquel() {
-	// 	ComboLeg comboLeg = new ComboLeg();
-	// 	comboLeg.m_conId = 3;
-	// 	ComboLeg comboLegOne = new ComboLeg();
-	// 	comboLegOne.m_conId = 2;
-	// 	comboLeg.equals(comboLegOne); 
-		
-	// 	return comboLeg;
-	// }
-		
-	// // case if (m_ratio != l_theOther.m_ratio) 
-	// public static ComboLeg comboNotEqualsRatio_raquel() {
-	// 	ComboLeg comboLeg = new ComboLeg();
-	// 	comboLeg.m_ratio = 3;
-	// 	ComboLeg comboLegOne = new ComboLeg();
-	// 	comboLegOne.m_ratio = 2;
-	// 	comboLeg.equals(comboLegOne); 
-		
-	// 	return comboLeg;
-	// }
-		
-	// // case if (m_openClose != l_theOther.m_openClose)
-	// public static ComboLeg comboNotEqualsOpenClose_raquel() {
-	// 	ComboLeg comboLeg = new ComboLeg();
-	// 	comboLeg.m_openClose = 1;
-	// 	ComboLeg comboLegOne = new ComboLeg();
-	// 	comboLegOne.m_openClose = 2;
-	// 	comboLeg.equals(comboLegOne); 
-		
-	// 	return comboLeg;
-	// }
-		
-	// // case if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)	
-	// public static ComboLeg comboNotEqualsSaleSlot_raquel() {
-	// 	ComboLeg comboLeg = new ComboLeg();
-	// 	comboLeg.m_shortSaleSlot = 1;
-	// 	ComboLeg comboLegOne = new ComboLeg();
-	// 	comboLegOne.m_shortSaleSlot = 2;
-	// 	comboLeg.equals(comboLegOne); 
-		
-	// 	return comboLeg;
-	// }
+	// ComboLeg - line 66
+	 public static ComboLeg comboEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 3;	
+		comboLeg.m_ratio = 3;
+		comboLeg.m_action = 3; 
+		comboLeg.m_exchange = 3;
+		comboLeg.m_openClose = 3;
+		comboLeg.m_shortSaleSlot = 3;
+		comboLeg.m_designatedLocation
+	 	return comboLeg;
+	 }
+	
+	 // ComboLeg - line 66 AND line 75 a 80
+	 public static ComboLeg comboEqualsAndNotEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 3;	
+		comboLeg.m_ratio = 3;
+		comboLeg.m_action = 3; 
+		comboLeg.m_exchange = 3;
+		comboLeg.m_openClose = 3;
+		comboLeg.m_shortSaleSlot = 3;
+		comboLeg.m_designatedLocation
+	 	return comboLeg;
+	 }
+
+	// ComboLeg - line 75 a 80
+	 public static ComboLeg comboNotEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 2;	
+		comboLeg.m_ratio = 2;	
+		comboLeg.m_openClose = 2;
+		comboLeg.m_shortSaleSlot = 2;
+	 	return comboLeg; 
+	 }
+
 
 	/** Gabriela **/
 	public static ExecutionFilter executionFilterNull_gabriela() {

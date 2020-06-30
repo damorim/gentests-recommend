@@ -809,66 +809,64 @@ added a Data Input Stream with action value equivalent to that case
 
  /** Raquel Santos **;/
 com.ib.client.ComboLeg, equals, 69, "else if ( p_other == null )",
-this case is never called due to the type of entry passed. Then pass the value null as an input parameter
+this case is never called due to the type of entry passed. Then create one object with the value null
 
-public static ComboLeg comboIsNull () {
-    	ComboLeg comboLeg = new ComboLeg();
-    	comboLeg.equals(null);
-    	
-    	return comboLeg;
-    }
+	public static ComboLeg comboIsNull_raquel() {
+	 	return null;
+	 }
 
-com.ib.client.ComboLeg, equals, 75, "if (m_conId != l_theOther.m_conId ||",
-this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_conId value and pass it as an input parameter
+com.ib.client.ComboLeg, equals, 66, "if ( this == p_other )",
+this case is never called due to the type of entry passed. Then create two objects with the same values
 
-public static ComboLeg comboNotEqualsConId () {
-    	ComboLeg comboLeg = new ComboLeg();
-    	comboLeg.m_conId = 3;
-    	ComboLeg comboLegOne = new ComboLeg();
-    	comboLegOne.m_conId = 2;
-    	comboLeg.equals(comboLegOne); 
-    	
-    	return comboLeg;
-    }
+	public static ComboLeg comboEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 3;	
+		comboLeg.m_ratio = 3;
+		comboLeg.m_action = 3; 
+		comboLeg.m_exchange = 3;
+		comboLeg.m_openClose = 3;
+		comboLeg.m_shortSaleSlot = 3;
+		comboLeg.m_designatedLocation
+	 	return comboLeg;
+	 }
+	
+	 public static ComboLeg comboEqualsAndNotEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 3;	
+		comboLeg.m_ratio = 3;
+		comboLeg.m_action = 3; 
+		comboLeg.m_exchange = 3;
+		comboLeg.m_openClose = 3;
+		comboLeg.m_shortSaleSlot = 3;
+		comboLeg.m_designatedLocation
+	 	return comboLeg;
+	 }
 
-com.ib.client.ComboLeg, equals, 76, "if (m_ratio != l_theOther.m_ratio ||",
-this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_ratio value and pass it as an input parameter
+com.ib.client.ComboLeg, equals, 75-80, "if (m_conId != l_theOther.m_conId || m_ratio != l_theOther.m_ratio ||
+m_openClose != l_theOther.m_openClose || m_shortSaleSlot != l_theOther.m_shortSaleSlot)",
+this case is never called due to the type of entry passed. Then create two objects with the differents values for the attributes: 
+m_conId, m_ratio, m_openClose and m_shortSaleSlot
 
-public static ComboLeg comboNotEqualsRatio () {
-    	ComboLeg comboLeg = new ComboLeg();
-    	comboLeg.m_ratio = 3;
-    	ComboLeg comboLegOne = new ComboLeg();
-    	comboLegOne.m_ratio = 2;
-    	comboLeg.equals(comboLegOne); 
-    	
-    	return comboLeg;
-    }
+	public static ComboLeg comboNotEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 2;	
+		comboLeg.m_ratio = 2;	
+		comboLeg.m_openClose = 2;
+		comboLeg.m_shortSaleSlot = 2;
+	 	return comboLeg; 
+	 }
 
-com.ib.client.ComboLeg, equals, 77, "if (m_openClose != l_theOther.m_openClose ||",
-this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_openClose value and pass it as an input parameter
-
-public static ComboLeg comboNotEqualsOpenClose () {
-    	ComboLeg comboLeg = new ComboLeg();
-    	comboLeg.m_openClose = 1;
-    	ComboLeg comboLegOne = new ComboLeg();
-    	comboLegOne.m_openClose = 2;
-    	comboLeg.equals(comboLegOne); 
-    	
-    	return comboLeg;
-    }
-
-com.ib.client.ComboLeg, equals, 78, "if (m_shortSaleSlot != l_theOther.m_shortSaleSlot)",
-this case is never called due to the type of entry passed. Create a new ComboLeg with a different m_shortSaleSlot value and pass it as an input parameter
-
-public static ComboLeg comboNotEqualsSaleSlot () {
-    	ComboLeg comboLeg = new ComboLeg();
-    	comboLeg.m_shortSaleSlot = 1;
-    	ComboLeg comboLegOne = new ComboLeg();
-    	comboLegOne.m_shortSaleSlot = 2;
-    	comboLeg.equals(comboLegOne); 
-    	
-    	return comboLeg;
-    }
+	public static ComboLeg comboEqualsAndNotEquals_raquel() {
+	 	ComboLeg comboLeg = new ComboLeg();
+	 	comboLeg.m_conId = 3;	
+		comboLeg.m_ratio = 3;
+		comboLeg.m_action = 3; 
+		comboLeg.m_exchange = 3;
+		comboLeg.m_openClose = 3;
+		comboLeg.m_shortSaleSlot = 3;
+		comboLeg.m_designatedLocation
+	 	return comboLeg;
+	 }
 
 /*** Arnaldo Morais ***/
 
