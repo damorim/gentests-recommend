@@ -863,7 +863,7 @@ public class TestValues {
 	/** Aldiberg  does not improve coverage **/
 	
 
-    public static DataInputStream disOneOne() {
+    public static DataInputStream disOneOne_aldiberg() {
 		//case : BOND_CONTRACT_DATA -> Ereader.processMsg(629)
 		String str = "kkeaemen";
 		Double dd = 7.77;
@@ -878,7 +878,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
 	}
 
-	public static DataInputStream disOneTwo() {
+	public static DataInputStream disOneTwo_aldiberg() {
 		//case: ACCT_DOWNLOAD_END -> Ereader.processMsg(856)
 		String action = "54";
 		String interino = "1";
@@ -894,7 +894,7 @@ public class TestValues {
 		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
         return new DataInputStream(new StringBufferInputStream(input));
 	}
-	
+
 	public static EReader eReaderOne_aldiberg(){
         return new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44);
 	}
