@@ -13,7 +13,7 @@ public class TestValues {
     
     /** Fernando (fhaa@cin.ufpe.br) ***/
     
-	// covers EReader.processMsg(2):148-156
+	// covers EReader.processMsg(2):148-156 (CONFIRMED)
 	public static DataInputStream tickSize_fernando() {
 		int version = 1;
 		int tickerId = 2;
@@ -23,7 +23,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
     
-    // covers EReader.processMsg(17):776-809
+    // covers EReader.processMsg(17):776-809 (NOT CONFIRMED)
     public static DataInputStream historicalData_fernando() {
 		int version = 3;
 		int reqId = 1;
@@ -46,7 +46,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
     }
     
-	// covers EReader.processMsg(5):340-539
+	// covers EReader.processMsg(5):340-539 (NOT CONFIRMED. Is this interval correct?)
 	public static DataInputStream openOrder_fernando() {
 		int version = 22;
 
@@ -211,7 +211,7 @@ public class TestValues {
   
     /** Saulo **/
     //TODO: coloque a linha coberta em cada metodo (conforme orientacao classrooom. como rafael, abaixo)
-  
+
     public static DataInputStream disOne_saulo() {
         String action = "1";
         String part1 = "2";
@@ -237,7 +237,7 @@ public class TestValues {
     
 	/*** Rafael Mota ***/
   
-	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):137-140
+	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):137-140 (NOT CONFIRMED)
 	public static DataInputStream disOpenOrderBag_rafaelmota() {
         String action = "5"; // open order action
         String version = "14";
@@ -259,7 +259,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
-	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):147-153
+	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):147-153 (CONFIRMED)
 	public static DataInputStream disOpenOrderUnderComp_rafaelmota() {
         String action = "5"; // open order action
         String version = "20"; // version just enough to fill the UnderComp field
@@ -278,7 +278,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
 
-	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):155-168
+	// covers com.ib.client.EWrapperMsgGenerator.openOrder(int, Contract, Order, OrderState):155-158 (CONFIRMED)
 	public static DataInputStream disOpenOrderAlgo_rafaelmota() {
         String action = "5"; // open order action
         String version = "21"; // version enogh to fill the algo fields
@@ -1012,12 +1012,12 @@ public class TestValues {
 
 		
 	/** Raquel Santos **/ 	
-	// ComboLeg - line 69
+	// ComboLeg - line 69 (CONFIRMED)
 	 public static ComboLeg comboIsNull_raquel() {
 	 	return null;
 	 }
 
-	// ComboLeg - line 66
+	// ComboLeg - line 66 (NOT CONFIRMED)
 	 public static ComboLeg comboEquals_raquel() {
 	 	ComboLeg comboLeg = new ComboLeg();
 	 	comboLeg.m_conId = 3;	
@@ -1030,7 +1030,7 @@ public class TestValues {
 	 	return comboLeg;
 	 }
 	
-	 // ComboLeg - line 66 AND line 75 a 80
+	 // ComboLeg - line 66 AND line 75 a 80 (NOT CONFIRMED)
 	 public static ComboLeg comboEqualsAndNotEquals_raquel() {
 	 	ComboLeg comboLeg = new ComboLeg();
 	 	comboLeg.m_conId = 3;	
@@ -1043,7 +1043,7 @@ public class TestValues {
 	 	return comboLeg;
 	 }
 
-	// ComboLeg - line 75 a 80
+	// ComboLeg - line 75 a 80 (NOT CONFIRMED)
 	 public static ComboLeg comboNotEquals_raquel() {
 	 	ComboLeg comboLeg = new ComboLeg();
 	 	comboLeg.m_conId = 2;	
@@ -1208,9 +1208,7 @@ public class TestValues {
 
 
 	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
-
 	//com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {"
-	//line 103~105
 	public static Contract ContZero_vinicius_siq() {
 		Contract cont0 = new Contract();
 		cont0.m_secType = "BOND";
@@ -1252,7 +1250,7 @@ public class TestValues {
 	}    
 
     /* Vinicius Thiago (vtls@cin.ufpe.br) */
-    
+    //TODO: Indique o nome da classe e metodo, por favor!
     //Cover 137
     public static Contract returnContractVector1() {
     	Contract cont = new Contract();
