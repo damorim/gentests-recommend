@@ -947,16 +947,18 @@ public class TestValues {
     
     
 	/*** Lucas Barros ***/
-    
+	
+    //covers EReader.processMsg(20):548-574
     public static DataInputStream disOne2_lucasbarros() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements_lucasbarros("3", "1")));
     }
-    
+	
+    //covers EReader.processMsg(20):578-579
     public static DataInputStream disOne3_lucasbarros() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements_lucasbarros("3", "0")));
     }
     
-      
+    //covers EReader.processMsg(20):555-557, 572-574
     public static DataInputStream disOne4_lucasbarros() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements_lucasbarros("0", "1")));
     }
