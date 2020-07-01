@@ -223,7 +223,6 @@ public class TestValues {
         String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
-
     //covers com.ib.client.EReader, processMsg, 159-162 (CONFIRMED)
     public static DataInputStream disOne2_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
@@ -483,7 +482,7 @@ public class TestValues {
 	}
     
 	/*** Matheus Barbosa ***/
-    //TODO: coloque a linha coberta junto a cada metodo, por favor. Ver orientacao no classroom. Alguns exemplos no arquivo.
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:722-734
     public static DataInputStream marketDepth_matheusbarbosa() {
         int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
         Double price = 6.70;
@@ -491,6 +490,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
     }
 
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:736-749
     public static DataInputStream marketDepthL2_matheusbarbosa() {
         int switchCase = 13, version = 1, id = 3, position = 4, operation = 5, side = 6, size = 9;
         Double price = 7.80;
@@ -498,7 +498,7 @@ public class TestValues {
         String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + marketMaker + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
         return new DataInputStream(new StringBufferInputStream(input));
     }
-
+	// covers com.ib.client.EReader.processMsg(int msgId). Case NEWS_BULLETINS:751-760
     public static DataInputStream newsBulletins_matheusbarbosa() {
         int switchCase = 14, version = 1, newsMsgId = 1, newsMsgType = 2;
         String newsMessage = "newsMessage", originatingExch = "originatingExch";
@@ -814,11 +814,12 @@ public class TestValues {
     }
   
     /** Marcela **/
-  
+      
     public static DataInputStream msgId_marcela() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
+	// covers EReader.processMsg:541-546
 	public static DataInputStream nextValidIdCase_marcela() {
 		String switchCase = "9";
 		String version = "2";
@@ -827,6 +828,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers EReader.processMsg:761-767
 	public static DataInputStream managedAcctsCase_marcela() {
 		String switchCase = "15";
 		String version = "2";
@@ -835,6 +837,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers EReader.processMsg:768-775
 	public static DataInputStream receiveFaCase_marcela() {
 		String switchCase = "16";
 		String version = "2";
@@ -1205,15 +1208,20 @@ public class TestValues {
 
 
 	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
-
    // TODO: Vinicius, indique de que arquivo sao estas linhas. Nome de classe:Nome de metodo
 	//line 103~105
+	//com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {"
 	public static Contract ContZero_vinicius_siq() {
 		Contract cont0 = new Contract();
 		cont0.m_secType = "BOND";
 		return cont0;
 	}
-
+	
+	//Before I had created a method for each branch of this initializing only the parameters that I wanted to test, now I created only two 		//methods in order to cover these branches.
+	
+	//com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||"
+	//com.ib.client.Contract, equals,  128, "if (Util.StringCompare(m_secIdType, l_theOther.m_secIdType) != 0) {"
+	//com.ib.client.Contract, equals,  132, "if (Util.StringCompare(m_secId, l_theOther.m_secId) != 0) {"
 	//lines 107~112 | 128~130 | 132~134
 	public static Contract ContOne_vinicius_siq() {
 		Contract contrato = new Contract();
@@ -1454,6 +1462,13 @@ public class TestValues {
 
     */
 
+    /*
+
+com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
+Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
+
+    */
+
 	public static DataInputStream tickGenericGalileu() {
 		String action_TICK_GENERIC = "45",
 				version = "2",
@@ -1464,6 +1479,14 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+ 	
+ 	/*
+
+com.ib.client.EReader, processMsg, 193 to 201, "case TICK_STRING: {",
+Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream
+
+    */
+	
 	public static DataInputStream tickStringGalileu() {
 		String action_TICK_STRING = "46",
 				version = "1",
@@ -1474,7 +1497,14 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 	
+	
+	/*
 
+com.ib.client.EReader, processMsg, 326 a 338, "case ERR_MSG:",
+Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on variable of type DataInputStream, Unable to create ERR_MSG and condicional version < 2, added new object DataInputStream
+
+    */
+	
 	public static DataInputStream errMgsGalileu() {
 		String action_ERR_MSG = "4",
 				version = "1",

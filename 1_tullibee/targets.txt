@@ -1094,6 +1094,8 @@ the contract was never called, during test runs this part of the code was not re
 		cont0.m_secType = "BOND";
 		return cont0;
 	}
+	
+Note: Before I had created a method for each branch of this initializing only the parameters that I wanted to test, now I created only two methods in order to cover these branches.
 
 com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||",
 the contract was never called, during test runs this part of the code was not reached, create contract class test objects
