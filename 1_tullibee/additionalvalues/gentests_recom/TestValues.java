@@ -861,10 +861,10 @@ public class TestValues {
 
   
 	/** Aldiberg  does not improve coverage **/
-	// TODO: Nao use metodo void (ver abaixo) -Marcelo
+	
 
     public static DataInputStream disOneOne_aldiberg() {
-		//BOND_CONTRACT_DATA
+		//case : BOND_CONTRACT_DATA -> Ereader.processMsg(629)
 		String str = "kkeaemen";
 		Double dd = 7.77;
 		int interino = 1;
@@ -878,35 +878,34 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
 	}
 
-    public static DataInputStream disOneTwo_aldiberg() {
-        //ACCT_DOWNLOAD_END
-        String action = "54";
-        String interino = "1";
-        String textinput = "berg";
-        String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
+	public static DataInputStream disOneTwo_aldiberg() {
+		//case: ACCT_DOWNLOAD_END -> Ereader.processMsg(856)
+		String action = "54";
+		String interino = "1";
+		String textinput = "berg";
+		String input =  action + "\0"+ interino + "\0" + textinput+ "\0";
         return new DataInputStream(new StringBufferInputStream(input));
     }
     
-    public static DataInputStream disOneThree_aldiberg() {
-        //EXECUTION_DATA_END
-        String action = "55";
-        String interino = "1";
-        String input =  action + "\0"+ interino +"\0" + interino+ "\0";
+	public static DataInputStream disOneThree_aldiberg() {
+		//case: EXECUTION_DATA_END -> Ereader.processMsg(861)
+		String action = "55";
+		String interino = "1";
+		String input =  action + "\0"+ interino +"\0" + interino+ "\0";
         return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+	public static EReader eReaderOne_aldiberg(){
+        return new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44);
+	}
+
+	public static EReader eReaderTwo_aldiberg(){
+        return new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44);
+	}
+
+	public static EReader eReaderThree_aldiberg(){
+        return new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44);
     }
-	
-    // public static void eReaderOne_aldiberg() {
-    //     new com.ib.client.EReader(disOneOne_aldiberg(), eWrapperOne(), 44).run();
-    // }
-    
-    // public static void eReaderTwo_aldiberg() {
-    //     new com.ib.client.EReader(disOneTwo_aldiberg(), eWrapperOne(), 44).run();
-    // }
-    
-    // public static void eReaderThree_aldiberg() {
-    //     new com.ib.client.EReader(disOneThree_aldiberg(), eWrapperOne(), 44).run();
-    // }
-    
     
 	/*** Daniel Bastos ***/
 	//TODO: Nao use metodo void. Ver abaixo. -Marcelo

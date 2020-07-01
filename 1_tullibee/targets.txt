@@ -623,40 +623,23 @@ input stream with string that covers the case
 	}
 
 com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", NPE throw, eWrapper object sent null,
-instantiated eWrapper with matching input call
+created fabric for eReader object
       public static EReader eReaderOne() {
          return new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44);
 	}
 
 com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", NPE throw at the processMsg call thus not reaching case read, eWrapper object sent null,
-instantiated eWrapper with matching input call
+created fabric for eReader object
       public static EReader eReaderTwo() {
          return new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44);
 	}
 
 com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", NPE throw sometimes because of tests indertemination, eWrapper object sent null,
-instantiated eWrapper with matching input call
+created fabric for eReader object
       public static EReader eReaderThree() {
          return new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44);
 	}
 
-com.ib.client.Ereader, processMsg, 858, "eWrapper().accountDownloadEnd(accountName);", method run sometimes is not being called in test generation,.run() no being called,
-forced the EReader instance to call run() in tests
-      public static void eReaderOne() {
-          new com.ib.client.EReader(disOneOne(), eWrapperOne(), 44).run();
-	}
-
-com.ib.client.Ereader, processMsg, 864, "eWrapper().execDetailsEnd(reqId);", method run sometimes is not being called in test generation, .run() no being called,
-forced the EReader instance to call run() in tests
-      public static void eReaderTwo() {
-          new com.ib.client.EReader(disOneTwo(), eWrapperOne(), 44).run();
-	}
-
-com.ib.client.Ereader, processMsg, 668, "eWrapper().bondContractDetails(reqId, contract);", method run sometimes is not being called in test generation,.run() no being called,
-forced the EReader instance to call run() in tests
-      public static void eReaderThree() {
-          new com.ib.client.EReader(disOneThree(), eWrapperOne(), 44).run();
-	}
   
   /** Arthur Castro **/
 
