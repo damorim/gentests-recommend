@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm RegressionTest*.java
 ./compilevalues
 ./gentests
 ./compiletests
