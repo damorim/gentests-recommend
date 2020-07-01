@@ -211,7 +211,8 @@ public class TestValues {
   
     /** Saulo **/
     //TODO: coloque a linha coberta em cada metodo (conforme orientacao classrooom. como rafael, abaixo)
-  
+  	
+	//covers com.ib.client.EReader, processMsg, 114-123
     public static DataInputStream disOne_saulo() {
         String action = "1";
         String part1 = "2";
@@ -223,12 +224,12 @@ public class TestValues {
         String all = action + "\0" + part1 + "\0" + part2 + "\0" + part3 + "\0" + part4 + "\0" + part5 + "\0" + end + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
-	
+	//covers com.ib.client.EReader, processMsg, 159-173
     public static DataInputStream disOne2_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "13" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
-
+	//com.ib.client.EReader, processMsg, 176
     public static DataInputStream disOne3_saulo() {
         String all = "21" + "\0" + "2" + "\0" + "3" + "\0" + "15" + "\0" + "-3.05" + "\0" + "4.45" + "\0"+ "6.54" + "\0"+ "5.12" + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
