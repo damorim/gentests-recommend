@@ -814,11 +814,12 @@ public class TestValues {
     }
   
     /** Marcela **/
-  
+      
     public static DataInputStream msgId_marcela() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
 
+	// covers EReader.processMsg:541-546
 	public static DataInputStream nextValidIdCase_marcela() {
 		String switchCase = "9";
 		String version = "2";
@@ -827,6 +828,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers EReader.processMsg:761-767
 	public static DataInputStream managedAcctsCase_marcela() {
 		String switchCase = "15";
 		String version = "2";
@@ -835,6 +837,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers EReader.processMsg:768-775
 	public static DataInputStream receiveFaCase_marcela() {
 		String switchCase = "16";
 		String version = "2";
