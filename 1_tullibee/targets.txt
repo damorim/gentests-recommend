@@ -291,26 +291,15 @@ DataInputStream (disOne()) and valid EWrapper
 		return new com.ib.client.EReader(disOne(), eWrapperOne(), 44);
 	}
 
-com.ib.client.EReader, processMsg, 847, "eWrapper().contractDetailsEnd(reqId);",
-eWrapper generated but never reached line 847, EReader.run() never called, added .run() call to each method
-
-      public static void eReaderOne() {
-		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44).run();
-	}
-
-	public static void eReaderTwo() {
-		new com.ib.client.EReader(disOne(), eWrapperOne(), 44).run();
-	}
-
 com.ib.client.EReader, processMsg, 671, "case EXECUTION_DATA: {",
-case never reached beacuse of missing matching id, msgId != 11, added new EReader.run() matching properties
+case never reached beacuse of missing matching id, msgId != 11, added new EReader factory matching properties
 
-      public static void eReaderThree() {
+      public static EReader eReaderThree() {
 		String answer = "11" + "\0" + "7" + "\0";
 		for(int i = 0; i < 22; i++) {
 			answer += "11" + "\0";
 		}
-		new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
+		return new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44);
 	}
   
 /** Matheus Borba **/

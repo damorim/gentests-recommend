@@ -925,21 +925,21 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));
     }
     
-    // public static void eReaderOne_db() {
-    //     new com.ib.client.EReader(disTwo_db(), eWrapperOne(), 44).run();
-    // }
+    public static EReader eReaderOne_db() {
+        return new com.ib.client.EReader(disTwo_db(), eWrapperOne(), 44);
+    }
     
-    // public static void eReaderTwo_db() {
-    //     new com.ib.client.EReader(disOne_db(), eWrapperOne(), 44).run();
-    // }
+    public static EReader eReaderTwo_db() {
+        return new com.ib.client.EReader(disOne_db(), eWrapperOne(), 44);
+    }
     
-    // public static void eReaderThree_db() {
-    //     String answer = "11" + "\0" + "7" + "\0";
-    //     for(int i = 0; i < 23; i++) {
-    //         answer += "11" + "\0";
-    //     }
-    //     new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44).run();
-    // }
+    public static EReader eReaderThree_db() {
+        String answer = "11" + "\0" + "7" + "\0";
+        for(int i = 0; i < 23; i++) {
+            answer += "11" + "\0";
+        }
+        return new com.ib.client.EReader(new DataInputStream(new StringBufferInputStream(answer)), eWrapperOne(), 44);
+    }
     
     
 	/*** Lucas Barros ***/
