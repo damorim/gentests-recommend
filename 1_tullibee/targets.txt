@@ -1114,68 +1114,53 @@ com.ib.client.EReader, processMsg, 817, "/* int version = */readInt();", test co
 		new com.ib.client.EReader(disOneTime(), eWrapperOne(), 13).run();
 	}
 
-/*** Vinicius Siqueira ***/
+/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
 com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {",
 the contract was never called, during test runs this part of the code was not reached, create contract class test objects
     
     //line 103~105
-    public static Contract brchSecType() {
-      Contract cont0 = new Contract();
-      cont0.m_secType = "Suj01";
-      Contract cont1 = new Contract();
-      cont1.m_secType = "Suj02";
-          
-      cont0.equals(cont1);
-      return cont0;
-    }
+    public static Contract ContZero_vinicius_siq() {
+		Contract cont0 = new Contract();
+		cont0.m_secType = "BOND";
+		return cont0;
+	}
 
 com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||",
 the contract was never called, during test runs this part of the code was not reached, create contract class test objects
 
-    //line 107~112
-    public static Contract brch107() {
-      Contract cont0 = new Contract();
-      cont0.m_symbol = "Suj01-sym";
-      cont0.m_exchange = "Suj01-exc";
-      cont0.m_primaryExch = "Suj01-priEx";
-      cont0.m_currency = "Suj01-cur";
-      Contract cont1 = new Contract();
-      cont1.m_symbol = "Suj02-sym";
-      cont1.m_exchange = "Suj02-exc";
-      cont1.m_primaryExch = "Suj02-priEx";
-      cont1.m_currency = "Suj02-cur";
-          
-      cont0.equals(cont1);
-      return cont0;
-    }
-
 com.ib.client.Contract, equals,  128, "if (Util.StringCompare(m_secIdType, l_theOther.m_secIdType) != 0) {",
 the contract was never called, during test runs this part of the code was not reached, create contract class test objects
-
-    //line 128~130
-    public static Contract brchIdType() {
-      Contract cont0 = new Contract();
-      cont0.m_secIdType = "Suj01";
-      Contract cont1 = new Contract();
-      cont1.m_secIdType = "Suj02";
-          
-      cont0.equals(cont1);      
-      return cont0;
-    }
 
 com.ib.client.Contract, equals,  132, "if (Util.StringCompare(m_secId, l_theOther.m_secId) != 0) {",
 the contract was never called, during test runs this part of the code was not reached, create contract class test objects
 
-    //line 132~134
-    public static Contract brchSecId() {
-      Contract cont0 = new Contract();
-      cont0.m_secId = "Suj01";
-      Contract cont1 = new Contract();
-      cont1.m_secId = "Suj02";
-          
-      cont0.equals(cont1);
-      return cont0;
-    } 
+    public static Contract ContOne_vinicius_siq() {
+		Contract contrato = new Contract();
+		
+		contrato.m_conId = 37;
+		contrato.m_symbol = "Suj00-sym";
+		// contrato.m_secType = "BAG";
+		contrato.m_secType = "BOND";
+		contrato.m_expiry = "20200730-12:12:12";
+		contrato.m_strike = 2.0;
+		contrato.m_right = "Suj03-right";
+		contrato.m_multiplier = "2";       
+		contrato.m_exchange = "Suj00-exc";
+		contrato.m_currency = "Dollar";
+		contrato.m_localSymbol = "symbol";	
+		contrato.m_primaryExch = "Suj00-priEx";
+		contrato.m_includeExpired = false;                
+		contrato.m_secIdType = "RIC";
+		contrato.m_secId = "38";
+
+		return contrato;
+	}
+
+	public static Contract ContTwo_vinicius_siq() {
+		
+		Contract vazio = new Contract();
+		return vazio;
+	}
 
 /*** Matheus Barbosa ***/
 

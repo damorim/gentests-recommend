@@ -1385,56 +1385,44 @@ public class TestValues {
 		new com.ib.client.EReader(disOneTime_rodrigo(), eWrapperOne_marcelo(), 13).run();
 	}
 
-	/*** Vinicius Siqueira ***/
-	
-	// TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado (ex. cont0.equals abaixo), 
-	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
 
-	// //line 103~105
-	// public static Contract brchSecType_vinicius() {
-	// 	Contract cont0 = new Contract();
-	// 	cont0.m_secType = "Suj01";
-	// 	Contract cont1 = new Contract();
-	// 	cont1.m_secType = "Suj02";			
-	// 	cont0.equals(cont1); // Por que vc. colocou isto aqui? -Marcelo
-	// 	return cont0;
-	// }
+	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
 
-	// //line 107~112
-	// public static Contract brch107_vinicius() {
-	// 	Contract cont0 = new Contract();
-	// 	cont0.m_symbol = "Suj01-sym";
-	// 	cont0.m_exchange = "Suj01-exc";
-	// 	cont0.m_primaryExch = "Suj01-priEx";
-	// 	cont0.m_currency = "Suj01-cur";
-	// 	Contract cont1 = new Contract();
-	// 	cont1.m_symbol = "Suj02-sym";
-	// 	cont1.m_exchange = "Suj02-exc";
-	// 	cont1.m_primaryExch = "Suj02-priEx";
-	// 	cont1.m_currency = "Suj02-cur";
-	// 	cont0.equals(cont1);
-	// 	return cont0;
-	// }
-	
-	// //line 128~130
-	// public static Contract brchIdType_vinicius() {
-	// 	Contract cont0 = new Contract();
-	// 	cont0.m_secIdType = "Suj01";
-	// 	Contract cont1 = new Contract();
-	// 	cont1.m_secIdType = "Suj02";			
-	// 	cont0.equals(cont1);    	
-	// 	return cont0;
-	// }
+	//line 103~105
+	public static Contract ContZero_vinicius_siq() {
+		Contract cont0 = new Contract();
+		cont0.m_secType = "BOND";
+		return cont0;
+	}
 
-	// //line 132~134
-	// public static Contract brchSecId_vinicius() {
-	// 	Contract cont0 = new Contract();
-	// 	cont0.m_secId = "Suj01";
-	// 	Contract cont1 = new Contract();
-	// 	cont1.m_secId = "Suj02";				
-	// 	cont0.equals(cont1);
-	// 	return cont0;
-	// }    
+	//lines 107~112 | 128~130 | 132~134
+	public static Contract ContOne_vinicius_siq() {
+		Contract contrato = new Contract();
+		
+		contrato.m_conId = 37;
+		contrato.m_symbol = "Suj00-sym";
+		// contrato.m_secType = "BAG";
+		contrato.m_secType = "BOND";
+		contrato.m_expiry = "20200730-12:12:12";
+		contrato.m_strike = 2.0;
+		contrato.m_right = "Suj03-right";
+		contrato.m_multiplier = "2";       
+		contrato.m_exchange = "Suj00-exc";
+		contrato.m_currency = "Dollar";
+		contrato.m_localSymbol = "symbol";	
+		contrato.m_primaryExch = "Suj00-priEx";
+		contrato.m_includeExpired = false;                
+		contrato.m_secIdType = "RIC";
+		contrato.m_secId = "38";
+
+		return contrato;
+	}
+
+	public static Contract ContTwo_vinicius_siq() {
+		
+		Contract vazio = new Contract();
+		return vazio;
+	}    
 
     /* Vinicius Thiago (vtls@cin.ufpe.br) */
     
