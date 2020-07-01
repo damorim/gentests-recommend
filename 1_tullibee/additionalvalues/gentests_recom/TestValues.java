@@ -1205,13 +1205,19 @@ public class TestValues {
 
 	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
 
+	//com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {"
 	//line 103~105
 	public static Contract ContZero_vinicius_siq() {
 		Contract cont0 = new Contract();
 		cont0.m_secType = "BOND";
 		return cont0;
 	}
-
+	
+	//Before I had created a method for each branch of this initializing only the parameters that I wanted to test, now I created only two 		//methods in order to cover these branches.
+	
+	//com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||"
+	//com.ib.client.Contract, equals,  128, "if (Util.StringCompare(m_secIdType, l_theOther.m_secIdType) != 0) {"
+	//com.ib.client.Contract, equals,  132, "if (Util.StringCompare(m_secId, l_theOther.m_secId) != 0) {"
 	//lines 107~112 | 128~130 | 132~134
 	public static Contract ContOne_vinicius_siq() {
 		Contract contrato = new Contract();
