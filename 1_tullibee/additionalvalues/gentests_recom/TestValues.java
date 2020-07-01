@@ -1054,15 +1054,19 @@ public class TestValues {
 	 }
 
 
-	/** Gabriela **/
+	/** Gabriela (gab@cin.ufpe.br) **/
+
+	// com.ib.client.ExecutionFilter, equals, 52, "if ( p_other == null )",
 	public static ExecutionFilter executionFilterNull_gabriela() {
 		return null;
 	}
 
+	// com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch)
 	public static Vector vectorNull_gabriela() {
 		return null;
 	}
 
+	// com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),
 	public static Vector vectorFull_gabriela() {
 		Vector v = new Vector();
 		v.add(3);
