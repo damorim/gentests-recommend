@@ -1452,6 +1452,13 @@ public class TestValues {
 
     */
 
+    /*
+
+com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
+Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
+
+    */
+
 	public static DataInputStream tickGenericGalileu() {
 		String action_TICK_GENERIC = "45",
 				version = "2",
@@ -1462,6 +1469,14 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+ 	
+ 	/*
+
+com.ib.client.EReader, processMsg, 193 to 201, "case TICK_STRING: {",
+Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream
+
+    */
+	
 	public static DataInputStream tickStringGalileu() {
 		String action_TICK_STRING = "46",
 				version = "1",
@@ -1472,7 +1487,14 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 	
+	
+	/*
 
+com.ib.client.EReader, processMsg, 326 a 338, "case ERR_MSG:",
+Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on variable of type DataInputStream, Unable to create ERR_MSG and condicional version < 2, added new object DataInputStream
+
+    */
+	
 	public static DataInputStream errMgsGalileu() {
 		String action_ERR_MSG = "4",
 				version = "1",
