@@ -482,7 +482,7 @@ public class TestValues {
 	}
     
 	/*** Matheus Barbosa ***/
-    //TODO: coloque a linha coberta junto a cada metodo, por favor. Ver orientacao no classroom. Alguns exemplos no arquivo.
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:722-734
     public static DataInputStream marketDepth_matheusbarbosa() {
         int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
         Double price = 6.70;
@@ -490,6 +490,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
     }
 
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:736-749
     public static DataInputStream marketDepthL2_matheusbarbosa() {
         int switchCase = 13, version = 1, id = 3, position = 4, operation = 5, side = 6, size = 9;
         Double price = 7.80;
@@ -497,7 +498,7 @@ public class TestValues {
         String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + marketMaker + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
         return new DataInputStream(new StringBufferInputStream(input));
     }
-
+	// covers com.ib.client.EReader.processMsg(int msgId). Case NEWS_BULLETINS:751-760
     public static DataInputStream newsBulletins_matheusbarbosa() {
         int switchCase = 14, version = 1, newsMsgId = 1, newsMsgType = 2;
         String newsMessage = "newsMessage", originatingExch = "originatingExch";

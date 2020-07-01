@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/additionalvalues" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="tullibee" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="lib117" level="project" />
+    <orderEntry type="library" name="lib55" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="lib55" level="project" />
+    <orderEntry type="library" name="tullibee" level="project" />
+    <orderEntry type="library" name="lib117" level="project" />
+    <orderEntry type="module" module-name="1_tullibee1" />
+    <orderEntry type="module" module-name="test56" />
+    <orderEntry type="module" module-name="main35" />
+    <orderEntry type="module" module-name="test56" />
+    <orderEntry type="module" module-name="1_tullibee1" />
+    <orderEntry type="module" module-name="main35" />
+  </component>
+</module>
