@@ -912,7 +912,6 @@ public class TestValues {
     }
     
 	/*** Daniel Bastos ***/
-	//TODO: Nao use metodo void. Ver abaixo. -Marcelo
     
     public static DataInputStream disOne_db() {
         String action = "52";
@@ -928,15 +927,18 @@ public class TestValues {
         String all = action + "\0" + part1 + "\0";
         return new DataInputStream(new StringBufferInputStream(all));
     }
-    
+	
+	// covers: case OPEN_ORDER_END (linha 850)
     public static EReader eReaderOne_db() {
         return new com.ib.client.EReader(disTwo_db(), eWrapper_rafaelmota(), 44);
     }
-    
+	
+	// covers: case CONTRACT_DATA_END (linha 844)
     public static EReader eReaderTwo_db() {
         return new com.ib.client.EReader(disOne_db(), eWrapper_rafaelmota(), 44);
-    }
-    
+	}
+	
+	// covers: case EXECUTION_DATA (linha 582)
     public static EReader eReaderThree_db() {
         String answer = "11" + "\0" + "7" + "\0";
         for(int i = 0; i < 23; i++) {
