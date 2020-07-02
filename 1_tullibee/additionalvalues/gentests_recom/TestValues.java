@@ -593,17 +593,19 @@ public class TestValues {
 	}
 
   
-	/*** Felipe de Melo ***/
-  
-  	public static DataInputStream disOne_felipe() {
+	/*** Filipe Melo ***/
+	// covers com.ib.client.EReader:processMsg:110
+  	public static DataInputStream disOne_filipe() {
 		return new DataInputStream(new StringBufferInputStream("-1\0"));
 	}
 
-	public static DataInputStream disTwo_felipe() {
+	// covers com.ib.client.EReader:readStr:909
+	public static DataInputStream disTwo_filipe() {
 		return new DataInputStream(new StringBufferInputStream("1\0\0"));
 	}
-	
-	public static DataInputStream disThree_felipe() {
+
+	// covers com.ib.client.EReader:processMsg:545
+	public static DataInputStream disThree_filipe() {
 		return new DataInputStream(new StringBufferInputStream("9" + "\0" + "1" + "\0" + "1" + "\0"));
 	}	
   

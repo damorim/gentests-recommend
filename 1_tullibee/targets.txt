@@ -680,7 +680,7 @@ instantiated eWrapper with the specific input call
 		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
   }
 
-/*** Felipe de Melo ***/
+/*** Filipe Melo ***/
 
 com.ib.client.EReader, processMsg, 110, "return false;", 
 no call to processMsg(-1), DataInputStream object with insufficient data, added new object
