@@ -524,7 +524,7 @@ public class TestValues {
 
 
 	/** Victor Melo **/
-  
+	// covers com.ib.client.EReader.processMsg(int msgId). Case TICK_PRICE:114-147
   	public static DataInputStream readerTickPrice_victormelo() {
 		String action = "1";
 		int version = 1;
@@ -536,6 +536,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers com.ib.client.EReader.processMsg(int msgId). Case TICK_SIZE:148-156
 	public static DataInputStream readerTickSize_victormelo() {
 		String action = "2";
 		int version = 1;
@@ -546,6 +547,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	// covers com.ib.client.EReader.processMsg(int msgId). Case TICK_OPTION_COMPUTATION:158-181
 	public static DataInputStream readerTickOptionComputation_victormelo() {
 		String action = "3";
 		int version = 1;
