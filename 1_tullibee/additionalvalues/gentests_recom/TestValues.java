@@ -1195,16 +1195,12 @@ public static EWrapper eWrapperOne() {
 
   /*** Igor dos Santos ***/
   
-    public static OrderState equalsOne() throws Exception {
-	Constructor<OrderState> constructorOne, constructorTwo;
-	constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-	constructorTwo = OrderState.class.getConstructor();
-	OrderState orderStateOne = (OrderState) constructorOne.newInstance("status", "initMargin", "maintMargin",
+    public static OrderState equalsOne() {
+	OrderState orderStateOne = new OrderState("status", "initMargin", "maintMargin",
 		"equityWithLoan", 0.5, 0.25,
 		0.75, "commissionCurrency", "warningText");
 		
-	constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-	OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status", "initMargin", "maintMargin",
+	OrderState orderStateTwo = new OrderState("status", "initMargin", "maintMargin",
 		"equityWithLoan", 0.53, 0.27,
 		0.79, "commissionCurrency", "warningText");
 
@@ -1212,10 +1208,8 @@ public static EWrapper eWrapperOne() {
 	return orderStateOne;
     }
 	
-    public static OrderState equalsTwo() throws Exception {
-	Constructor<OrderState> constructor;
-	constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-	OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
+    public static OrderState equalsTwo() {
+	OrderState orderState = new OrderState("status", "initMargin", "maintMargin",
 		"equityWithLoan", 0.5, 0.25,
 		0.75, "commissionCurrency", "warningText");
 		
@@ -1223,15 +1217,12 @@ public static EWrapper eWrapperOne() {
 	return orderState;
     }
 	
-    public static OrderState equalsThree() throws Exception {
-	Constructor<OrderState> constructorOne, constructorTwo;
-	constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-	OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
+    public static OrderState equalsThree() {
+	OrderState orderStateOne = new OrderState("status1", "initMargin", "maintMargin",
 		"equityWithLoan", 0.5, 0.25,
 		0.75, "commissionCurrency", "warningText");
 		
-	constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-	OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status2", "initMargin", "maintMargin",
+	OrderState orderStateTwo = new OrderState("status2", "initMargin", "maintMargin",
 		"equityWithLoan", 0.5, 0.25,
 		0.75, "commissionCurrency", "warningText");
 	
