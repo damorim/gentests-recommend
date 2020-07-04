@@ -64,7 +64,7 @@ This case was never reached because the type of entry passed. The objects was in
 UnderComp, lines 50, 53 and 56, "if (m_conId != l_theOther.m_conId) /if (m_delta != l_theOther.m_delta) /if (m_price != l_theOther.m_price)" obs.: This objects can reach the last 3 branchs on the ifs.
 This case was never called because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_conId, m_delta and m_price value different from zero.
 
-     public static UnderComp underCompThree_lais() {
+     public static UnderComp underCompThreeQ() {
         UnderComp under = new UnderComp();
         under.m_conId = 2;
         under.m_delta = 2.0;
