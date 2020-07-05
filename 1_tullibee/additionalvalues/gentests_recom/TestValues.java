@@ -706,6 +706,7 @@ public class TestValues {
   
 	/** Lucas Cardoso **/
 	
+	// Helper Function
     public static DataInputStream portfolioCaseDataStream_lucascardoso() {
         String action = "7";
         String version = "7";
@@ -734,6 +735,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
     
+	// Helper Function
     public static DataInputStream portfolioCaseDataStream2_lucascardoso() {
         String action = "7";
         String version = "6";
@@ -761,6 +763,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
     
+	// Helper Function
     public static DataInputStream acctUpdateTimeDatastream_lucascardoso() {
         String action = "8";
         String version = "6";
@@ -770,14 +773,17 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(all));        
     }
    
+	// com.ib.client.EReader, processMsg, 272 - 316 (branch if 308 false)
     public static EReader reader2_lucascardoso() {
         return new EReader(portfolioCaseDataStream_lucascardoso(),eWrapper_rafaelmota(), version_marcela()); 
     }
     
+	// com.ib.client.EReader, processMsg, 309 (branch if 308 true)
     public static EReader reader3_lucascardoso() {
         return new EReader(portfolioCaseDataStream2_lucascardoso(),eWrapper_rafaelmota(), version_marcela());
     }
     
+	// com.ib.client.EReader, processMsg, 320 - 323
     public static EReader reader4_lucascardoso() {
         return new EReader(acctUpdateTimeDatastream_lucascardoso(), eWrapper_rafaelmota(), version_marcela());
     }
