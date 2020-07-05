@@ -112,50 +112,35 @@ every call to processMsg(5) raises java.io.EOFException captured at EReader.run:
      
  
  /** Lais **/
- com.ib.client.UnderComp, equals, 50, "if(m_conId != l_theOther.m_conId)"
-This case was never called because the type of entry passed. The  objects was initiated with values equals zero for all attibutes. Created a new UnderComp with a m_conId value different from zero. 
+ UnderComp, line 44, "if (p_other == null)"
+ This branch wasn't reached because the UnderComp method never is called with a null argument, so call the method with a null UnderComp. Added a new object them.
      
-    public static UnderComp underCompThree () {
-      UnderComp under = new UnderComp();
-      UnderComp underNotZero = new UnderComp();
-      underNotZero.m_conId = 1;
-      under.equals(underNotZero);
-      
-      return under;
+    public static UnderComp underCompNull (){
+        return null;
+    }return under;
     }
 
-com.ib.client.UnderComp, equals, 53, "if(m_delta != l_theOther.m_delta)"
-This case was never reached because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_delta value different from zero.
+UnderComp, lines 50, 53 and 56, " if (m_conId != l_theOther.m_conId)/ if (m_delta != l_theOther.m_delta) /if (m_price != l_theOther.m_price)" obs.: This objects can reach the first 3 branchs on the ifs.
+This case was never reached because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_conId, m_delta and m_price value different from zero.
 
-    public static UnderComp underCompThree1 () {
-      UnderComp under = new UnderComp();
-      UnderComp underNotZero = new UnderComp();
-      underNotZero.m_delta = 1.0;
-      under.equals(underNotZero);
-      
-      return under;
+    public static UnderComp underCompThree() {
+        UnderComp under = new UnderComp();
+        under.m_conId = 1;
+        under.m_delta = 1.0;
+        under.m_price = 1.0;
+        return under;
     }
 
-com.ib.client.UnderComp, equals, 56, equals "if (m_price != l_theOther.m_price)"
-This case was never called because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_price value different from zero.
+UnderComp, lines 50, 53 and 56, "if (m_conId != l_theOther.m_conId) /if (m_delta != l_theOther.m_delta) /if (m_price != l_theOther.m_price)" obs.: This objects can reach the last 3 branchs on the ifs.
+This case was never called because the type of entry passed. The objects was initiated with values equals zero for all attributes. Created a new UnderComp with a m_conId, m_delta and m_price value different from zero.
 
-     public static UnderComp underCompThree2 () {
-      UnderComp under = new UnderComp();
-      UnderComp underNotZero = new UnderComp();
-      underNotZero.m_price = 2.0;
-      under.equals(underNotZero);
-      
-      return under;
+     public static UnderComp underCompThreeQ() {
+        UnderComp under = new UnderComp();
+        under.m_conId = 2;
+        under.m_delta = 2.0;
+        under.m_price = 2.0;
+        return under;
     }
-
-com.ib.client.TickType, getField, 78-130
-The coverage was never increased because randoop generates random entries every time. So, established entries.
-  
-    public static TickType tickTypeOne () {
-      TickType tick = new TickType();
-      for (int i = 0; i < 50; i ++) {
-        tick.getField(i);
-      }
 
 /*** Saulo ***/
 
@@ -198,6 +183,7 @@ adding copy of method with new values
       
       return tick;
     }   
+>>>>>>> upstream/master
  
  
  /** Lucas Cardoso **/
@@ -680,7 +666,7 @@ instantiated eWrapper with the specific input call
 		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
   }
 
-/*** Felipe de Melo ***/
+/*** Filipe Melo ***/
 
 com.ib.client.EReader, processMsg, 110, "return false;", 
 no call to processMsg(-1), DataInputStream object with insufficient data, added new object
@@ -992,55 +978,45 @@ public static EWrapper eWrapperTwo() {
 com.ib.client.OrderState, equals, 59, "if (this == other)",
 every call to equals never satisfies the condition, other is never equals, assigned other = this
 
-	public static OrderState equalsTwo() throws Exception {
-		Constructor<OrderState> constructor;
-		constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		orderState.equals(orderState);
-		return orderState;
-	}
+    public static OrderState equalsTwo() {
+	OrderState orderState = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+		
+	orderState.equals(orderState);
+	return orderState;
+    }
 
 com.ib.client.OrderState, equals, 67, "if (m_commission != state.m_commission ||",
 every call to equals never satisfies the condition, m_commission is ever equals to state.m_commission, assigned m_commission != state.m_commission
 
-	public static OrderState equalsOne() throws Exception {
-		Constructor<OrderState> constructorOne, constructorTwo;
-		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		constructorTwo = OrderState.class.getConstructor();
-		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.53, 0.27,
-			0.79, "commissionCurrency", "warningText");
-	
-		orderStateOne.equals(orderStateTwo);
-		return orderStateOne;
-	}
+    public static OrderState equalsOne() {
+	OrderState orderStateOne = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+		
+	OrderState orderStateTwo = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.53, 0.27,
+		0.79, "commissionCurrency", "warningText");
+
+	orderStateOne.equals(orderStateTwo);
+	return orderStateOne;
+    }
 
 com.ib.client.OrderState, equals, 73, "if (Util.StringCompare(m_status, state.m_status) != 0 ||",
 every call to equals never satisfies the condition, m_status is ever equals to state.m_status, assigned m_status != state.m_status
 
-	public static OrderState equalsThree() throws Exception {
-		Constructor<OrderState> constructorOne, constructorTwo;
-		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status2", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
+    public static OrderState equalsThree() {
+	OrderState orderStateOne = new OrderState("status1", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
 		
-		orderStateOne.equals(orderStateTwo);
-		return orderStateOne;
-	}
+	OrderState orderStateTwo = new OrderState("status2", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+	
+	orderStateOne.equals(orderStateTwo);
+	return orderStateOne;
 
 /*** Rodrigo ***/
 
