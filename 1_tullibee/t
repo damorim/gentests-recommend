@@ -1,0 +1,9 @@
+#!/bin/bash
+
+arr=(43243 132 8888)
+for i in {0..2}
+do
+    seed=${arr[$i]}
+    ./s $seed
+    cp -r html html$i
+done

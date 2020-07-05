@@ -1,4 +1,4 @@
-Class, Method, Line, LineContent, Observation, Diagnosis, Action
+Class, Method, Li<ne, LineContent, Observation, Diagnosis, Action
 
 /** Fernando (fhaa@cin.ufpe.br) ***/
 

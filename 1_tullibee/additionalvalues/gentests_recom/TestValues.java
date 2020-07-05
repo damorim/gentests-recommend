@@ -482,7 +482,7 @@ public class TestValues {
 	}
     
 	/*** Matheus Barbosa ***/
-	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:722-734
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:722-734 (CONFIRMED)
     public static DataInputStream marketDepth_matheusbarbosa() {
         int switchCase = 12, version = 1, id = 2, position = 3, operation = 4, side = 5, size = 8;
         Double price = 6.70;
@@ -490,7 +490,7 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
     }
 
-	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH:736-749
+	// covers com.ib.client.EReader.processMsg(int msgId). Case MARKET_DEPTH_L2:736-749 (CONFIRMED)
     public static DataInputStream marketDepthL2_matheusbarbosa() {
         int switchCase = 13, version = 1, id = 3, position = 4, operation = 5, side = 6, size = 9;
         Double price = 7.80;
@@ -498,7 +498,7 @@ public class TestValues {
         String input = switchCase + "\0" + version + "\0" + id + "\0" + position + "\0" + marketMaker + "\0" + operation + "\0" + side + "\0" + price + "\0" + size + "\0";
         return new DataInputStream(new StringBufferInputStream(input));
     }
-	// covers com.ib.client.EReader.processMsg(int msgId). Case NEWS_BULLETINS:751-760
+	// covers com.ib.client.EReader.processMsg(int msgId). Case NEWS_BULLETINS:751-760 (NOT CONFIRMED)
     public static DataInputStream newsBulletins_matheusbarbosa() {
         int switchCase = 14, version = 1, newsMsgId = 1, newsMsgType = 2;
         String newsMessage = "newsMessage", originatingExch = "originatingExch";
@@ -506,36 +506,43 @@ public class TestValues {
         return new DataInputStream(new StringBufferInputStream(input));
     }
 
-    public static int serverVersion_matheusbarbosa() {
-        return 39;
-    }
 
-    public static EReader reader2_matheusbarbosa() {
-        return new EReader(marketDepth_matheusbarbosa(),eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
-    }
+    // NOT USED!
 
-    public static EReader reader3_matheusbarbosa() {
-        return new EReader(marketDepthL2_matheusbarbosa(),eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
-    }
+    // public static int serverVersion_matheusbarbosa() {
+    //     return 39;
+    // }
 
-    public static EReader reader4_matheusbarbosa() {
-        return new EReader(newsBulletins_matheusbarbosa(), eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
-    }
+    // public static EReader reader2_matheusbarbosa() {
+    //     return new EReader(marketDepth_matheusbarbosa(),eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
+    // }
+
+    // public static EReader reader3_matheusbarbosa() {
+    //     return new EReader(marketDepthL2_matheusbarbosa(),eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
+    // }
+
+    // public static EReader reader4_matheusbarbosa() {
+    //     return new EReader(newsBulletins_matheusbarbosa(), eWrapper_rafaelmota(), serverVersion_matheusbarbosa());
+    // }
 
 
-	/** Victor Melo **/
-  
-  	public static DataInputStream readerTickPrice_victormelo() {
-		String action = "1";
-		int version = 1;
-		int tickerId = 213;
-		int tickType = 2;
-		double price = 20.50;
-		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" +
+    /** Victor Melo **/
+    
+    // com.ib.client.EReader, processMsg, 114, case TICK_PRICE: {,
+    // com.ib.client.EReader, processMsg, 148, case TICK_SIZE: {, 
+    // com.ib.client.EReader, processMsg, 158, case TICK_OPTION_COMPUTATION: {, 
+    
+    public static DataInputStream readerTickPrice_victormelo() {
+        String action = "1";
+        int version = 1;
+        int tickerId = 213;
+        int tickType = 2;
+        double price = 20.50;
+        String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" +
 				price + "\0";
-		return new DataInputStream(new StringBufferInputStream(all));
-	}
-
+        return new DataInputStream(new StringBufferInputStream(all));
+    }
+    
 	public static DataInputStream readerTickSize_victormelo() {
 		String action = "2";
 		int version = 1;
@@ -569,7 +576,9 @@ public class TestValues {
 	}
   
 	/*** Eden ***/
-  
+    // com.ib.client.EReader, processMsg, 887, "default: {",
+    // com.ib.client.EReader, processMsg, 822, "case REAL_TIME_BARS: {" (NOT COVERED)
+    // com.ib.client.EReader, processMsg, 203, "case TICK_EFP: {"       (NOT COVERED)
   	public static DataInputStream disOne_eden() {
 		String action = "01293";
 		String all = action + "\0";
@@ -594,7 +603,9 @@ public class TestValues {
 
   
 	/*** Felipe de Melo ***/
-  
+   // com.ib.client.EReader, processMsg, 110, "return false;",
+   // com.ib.client.EReader, readStr, 909, "return str.length() == 0 ? null : str;",
+   // com.ib.client.EReader, processMsg, 545, "break;",     
   	public static DataInputStream disOne_felipe() {
 		return new DataInputStream(new StringBufferInputStream("-1\0"));
 	}
@@ -626,17 +637,21 @@ public class TestValues {
 	}
     
     /** Lais **/
-    // TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado (ex. cont0.equals abaixo), 
-	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
+    // com.ib.client.UnderComp, equals, 50, "if(m_conId != l_theOther.m_conId)"
+    // com.ib.client.UnderComp, equals, 53, "if(m_delta != l_theOther.m_delta)"
+    // com.ib.client.UnderComp, equals, 56, equals "if (m_price != l_theOther.m_price)"
+    // // com.ib.client.TickType, getField, 78-130 
 
-    public static TickType tickTypeOne_lais() {
-        TickType tick = new TickType();
-        for (int i = 0; i < 50; i ++) {
-            tick.getField(i);
-        }
-        return tick;
-    }
-    
+    // Vc chamou o metodo diretamente, Lais!
+    // public static TickType tickTypeOne_lais() {
+    //     TickType tick = new TickType();
+    //     for (int i = 0; i < 50; i ++) {
+    //         tick.getField(i);
+    //     }
+    //     return tick;
+    // }
+
+    // Vc. chamou o metodo equals diretamente, Lais!
     // public static UnderComp underCompOne_lais() {
     //     UnderComp under = new UnderComp();
     //     under.m_delta = 0;
@@ -679,7 +694,11 @@ public class TestValues {
     // 	under.equals(underNotZero);
     // 	return under;
     // }
-    
+
+
+    // com.ib.client.UnderComp, equals, 50, "if(m_conId != l_theOther.m_conId)"
+    // com.ib.client.UnderComp, equals, 53, "if(m_delta != l_theOther.m_delta)"
+    // com.ib.client.TickType, getField, 78-130       
     public static DataInputStream disOne_lais() {
         return new DataInputStream(new StringBufferInputStream("1\0"));
     }
@@ -736,7 +755,9 @@ public class TestValues {
 
   
 	/** Lucas Cardoso **/
-	
+    // com.ib.client.EReader, processMsg, 271, "case PORTFOLIO_VALUE: {"
+    // com.ib.client.EReader, processMsg, 309, "contract.m_primaryExch = readStr();""
+    // com.ib.client.EReader, processMsg, 319, "case ACCT_UPDATE_TIME: {"
     public static DataInputStream portfolioCaseDataStream_lucascardoso() {
         String action = "7";
         String version = "7";
@@ -912,8 +933,11 @@ public class TestValues {
     }
     
 	/*** Daniel Bastos ***/
-	//TODO: Nao use metodo void. Ver abaixo. -Marcelo
-    
+    // com.ib.client.EReader, processMsg, 844, "case CONTRACT_DATA_END: {",
+    // com.ib.client.EReader, processMsg, 850, "case OPEN_ORDER_END: {",
+    // com.ib.client.EReader, processMsg, 852, "eWrapper().openOrderEnd();",
+    // com.ib.client.EReader, processMsg, 847, "eWrapper().contractDetailsEnd(reqId);",
+    // com.ib.client.EReader, processMsg, 671, "case EXECUTION_DATA: {",    
     public static DataInputStream disOne_db() {
         String action = "52";
         String part1 = "2";
@@ -947,7 +971,9 @@ public class TestValues {
     
     
 	/*** Lucas Barros ***/
-    
+    // com.ib.client.EReader, processMsg, 548,
+    // com.ib.client.EReader, processMsg, 553, 
+    // com.ib.client.EReader, processMsg, 554, 
     public static DataInputStream disOne2_lucasbarros() {
         return new DataInputStream(new StringBufferInputStream(getScannerDataWithVersionAndNumberOfElements_lucasbarros("3", "1")));
     }
@@ -1054,10 +1080,13 @@ public class TestValues {
 	 }
 
 
-	/** Gabriela **/
-	public static ExecutionFilter executionFilterNull_gabriela() {
-		return null;
-	}
+    /** Gabriela **/
+    // com.ib.client.ExecutionFilter, equals, 52, "if ( p_other == null )",
+    // com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (first branch),
+    // com.ib.client.Util, VectorEqualsUnordered, 49-50, "int lhsCount = lhs == null ? 0 : lhs.size();" (second branch),        
+    public static ExecutionFilter executionFilterNull_gabriela() {
+        return null;
+    }
 
 	public static Vector vectorNull_gabriela() {
 		return null;
@@ -1208,9 +1237,7 @@ public class TestValues {
 
 
 	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
-   // TODO: Vinicius, indique de que arquivo sao estas linhas. Nome de classe:Nome de metodo
-	//line 103~105
-	//com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {"
+	//com.ib.client.Contract, equals,  103, "if (Util.StringCompare(m_secType, l_theOther.m_secType) != 0) {" (NOT CONFIRMED. only one branch)
 	public static Contract ContZero_vinicius_siq() {
 		Contract cont0 = new Contract();
 		cont0.m_secType = "BOND";
@@ -1222,7 +1249,7 @@ public class TestValues {
 	//com.ib.client.Contract, equals,  107, "if (Util.StringCompare(m_symbol, l_theOther.m_symbol) != 0 ||"
 	//com.ib.client.Contract, equals,  128, "if (Util.StringCompare(m_secIdType, l_theOther.m_secIdType) != 0) {"
 	//com.ib.client.Contract, equals,  132, "if (Util.StringCompare(m_secId, l_theOther.m_secId) != 0) {"
-	//lines 107~112 | 128~130 | 132~134
+	//lines 107~112 | 128~130 | 132~134 (NOT CONFIRMED. only one branch)
 	public static Contract ContOne_vinicius_siq() {
 		Contract contrato = new Contract();
 		
@@ -1245,6 +1272,7 @@ public class TestValues {
 		return contrato;
 	}
 
+   // TODO: how this is helping??? -Marcelo
 	public static Contract ContTwo_vinicius_siq() {
 		
 		Contract vazio = new Contract();
@@ -1326,148 +1354,12 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream("1\0"));
 	}
 
+    /*  (NOT CONFIRMED on a 10m execution)
 
-    
-    /* This is an empty implementation. duplicate with eWrapper_rafaelmota()
-	public static EWrapper eWrapperOneGalileu() {
-
-		return new com.ib.client.EWrapper() {
-
-		@Override
-		public void error(Exception e) { e.printStackTrace(); }
-
-		@Override
-		public void error(String str) {}
-
-		@Override
-		public void error(int id, int errorCode, String errorMsg) {	}
-
-		@Override
-		public void connectionClosed() {}
-
-		@Override
-		public void tickPrice(int tickerId, int field, double price, int canAutoExecute) {}
-
-		@Override
-		public void tickSize(int tickerId, int field, int size) {}
-
-		@Override
-		public void tickOptionComputation(int tickerId, int field, double impliedVol, double delta,
-				double modelPrice, double pvDividend) {}
-
-		@Override
-		public void tickGeneric(int tickerId, int tickType, double value) {	}
-
-		@Override
-		public void tickString(int tickerId, int tickType, String value) {	}
-
-		@Override
-		public void tickEFP(int tickerId, int tickType, double basisPoints, String formattedBasisPoints,
-				double impliedFuture, int holdDays, String futureExpiry, double dividendImpact,
-				double dividendsToExpiry) {	}
-
-		@Override
-		public void orderStatus(int orderId, String status, int filled, int remaining, double avgFillPrice,
-				int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {	}
-
-		@Override
-		public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {	}
-
-		@Override
-		public void openOrderEnd() {}
-
-		@Override
-		public void updateAccountValue(String key, String value, String currency, String accountName) {	}
-
-		@Override
-		public void updatePortfolio(Contract contract, int position, double marketPrice, double marketValue,
-				double averageCost, double unrealizedPNL, double realizedPNL, String accountName) {	}
-
-		@Override
-		public void updateAccountTime(String timeStamp) {}
-
-		@Override
-		public void accountDownloadEnd(String accountName) {}
-
-		@Override
-		public void nextValidId(int orderId) {}
-
-		@Override
-		public void contractDetails(int reqId, ContractDetails contractDetails) {}
-
-		@Override
-		public void bondContractDetails(int reqId, ContractDetails contractDetails) {}
-
-		@Override
-		public void contractDetailsEnd(int reqId) {	}
-
-		@Override
-		public void execDetails(int reqId, Contract contract, Execution execution) {}
-
-		@Override
-		public void execDetailsEnd(int reqId) {	}
-
-		@Override
-		public void updateMktDepth(int tickerId, int position, int operation, int side, double price, int size) {}
-
-		@Override
-		public void updateMktDepthL2(int tickerId, int position, String marketMaker, int operation, int side,
-				double price, int size) {}
-
-		@Override
-		public void updateNewsBulletin(int msgId, int msgType, String message, String origExchange) {	}
-
-		@Override
-		public void managedAccounts(String accountsList) {	}
-
-		@Override
-		public void receiveFA(int faDataType, String xml) {	}
-
-		@Override
-		public void historicalData(int reqId, String date, double open, double high, double low, double close,
-				int volume, int count, double WAP, boolean hasGaps) {	}
-
-		@Override
-		public void scannerParameters(String xml) {	}
-
-		@Override
-		public void scannerData(int reqId, int rank, ContractDetails contractDetails, String distance,
-				String benchmark, String projection, String legsStr) {	}
-
-		@Override
-		public void scannerDataEnd(int reqId) {	}
-
-		@Override
-		public void realtimeBar(int reqId, long time, double open, double high, double low, double close,
-				long volume, double wap, int count) {	}
-
-		@Override
-		public void currentTime(long time) {	}
-
-		@Override
-		public void fundamentalData(int reqId, String data) {	}
-
-		@Override
-		public void deltaNeutralValidation(int reqId, UnderComp underComp) {	}
-
-		@Override
-		public void tickSnapshotEnd(int reqId) {	}
-
-		@Override
-		public void stopRequested() {		}
-
-		};
-		
-	}
-
-    */
-
-    /*
-
-com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
-Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
-
-    */
+      com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
+      Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
+      
+    */  
 
 	public static DataInputStream tickGenericGalileu() {
 		String action_TICK_GENERIC = "45",
@@ -1480,12 +1372,12 @@ Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable t
 	}
 
  	
- 	/*
+ 	/*   (CONFIRMED)
 
 com.ib.client.EReader, processMsg, 193 to 201, "case TICK_STRING: {",
-Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream
+Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream                   
 
-    */
+    */ 
 	
 	public static DataInputStream tickStringGalileu() {
 		String action_TICK_STRING = "46",
@@ -1498,7 +1390,7 @@ Select switch case TICK_STRING in on variable of type DataInputStream,  Unable t
 	}
 	
 	
-	/*
+	/*  (NOT CONFIRMED)
 
 com.ib.client.EReader, processMsg, 326 a 338, "case ERR_MSG:",
 Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on variable of type DataInputStream, Unable to create ERR_MSG and condicional version < 2, added new object DataInputStream
@@ -1523,6 +1415,9 @@ Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on
 
 		return new DataInputStream(new StringBufferInputStream(errTrue + errFalse));
 	}
+
+
+  // What is that for? -Marcelo
 	
 	public static int versionGalileu() {
 		return 39;
