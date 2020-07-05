@@ -993,11 +993,11 @@ public class TestValues {
 	 	ComboLeg comboLeg = new ComboLeg();
 	 	comboLeg.m_conId = 3;	
 		comboLeg.m_ratio = 3;
-		// comboLeg.m_action = 3; <- This is not of string type
-      //		comboLeg.m_exchange = 3; <- This is not of string type
+		comboLeg.m_action = "3"; 
+        	comboLeg.m_exchange = "3"; 
 		comboLeg.m_openClose = 3;
 		comboLeg.m_shortSaleSlot = 3;
-      //		comboLeg.m_designatedLocation   <- This is not a statement! -Marcelo
+      		comboLeg.m_designatedLocation = "3";   
 	 	return comboLeg;
 	 }
 	
@@ -1006,11 +1006,11 @@ public class TestValues {
 	 	ComboLeg comboLeg = new ComboLeg();
 	 	comboLeg.m_conId = 3;	
 		comboLeg.m_ratio = 3;
-		// comboLeg.m_action = 3; <- This is not of string type
-		// comboLeg.m_exchange = 3; <- This is not of string type
+		comboLeg.m_action = "3"; 
+        	comboLeg.m_exchange = "3"; 
 		comboLeg.m_openClose = 3;
 		comboLeg.m_shortSaleSlot = 3;
-      //		comboLeg.m_designatedLocation <- This is not a statement! -Marcelo
+      		comboLeg.m_designatedLocation = "3";  
 	 	return comboLeg;
 	 }
 
