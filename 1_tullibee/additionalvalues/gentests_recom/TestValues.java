@@ -571,13 +571,14 @@ public class TestValues {
 	}
   
 	/*** Eden ***/
-  
+  	
+	// covers EReader.processMsg:887
   	public static DataInputStream disOne_eden() {
 		String action = "01293";
 		String all = action + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
-
+	// covers EReader.processMsg:882
 	public static DataInputStream disTwo_eden() {
 		String all = "50" + "\0";
 		for(int i = 0; i < 10; i++) {
@@ -585,7 +586,7 @@ public class TestValues {
 		}
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
-
+	// covers EReader.processMsg:203
 	public static DataInputStream disThree_eden() {
 		String all = "47" + "\0";
 		for(int i = 0; i < 10; i++) {
