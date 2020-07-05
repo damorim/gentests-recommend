@@ -626,62 +626,27 @@ public class TestValues {
 	}
     
     /** Lais **/
-    // TODO: (1) Vc. esta chamando metodos nao relacionado a construcao do objeto retornado (ex. cont0.equals abaixo), 
-	//       (2) Vc. esta construindo objetos nao relacionados ao objeto retornado. Por exemplo, vc. retorna cont0 e constroi cont1 que nao tem nenhuma relacao com cont0
-
-    public static TickType tickTypeOne_lais() {
-        TickType tick = new TickType();
-        for (int i = 0; i < 50; i ++) {
-            tick.getField(i);
-        }
-        return tick;
+ // if (p_other == null) - método undercomp
+    public static UnderComp underCompNull_lais (){
+        return null;
     }
-    
-    // public static UnderComp underCompOne_lais() {
-    //     UnderComp under = new UnderComp();
-    //     under.m_delta = 0;
-    //     under.m_conId = 0;
-    //     under.m_price = 0;
-    //     UnderComp underZero = new UnderComp();
-    //     underZero.m_delta = 0;
-    //     underZero.m_conId = 0;
-    //     underZero.m_price = 0;
-    //     under.equals(underZero);
-    //     return under;
-    // }
-    
-    // public static UnderComp underCompTwo_lais() {
-    //     UnderComp under = new UnderComp();
-    //     under.equals(null);
-    //     return under;
-    // }
- 
-    // public static UnderComp underCompThree_lais() {
-    //     UnderComp under = new UnderComp();
-    //     UnderComp underNotZero = new UnderComp();
-    //     underNotZero.m_conId = 1;
-    //     under.equals(underNotZero);
-    //     return under;
-    // }
-    
-    // public static UnderComp underCompThree1_lais() {
-    // 	UnderComp under = new UnderComp();
-    // 	UnderComp underNotZero = new UnderComp();
-    // 	underNotZero.m_delta = 1.0;
-    // 	under.equals(underNotZero);
-    // 	return under;
-    // }
-    
-    // public static UnderComp underCompThree2_lais() {
-    // 	UnderComp under = new UnderComp();
-    // 	UnderComp underNotZero = new UnderComp();
-    // 	underNotZero.m_price = 2.0;
-    // 	under.equals(underNotZero);
-    // 	return under;
-    // }
-    
-    public static DataInputStream disOne_lais() {
-        return new DataInputStream(new StringBufferInputStream("1\0"));
+
+// if (m_conId != l_theOther.m_conId) - if (m_delta != l_theOther.m_delta) - if (m_price != l_theOther.m_price)
+    public static UnderComp underCompThree_lais() {
+        UnderComp under = new UnderComp();
+        under.m_conId = 1;
+        under.m_delta = 1.0;
+        under.m_price = 1.0;
+        return under;
+    }
+
+//  if (m_conId != l_theOther.m_conId) - if (m_delta != l_theOther.m_delta) - if (m_price != l_theOther.m_price)
+    public static UnderComp underCompThreeIf_lais() {
+        UnderComp under = new UnderComp();
+        under.m_conId = 2;
+        under.m_delta = 2.0;
+        under.m_price = 2.0;
+        return under;
     }
 
 	/*** Denini Gabriel ***/
@@ -1330,143 +1295,100 @@ public class TestValues {
     
     /* This is an empty implementation. duplicate with eWrapper_rafaelmota()
 	public static EWrapper eWrapperOneGalileu() {
-
 		return new com.ib.client.EWrapper() {
-
 		@Override
 		public void error(Exception e) { e.printStackTrace(); }
-
 		@Override
 		public void error(String str) {}
-
 		@Override
 		public void error(int id, int errorCode, String errorMsg) {	}
-
 		@Override
 		public void connectionClosed() {}
-
 		@Override
 		public void tickPrice(int tickerId, int field, double price, int canAutoExecute) {}
-
 		@Override
 		public void tickSize(int tickerId, int field, int size) {}
-
 		@Override
 		public void tickOptionComputation(int tickerId, int field, double impliedVol, double delta,
 				double modelPrice, double pvDividend) {}
-
 		@Override
 		public void tickGeneric(int tickerId, int tickType, double value) {	}
-
 		@Override
 		public void tickString(int tickerId, int tickType, String value) {	}
-
 		@Override
 		public void tickEFP(int tickerId, int tickType, double basisPoints, String formattedBasisPoints,
 				double impliedFuture, int holdDays, String futureExpiry, double dividendImpact,
 				double dividendsToExpiry) {	}
-
 		@Override
 		public void orderStatus(int orderId, String status, int filled, int remaining, double avgFillPrice,
 				int permId, int parentId, double lastFillPrice, int clientId, String whyHeld) {	}
-
 		@Override
 		public void openOrder(int orderId, Contract contract, Order order, OrderState orderState) {	}
-
 		@Override
 		public void openOrderEnd() {}
-
 		@Override
 		public void updateAccountValue(String key, String value, String currency, String accountName) {	}
-
 		@Override
 		public void updatePortfolio(Contract contract, int position, double marketPrice, double marketValue,
 				double averageCost, double unrealizedPNL, double realizedPNL, String accountName) {	}
-
 		@Override
 		public void updateAccountTime(String timeStamp) {}
-
 		@Override
 		public void accountDownloadEnd(String accountName) {}
-
 		@Override
 		public void nextValidId(int orderId) {}
-
 		@Override
 		public void contractDetails(int reqId, ContractDetails contractDetails) {}
-
 		@Override
 		public void bondContractDetails(int reqId, ContractDetails contractDetails) {}
-
 		@Override
 		public void contractDetailsEnd(int reqId) {	}
-
 		@Override
 		public void execDetails(int reqId, Contract contract, Execution execution) {}
-
 		@Override
 		public void execDetailsEnd(int reqId) {	}
-
 		@Override
 		public void updateMktDepth(int tickerId, int position, int operation, int side, double price, int size) {}
-
 		@Override
 		public void updateMktDepthL2(int tickerId, int position, String marketMaker, int operation, int side,
 				double price, int size) {}
-
 		@Override
 		public void updateNewsBulletin(int msgId, int msgType, String message, String origExchange) {	}
-
 		@Override
 		public void managedAccounts(String accountsList) {	}
-
 		@Override
 		public void receiveFA(int faDataType, String xml) {	}
-
 		@Override
 		public void historicalData(int reqId, String date, double open, double high, double low, double close,
 				int volume, int count, double WAP, boolean hasGaps) {	}
-
 		@Override
 		public void scannerParameters(String xml) {	}
-
 		@Override
 		public void scannerData(int reqId, int rank, ContractDetails contractDetails, String distance,
 				String benchmark, String projection, String legsStr) {	}
-
 		@Override
 		public void scannerDataEnd(int reqId) {	}
-
 		@Override
 		public void realtimeBar(int reqId, long time, double open, double high, double low, double close,
 				long volume, double wap, int count) {	}
-
 		@Override
 		public void currentTime(long time) {	}
-
 		@Override
 		public void fundamentalData(int reqId, String data) {	}
-
 		@Override
 		public void deltaNeutralValidation(int reqId, UnderComp underComp) {	}
-
 		@Override
 		public void tickSnapshotEnd(int reqId) {	}
-
 		@Override
 		public void stopRequested() {		}
-
 		};
 		
 	}
-
     */
 
     /*
-
 com.ib.client.EReader, processMsg, 184 to 191, "case TICK_GENERIC: {",
 Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable to create TICK_GENERIC, added new object DataInputStream
-
     */
 
 	public static DataInputStream tickGenericGalileu() {
@@ -1481,10 +1403,8 @@ Select switch case TICK_GENRIC in on variable of type DataInputStream,  Unable t
 
  	
  	/*
-
 com.ib.client.EReader, processMsg, 193 to 201, "case TICK_STRING: {",
 Select switch case TICK_STRING in on variable of type DataInputStream,  Unable to create TICK_STRING, added new object DataInputStream
-
     */
 	
 	public static DataInputStream tickStringGalileu() {
@@ -1499,10 +1419,8 @@ Select switch case TICK_STRING in on variable of type DataInputStream,  Unable t
 	
 	
 	/*
-
 com.ib.client.EReader, processMsg, 326 a 338, "case ERR_MSG:",
 Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on variable of type DataInputStream, Unable to create ERR_MSG and condicional version < 2, added new object DataInputStream
-
     */
 	
 	public static DataInputStream errMgsGalileu() {
