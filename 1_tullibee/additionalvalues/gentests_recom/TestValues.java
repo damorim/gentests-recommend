@@ -1054,6 +1054,7 @@ public class TestValues {
 	}
 	
 	/** Matheus Borba **/
+	// EReader, case ACCT_VALUE, 258-269;
 	public static DataInputStream orderStatus_matheusborba() {
 		//first input of values
 		String switchCase = "3", version = "6", id = "2", status = "status", filled = "7", remaining = "8", avgFillPrice = "2.64";
@@ -1063,7 +1064,7 @@ public class TestValues {
 		String secondInput = permId + "\0" + parentId + "\0" + lastFillPrice + "\0" + clientId + "\0" + whyHeld + "\0";	
 		return new DataInputStream(new StringBufferInputStream(firstInput + secondInput));
 	}
-
+	// EReader, case ORDER_STATUS, 220-256;
 	public static DataInputStream acctValue_matheusborba() {
 		String switchCase = "6";
 		String version = "2";
