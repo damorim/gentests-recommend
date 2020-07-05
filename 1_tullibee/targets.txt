@@ -1292,3 +1292,44 @@ Unable to create this.m_underComp or l_theOther.m_underComp non nulls, created  
 
     	return c1.equals(c2);
     }
+
+com.ib.client.EWrapperMsgGenerator, tickOptionComputation, 38, "if(field == TickType.MODEL_OPTION)", field != TickType.MODEL_OPTION, 
+DataInputStream with incomplete data modified input
+
+public static DataInputStream tickOptionComputationFactory() {
+
+		String action = "21", version = "5", tickerId = "13", tickType = "13", impliedVol = "2.57", delta = "2.57",
+				modelPrice = "2.57", pvDividend = "2.57", end = "-1";
+
+		String all = action + "\0" + version + "\0" + tickerId + "\0" + tickType + "\0" + impliedVol + "\0" + delta
+				+ "\0" + modelPrice + "\0" + pvDividend + "\0" + end + "\0";
+		return new DataInputStream(new StringBufferInputStream(all, eWrapperOne_marcelo()));
+
+	}
+
+com.ib.client.EClientSocket, faMsgTypeName, 125, "case GROUPS:", faDataType is not equal to "GROUPS", 
+DataInputStream with incomplete data modified input
+
+public static DataInputStream faMsgTypeNameFactory1() {
+		String switchCase = "16";
+		String version = "2";
+		String type = "1";
+		String xml = "<?xml version='1.0'?>";
+		String input = switchCase + "\0" + version + "\0" + type + "\0" + xml + "\0";
+		return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+com.ib.client.EClientSocket, faMsgTypeName, 125, "case PROFILES:", faDataType is not equal to "PROFILES", 
+DataInputStream with incomplete data modified input
+
+public static DataInputStream faMsgTypeNameFactory2() {
+		String switchCase = "16";
+		String version = "2";
+		String type = "2";
+		String xml = "<?xml version='1.0'?>";
+		String input = switchCase + "\0" + version + "\0" + type + "\0" + xml + "\0";
+		return new DataInputStream(new StringBufferInputStream(input));
+	}
+
+
+
