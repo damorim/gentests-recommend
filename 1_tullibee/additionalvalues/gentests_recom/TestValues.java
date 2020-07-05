@@ -1092,51 +1092,30 @@ public class TestValues {
 
 	/*** Igor dos Santos ***/
 
-	//TODO: Nao use reflection! -Marcelo
-	
-	//  public static OrderState equalsOne_igorsantos() throws Exception {
-		// Constructor<OrderState> constructorOne, constructorTwo;
-		// constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		// constructorTwo = OrderState.class.getConstructor();
-		// OrderState orderStateOne = (OrderState) constructorOne.newInstance("status", "initMargin", "maintMargin",
-		// 	"equityWithLoan", 0.5, 0.25,
-		// 	0.75, "commissionCurrency", "warningText");
-			
-		// constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		// OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status", "initMargin", "maintMargin",
-		// 	"equityWithLoan", 0.53, 0.27,
-		// 	0.79, "commissionCurrency", "warningText");
+	public static OrderState equalsOne() {
+	  OrderState orderStateOne = new OrderState("status", "initMargin", "maintMargin", "equityWithLoan", 0.5, 0.25, 0.75, "commissionCurrency", "warningText");
+		
+	  OrderState orderStateTwo = new OrderState("status", "initMargin", "maintMargin", "equityWithLoan", 0.53, 0.27, 0.79, "commissionCurrency", "warningText");
 
-		// orderStateOne.equals(orderStateTwo);
-		// return orderStateOne;
-	//  }
+	  orderStateOne.equals(orderStateTwo);
+	  return orderStateOne;
+  }
+	
+  public static OrderState equalsTwo() {
+	  OrderState orderState = new OrderState("status", "initMargin", "maintMargin", "equityWithLoan", 0.5, 0.25, 0.75, "commissionCurrency", "warningText");
 		
-	//  public static OrderState equalsTwo_igorsantos() throws Exception {
-		// Constructor<OrderState> constructor;
-		// constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		// OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
-		// 	"equityWithLoan", 0.5, 0.25,
-		// 	0.75, "commissionCurrency", "warningText");
-			
-		// orderState.equals(orderState);
-		// return orderState;
-	//  }
+	  orderState.equals(orderState);
+	  return orderState;
+  }
+	
+  public static OrderState equalsThree() {
+	  OrderState orderStateOne = new OrderState("status1", "initMargin", "maintMargin", "equityWithLoan", 0.5, 0.25, 0.75, "commissionCurrency", "warningText");
 		
-	//  public static OrderState equalsThree_igorsantos() throws Exception {
-		// Constructor<OrderState> constructorOne, constructorTwo;
-		// constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		// OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
-		// 	"equityWithLoan", 0.5, 0.25,
-		// 	0.75, "commissionCurrency", "warningText");
-			
-		// constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		// OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status2", "initMargin", "maintMargin",
-		// 	"equityWithLoan", 0.5, 0.25,
-		// 	0.75, "commissionCurrency", "warningText");
-		
-		// orderStateOne.equals(orderStateTwo);
-		// return orderStateOne;
-	//  }
+	  OrderState orderStateTwo = new OrderState("status2", "initMargin", "maintMargin", "equityWithLoan", 0.5, 0.25, 0.75, "commissionCurrency", "warningText");
+	
+	  orderStateOne.equals(orderStateTwo);
+	  return orderStateOne;
+  }
 
 	/*** Rodrigo ***/
 	
@@ -1174,7 +1153,6 @@ public class TestValues {
 	public static void eReaderTime_rodrigo() {
 		new com.ib.client.EReader(disOneTime_rodrigo(), eWrapper_rafaelmota(), 13).run();
 	}
-
 
 	/*** Vinicius Siqueira - vjs2@cin.ufpe.br ***/
    // TODO: Vinicius, indique de que arquivo sao estas linhas. Nome de classe:Nome de metodo
@@ -1230,6 +1208,15 @@ public class TestValues {
     	cont.m_comboLegs = v1;
     	return cont;
     }
+	
+    public static OrderState equalsThree() {
+	OrderState orderStateOne = new OrderState("status1", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+		
+	OrderState orderStateTwo = new OrderState("status2", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
 
     //Cover 137
     public static Contract returnContractVector2() {

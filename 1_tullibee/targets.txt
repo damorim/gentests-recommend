@@ -978,55 +978,45 @@ public static EWrapper eWrapperTwo() {
 com.ib.client.OrderState, equals, 59, "if (this == other)",
 every call to equals never satisfies the condition, other is never equals, assigned other = this
 
-	public static OrderState equalsTwo() throws Exception {
-		Constructor<OrderState> constructor;
-		constructor = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderState = (OrderState) constructor.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		orderState.equals(orderState);
-		return orderState;
-	}
+    public static OrderState equalsTwo() {
+	OrderState orderState = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+		
+	orderState.equals(orderState);
+	return orderState;
+    }
 
 com.ib.client.OrderState, equals, 67, "if (m_commission != state.m_commission ||",
 every call to equals never satisfies the condition, m_commission is ever equals to state.m_commission, assigned m_commission != state.m_commission
 
-	public static OrderState equalsOne() throws Exception {
-		Constructor<OrderState> constructorOne, constructorTwo;
-		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		constructorTwo = OrderState.class.getConstructor();
-		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status", "initMargin", "maintMargin",
-			"equityWithLoan", 0.53, 0.27,
-			0.79, "commissionCurrency", "warningText");
-	
-		orderStateOne.equals(orderStateTwo);
-		return orderStateOne;
-	}
+    public static OrderState equalsOne() {
+	OrderState orderStateOne = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+		
+	OrderState orderStateTwo = new OrderState("status", "initMargin", "maintMargin",
+		"equityWithLoan", 0.53, 0.27,
+		0.79, "commissionCurrency", "warningText");
+
+	orderStateOne.equals(orderStateTwo);
+	return orderStateOne;
+    }
 
 com.ib.client.OrderState, equals, 73, "if (Util.StringCompare(m_status, state.m_status) != 0 ||",
 every call to equals never satisfies the condition, m_status is ever equals to state.m_status, assigned m_status != state.m_status
 
-	public static OrderState equalsThree() throws Exception {
-		Constructor<OrderState> constructorOne, constructorTwo;
-		constructorOne = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateOne = (OrderState) constructorOne.newInstance("status1", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
-			
-		constructorTwo = OrderState.class.getConstructor(String.class, String.class, String.class, String.class, Object.class, Object.class, Object.class, String.class, String.class);
-		OrderState orderStateTwo = (OrderState) constructorTwo.newInstance("status2", "initMargin", "maintMargin",
-			"equityWithLoan", 0.5, 0.25,
-			0.75, "commissionCurrency", "warningText");
+    public static OrderState equalsThree() {
+	OrderState orderStateOne = new OrderState("status1", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
 		
-		orderStateOne.equals(orderStateTwo);
-		return orderStateOne;
-	}
+	OrderState orderStateTwo = new OrderState("status2", "initMargin", "maintMargin",
+		"equityWithLoan", 0.5, 0.25,
+		0.75, "commissionCurrency", "warningText");
+	
+	orderStateOne.equals(orderStateTwo);
+	return orderStateOne;
 
 /*** Rodrigo ***/
 
