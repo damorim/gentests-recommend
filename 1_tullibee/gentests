@@ -1,5 +1,7 @@
 #!/bin/bash
 
+seed=$1
+
 source ../config
 
 HERE=`pwd`
@@ -28,10 +30,11 @@ rm $HERE/*.java
  ## call randoop
  java -Xmx3000m -classpath ${RANDOOP_JAR}:${PROJECT_CLASSPATH} \
       randoop.main.Main gentests \
-      --randomseed=999 \
+      --randomseed=$seed \
       --usethreads=true \
-      --call-timeout=2000 \
+      --call-timeout=200 \
       --classlist ${HERE}/classlist.txt \
       --time-limit=600 \
       --junit-output-dir=${HERE}
+ 
 )
