@@ -1223,6 +1223,8 @@ Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on
 
         return new DataInputStream(new StringBufferInputStream(errTrue + errFalse));
     }
+
+/* Vinicius Thiago Leite */
 com.ib.client.Contract, equals, 137, !Util.VectorEqualsUnordered(m_comboLegs, l_theOther.m_comboLegs), this.m_comboLegs and l_theOther.m_comboLegs are nulls, 
 Unable to create this.m_comboLegs and l_theOther.m_comboLegs diferents, created this.m_comboLegs and l_theOther.m_comboLegs diferents
 
@@ -1240,10 +1242,6 @@ Unable to create this.m_comboLegs and l_theOther.m_comboLegs diferents, created 
     	v2.add(2);  	
     	cont1.m_comboLegs = v2;
     	return cont1;
-    }
-
-    public static Boolean linha137(){
-    	return returnContractVector1().equals(returnContractVector2());
     }
 
 om.ib.client.Contract, equals, 141, m_underComp != l_theOther.m_underComp, this.m_underComp and l_theOther.m_underComp are equals, 
@@ -1265,33 +1263,30 @@ Unable to create this.m_underComp and l_theOther.m_underComp diferents, created 
     	return cont1;
     }
 
-    public static Boolean linha141(){
-    	return returnContractUnder1().equals(returnContractUnder2());
-    }
-
 om.ib.client.Contract, equals, 141, m_underComp != l_theOther.m_underComp, this.m_underComp and l_theOther.m_underComp are diferents, 
 Unable to create this.m_underComp and l_theOther.m_underComp equals, created this.m_underComp and l_theOther.m_underComp equals
 
-     public static Boolean linha141False(){
-    	Contract c1 = returnContractUnder1();
-    	Contract c2 = returnContractUnder2();
-    	UnderComp uc1 = new UnderComp();
-    	c1.m_underComp = uc1;
-    	c2.m_underComp = uc1;
-    	return c1.equals(c2);
-    }
+     public static UnderComp linha141False1(){
+	Contract c1 = returnContractUnder1();
+	UnderComp uc1 = new UnderComp();
+	c1.m_underComp = uc1;
+	return uc1;
+	}
+
+	public static Contract linha141False2(){
+	Contract c2 = returnContractUnder2();
+	c2.m_underComp = linha141False1();
+	return c2;
+	}
 
 om.ib.client.Contract, equals, 142, m_underComp == null || l_theOther.m_underComp == null, this.m_underComp or l_theOther.m_underComp are non nulls, 
 Unable to create this.m_underComp or l_theOther.m_underComp non nulls, created  l_theOther.m_underComp null
 
-     public static Boolean linha142(){
-    	Contract c1 = returnContractUnder1();
-    	Contract c2 = returnContractUnder2();
-
-    	c2.m_underComp = null;
-
-    	return c1.equals(c2);
-    }
+    public static Contract linha142(){
+	Contract c1 = returnContractUnder1();
+	c1.m_underComp = null;
+	return c1;
+	}
 
 com.ib.client.EWrapperMsgGenerator, tickOptionComputation, 38, "if(field == TickType.MODEL_OPTION)", field != TickType.MODEL_OPTION, 
 DataInputStream with incomplete data modified input

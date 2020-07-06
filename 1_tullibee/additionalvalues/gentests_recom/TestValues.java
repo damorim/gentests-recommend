@@ -1315,8 +1315,8 @@ public class TestValues {
 	}
 
 	/* Vinicius Thiago (vtls@cin.ufpe.br) */
-	// TODO: Indique o nome da classe e metodo, por favor!
-	// Cover 137
+	// om.ib.client.Contract, equals
+	// Cover 137 - 138
 	public static Contract returnContractVector1() {
 		Contract cont = new Contract();
 		Vector v1 = new Vector();
@@ -1334,7 +1334,9 @@ public class TestValues {
 		"equityWithLoan", 0.5, 0.25,
 		0.75, "commissionCurrency", "warningText");
 
-    //Cover 137
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
+	// Cover 137 - 138
 	public static Contract returnContractVector2() {
 		Contract cont1 = new Contract();
 		Vector v2 = new Vector();
@@ -1343,14 +1345,9 @@ public class TestValues {
 		return cont1;
 	}
 
-	// Cover 137
-	// TODO: poderia retornar True/False como fabrica de Boolean. Nao pode chamar
-	// diretamente equals.
-	// public static Boolean linha137(){
-	// return returnContractVector1().equals(returnContractVector2());
-	// }
-
-	// Cover 141
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
+	// Cover 141 e 146
 	public static Contract returnContractUnder1() {
 		Contract cont = new Contract();
 		UnderComp under1 = new UnderComp();
@@ -1359,7 +1356,9 @@ public class TestValues {
 		return cont;
 	}
 
-	// Cover 141
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
+	// Cover 141 e 146
 	public static Contract returnContractUnder2() {
 		Contract cont1 = new Contract();
 		UnderComp under2 = new UnderComp();
@@ -1367,48 +1366,39 @@ public class TestValues {
 		return cont1;
 	}
 
-	// Cover 141
-	// public static Boolean linha141(){
-	// return returnContractUnder1().equals(returnContractUnder2());
-	// }
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
+	// Cover 141 Branch False
+	public static UnderComp linha141False1(){
+	Contract c1 = returnContractUnder1();
+	UnderComp uc1 = new UnderComp();
+	c1.m_underComp = uc1;
+	return uc1;
+	}
 
-	// Cover 141 (Branch False)
-	// public static Boolean linha141False(){
-	// Contract c1 = returnContractUnder1();
-	// Contract c2 = returnContractUnder2();
-	// UnderComp uc1 = new UnderComp();
-	// c1.m_underComp = uc1;
-	// c2.m_underComp = uc1;
-	// return c1.equals(c2);
-	// }
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
+	// Cover 141 Branch False
+	public static Contract linha141False2(){
+	Contract c2 = returnContractUnder2();
+	c2.m_underComp = linha141False1();
+	return c2;
+	}
 
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    // om.ib.client.Contract, equals
 	// Cover 142
-	// public static Boolean linha142(){
-	// Contract c1 = returnContractUnder1();
-	// Contract c2 = returnContractUnder2();
-
-	// c2.m_underComp = null;
-
-	// return c1.equals(c2);
-	// }
+	public static Contract linha142(){
+	Contract c1 = returnContractUnder1();
+	c1.m_underComp = null;
+	return c1;
+	}
 
 	// Galileu Santos
 
 	public static DataInputStream msgIdBufferStreamGalileu() {
 		return new DataInputStream(new StringBufferInputStream("1\0"));
 	}
-
-	/* Vinicius Thiago (vtls@cin.ufpe.br) */
-	// TODO: Indique o nome da classe e metodo, por favor!
-	// Cover 137
-	public static Contract returnContractVector1() {
-		Contract cont = new Contract();
-		Vector v1 = new Vector();
-		v1.add(1);
-		cont.m_comboLegs = v1;
-		return cont;
-	}
-
 	/*
 	 * This is an empty implementation. duplicate with eWrapper_rafaelmota() public
 	 * static EWrapper eWrapperOneGalileu() { return new com.ib.client.EWrapper() {
