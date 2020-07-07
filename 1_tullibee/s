@@ -1,6 +1,13 @@
 #!/bin/bash
 
+seed=$1
+
+## clean up
+rm -rf html 2> /dev/null
+rm RegressionTest*.java 2> /dev/null
+
+## run script
 ./compilevalues
-./gentests
+./gentests $seed
 ./compiletests
 ./gencov
