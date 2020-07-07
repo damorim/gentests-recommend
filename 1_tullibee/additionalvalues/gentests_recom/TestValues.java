@@ -6,6 +6,7 @@ import com.ib.client.*;
 
 public class TestValues {
 
+		//CONTRACT_DATA, 582 - 626 (if 606 branch true 609/612/616 branches false)
     public static DataInputStream disOne() {
 		String action = "10";
 		int integer = 2;
@@ -17,7 +18,7 @@ public class TestValues {
 		+ "\0" + integer + "\0"+ value +"\0" + str + "\0" +str + "\0"+ integer + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
-
+  //DELTA_NEUTRAL_VALIDATION, 867 - 877 
 	public static DataInputStream disTwo() {
 		String action = "56";
 		int integer = 2;
@@ -27,6 +28,7 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
+	//TICK_SNAPSHOT_END, 879 - 884
 	public static DataInputStream disThree() {
 		String action = "57";
 		int integer = 2;
@@ -34,13 +36,15 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static void eReaderTwo() {
-		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
-    }
-   
-    public static void eReaderThree() {
-		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
-    }
+	//eWrapper().deltaNeutralValidation, 876 - 877
+	public static EReader eReaderTwo() {
+		return new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+	}
+	
+	//eWrapper().tickSnapshotEnd, 883 - 884
+	public static EReader eReaderThree() {
+		return new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+	}
 
 
     public static EWrapper eWrapperOne() {
