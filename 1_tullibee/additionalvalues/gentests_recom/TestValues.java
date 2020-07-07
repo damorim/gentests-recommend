@@ -690,7 +690,6 @@ public class TestValues {
 	}
 
 
-
     // UnderComp, lines 50, 53 and 56, "if (m_conId != l_theOther.m_conId)    
 	public static UnderComp underCompThreeIf_lais() {
 		UnderComp under = new UnderComp();
@@ -1402,3 +1401,4 @@ public class TestValues {
 	}
 
 }
+<
