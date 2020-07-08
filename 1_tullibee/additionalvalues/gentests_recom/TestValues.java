@@ -1280,7 +1280,7 @@ public class TestValues {
 
 
 	/* Vinicius Thiago (vtls@cin.ufpe.br) */
-	// Cover 137
+	// com.ib.client.Contract, equals, 137 
 	public static Contract returnContractVector1() {
 		Contract cont = new Contract();
 		Vector v1 = new Vector();
@@ -1289,7 +1289,8 @@ public class TestValues {
 		return cont;
 	}
 
-    //Cover 137
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+    //com.ib.client.Contract, equals, 137
     public static Contract returnContractVector2() {
         Contract cont1 = new Contract();
         Vector v2 = new Vector();
@@ -1298,8 +1299,8 @@ public class TestValues {
         return cont1;
     }
     
-
-	// Cover 141
+    /* Vinicius Thiago (vtls@cin.ufpe.br) */
+	// om.ib.client.Contract, equals, 141 e 146
 	public static Contract returnContractUnder1() {
 		Contract cont = new Contract();
 		UnderComp under1 = new UnderComp();
@@ -1308,7 +1309,8 @@ public class TestValues {
 		return cont;
 	}
 
-	// Cover 141
+	/* Vinicius Thiago (vtls@cin.ufpe.br) */
+	// om.ib.client.Contract, equals, 141 e 146
 	public static Contract returnContractUnder2() {
 		Contract cont1 = new Contract();
 		UnderComp under2 = new UnderComp();
@@ -1388,4 +1390,3 @@ public class TestValues {
 	}
 
 }
-<

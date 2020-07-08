@@ -1223,6 +1223,7 @@ Select switch case ERR_MSG with condicional TRUE and FALSE for version < 2 in on
 
         return new DataInputStream(new StringBufferInputStream(errTrue + errFalse));
     }
+/* Vinicius Thiago */
 com.ib.client.Contract, equals, 137, !Util.VectorEqualsUnordered(m_comboLegs, l_theOther.m_comboLegs), this.m_comboLegs and l_theOther.m_comboLegs are nulls, 
 Unable to create this.m_comboLegs and l_theOther.m_comboLegs diferents, created this.m_comboLegs and l_theOther.m_comboLegs diferents
 
@@ -1242,10 +1243,6 @@ Unable to create this.m_comboLegs and l_theOther.m_comboLegs diferents, created 
     	return cont1;
     }
 
-    public static Boolean linha137(){
-    	return returnContractVector1().equals(returnContractVector2());
-    }
-
 om.ib.client.Contract, equals, 141, m_underComp != l_theOther.m_underComp, this.m_underComp and l_theOther.m_underComp are equals, 
 Unable to create this.m_underComp and l_theOther.m_underComp diferents, created this.m_underComp and l_theOther.m_underComp diferents
 
@@ -1263,10 +1260,6 @@ Unable to create this.m_underComp and l_theOther.m_underComp diferents, created 
     	UnderComp under2 = new UnderComp();
     	cont1.m_underComp = under2;
     	return cont1;
-    }
-
-    public static Boolean linha141(){
-    	return returnContractUnder1().equals(returnContractUnder2());
     }
 
 om.ib.client.Contract, equals, 141, m_underComp != l_theOther.m_underComp, this.m_underComp and l_theOther.m_underComp are diferents, 
@@ -1330,6 +1323,4 @@ public static DataInputStream faMsgTypeNameFactory2() {
 		String input = switchCase + "\0" + version + "\0" + type + "\0" + xml + "\0";
 		return new DataInputStream(new StringBufferInputStream(input));
 	}
-
-
 
