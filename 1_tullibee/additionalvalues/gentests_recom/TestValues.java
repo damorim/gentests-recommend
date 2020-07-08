@@ -701,13 +701,9 @@ public class TestValues {
 
 
 	/*** Denini Gabriel ***/
-	// TODO: Sinceramente, nao entendi isto. Nao vejo necessidade/vantagem de se
-	// criar objetos Singleton. Na pratica a unica coisa que vc. fez foi criar um
-	// objeto TagValue com duas strings arbitrarias. Eu acredito que Randoop
-	// conseguiria fazer isto sem a ajuda deste seu metodo fabrica. Estranho!
-
-	// TODO: conforme orientacao no classroom, coloca a linha coberta por cada
-	// fabrica junto ao nome do metodo, por favor. -Marcelo
+	// Entendi que fazer um Singleton, neste caso, aumentará as chances do Randoop
+	// cobrir este caso
+	// covers com.ib.client.TagValue.equals line 41
 	private static TagValue SingletonTagValue;
 
 	public static TagValue denini4() {
