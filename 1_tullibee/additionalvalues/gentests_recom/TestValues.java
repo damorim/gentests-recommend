@@ -717,8 +717,10 @@ public class TestValues {
 		return denini4();
 	}
 
-	/** Arthur Castro **/
-	public static DataInputStream disOne_arthur() {
+	/**Arthur Castro**/
+
+	//CONTRACT_DATA, 582 - 626 (if 606 branch true 609/612/616 branches false)
+    public static DataInputStream disOne_ac() {
 		String action = "10";
 		int integer = 2;
 		String str = "3";
@@ -728,8 +730,8 @@ public class TestValues {
 				+ str + "\0" + str + "\0" + integer + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
-
-	public static DataInputStream disTwo_arthur() {
+  	//DELTA_NEUTRAL_VALIDATION, 867 - 877 
+	public static DataInputStream disTwo_ac() {
 		String action = "56";
 		int integer = 2;
 		double value = 1.999;
@@ -737,11 +739,22 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	public static DataInputStream disThree_arthur() {
+	//TICK_SNAPSHOT_END, 879 - 884
+	public static DataInputStream disThree_ac() {
 		String action = "57";
 		int integer = 2;
 		String all = action + "\0" + integer + "\0" + integer + "\0";
 		return new DataInputStream(new StringBufferInputStream(all));
+	}
+
+	//eWrapper().deltaNeutralValidation, 876 - 877
+	public static EReader eReaderTwo() {
+		return new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+	}
+	
+	//eWrapper().tickSnapshotEnd, 883 - 884
+	public static EReader eReaderThree() {
+		return new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
 	}
 
 	/** Lucas Cardoso **/

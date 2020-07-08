@@ -646,9 +646,9 @@ com.ib.client.EReader, processMsg, 867, case DELTA_NEUTRAL_VALIDATION: {, case n
 com.ib.client.EReader, processMsg, 876, eWrapper().deltaNeutralValidation(reqId, underComp);, Null pointer exception thrown, eWrapper object generated is null by default,
 instantiated eWrapper with the specific input call
 
-  public static void eReaderTwo() {
-		new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
-  }
+  public static EReader eReaderTwo() {
+		return new com.ib.client.EReader(disTwo(), eWrapperOne(), 44);
+	}
 
 com.ib.client.EReader, processMsg, 879, case TICK_SNAPSHOT_END: {, case never reached due to no matching id, DataInputStream missing values, created an inputstream that covers the case
 
@@ -662,9 +662,9 @@ com.ib.client.EReader, processMsg, 879, case TICK_SNAPSHOT_END: {, case never re
 com.ib.client.EReader, processMsg, 883, eWrapper().tickSnapshotEnd(reqId);, Null pointer exception thrown, eWrapper object generated is null by default,
 instantiated eWrapper with the specific input call
 
-  public static void eReaderThree() {
-		new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
-  }
+  public static EReader eReaderThree() {
+		return new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+	}
 
 /*** Filipe Melo ***/
 
