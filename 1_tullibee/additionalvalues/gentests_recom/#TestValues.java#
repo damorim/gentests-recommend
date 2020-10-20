@@ -747,15 +747,15 @@ public class TestValues {
 		return new DataInputStream(new StringBufferInputStream(all));
 	}
 
-	// //eWrapper().deltaNeutralValidation, 876 - 877
-	// public static EReader eReaderTwo() {
-	// 	return new com.ib.client.EReader(disTwo_eden(), eWrapperOne(), 44);
-	// }
+	//eWrapper().deltaNeutralValidation, 876 - 877
+	public static EReader eReaderTwo() {
+		return new com.ib.client.EReader(disTwo(), eWrapperOne_rafaelmota(), 44);
+	}
 	
-	// //eWrapper().tickSnapshotEnd, 883 - 884
-	// public static EReader eReaderThree() {
-	// 	return new com.ib.client.EReader(disThree_eden(), eWrapperOne(), 44);
-	// }
+	//eWrapper().tickSnapshotEnd, 883 - 884
+	public static EReader eReaderThree() {
+		return new com.ib.client.EReader(disThree(), eWrapperOne(), 44);
+	}
 
 	/** Lucas Cardoso **/
 	// Helper Function
