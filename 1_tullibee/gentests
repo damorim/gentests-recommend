@@ -34,7 +34,7 @@ rm $HERE/*.java
       --usethreads=true \
       --call-timeout=200 \
       --classlist ${HERE}/classlist.txt \
-      --time-limit=600 \
+      --time-limit=60 \
       --junit-output-dir=${HERE}
  
 )
