@@ -10,6 +10,7 @@ CP=${RANDOOP_JAR}:${HERE}/classes
 PROJECT_NAME="1_tullibee"
 PROJECT_CLASSPATH=$SF110/$PROJECT_NAME/$(echo "$PROJECT_NAME" | cut -f2 -d\_)".jar"
 CP=$CP:${PROJECT_CLASSPATH}:${HERE}/additionalvalues
+echo $CP
 
 ## clean old data
 rm jacoco.exec 2> /dev/null
